@@ -2,6 +2,7 @@
 
 # compiled output
 dist
+.next
 tmp
 out-tsc
 *.tsbuildinfo
@@ -32,6 +33,7 @@ node_modules
 /connect.lock
 /coverage
 /libpeerconnection.log
+.vercel
 npm-debug.log
 yarn-error.log
 testem.log

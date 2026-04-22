@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Main Palette */
+  --background: 50 60% 96%; /* #faf8f0 Warm beige */
+  --foreground: 201 100% 14%; /* #003049 Deep Navy */
+  
+  /* Cards default to white for contrast on beige bg */
+  --card: 0 0% 100%;
+  --card-foreground: 201 100% 14%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 201 100% 14%;
+  
+  --border: 50 49% 84%; /* #ede5c1 Neutral border */
+  --input: 50 49% 84%;
+  --ring: 201 100% 14%;
+  
+  /* Primary is Navy */
+  --primary: 201 100% 14%; 
+  --primary-foreground: 0 0% 100%;
+  
+  /* Secondary is Teal */
+  --secondary: 177 81% 25%;
+  --secondary-foreground: 0 0% 100%;
+  
+  /* Accent is Yellow/Orange mix */
+  --accent: 40 97% 64%;
+  --accent-foreground: 201 100% 14%;
+  
+  /* Muted is slightly darker beige */
+  --muted: 50 49% 84%; 
+  --muted-foreground: 0 0% 40%;
+  
+  --destructive: 0 74% 50%;
+  --destructive-foreground: 0 0% 100%;
+
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 201 100% 14%;
+  --sidebar-primary: 201 100% 14%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 50 49% 84%;
+  --sidebar-accent-foreground: 201 100% 14%;
+  --sidebar-border: 50 49% 84%;
+  --sidebar-ring: 201 100% 14%;
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-brand-navy;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-navy to-brand-teal;
+  }
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-lg border border-white/50 shadow-xl shadow-brand-navy/5;
+  }
+}
