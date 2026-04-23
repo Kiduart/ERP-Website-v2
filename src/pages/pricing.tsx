@@ -5,35 +5,9 @@ import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Check, Info, HelpCircle } from "lucide-react";
 import { Link } from "wouter";
+import { pricingPlans } from "@/data/pricing";
 
 export default function Pricing() {
-  const plans = [
-    {
-      name: "Basic",
-      desc: "Essential tools for small schools",
-      price: "$2",
-      unit: "/student/month",
-      features: ["Student Info System", "Attendance Tracking", "Basic Timetable", "Parent SMS Alerts", "Standard Email Support"],
-      isPopular: false
-    },
-    {
-      name: "Professional",
-      desc: "Complete ERP for growing institutions",
-      price: "$4",
-      unit: "/student/month",
-      features: ["Everything in Basic", "Fee Management & Gateway", "Gradebook & Report Cards", "Parent Mobile App", "HR & Payroll Module", "Priority Support"],
-      isPopular: true
-    },
-    {
-      name: "Enterprise",
-      desc: "Advanced features for large districts",
-      price: "Custom",
-      unit: "pricing",
-      features: ["Everything in Professional", "Multi-branch Management", "AI Predictive Analytics", "Custom API Integrations", "Dedicated Account Manager", "On-premise deployment option"],
-      isPopular: false
-    }
-  ];
-
   const faqs = [
     { q: "How is pricing calculated?", a: "We charge a simple, flat fee per active student per month. Staff, teacher, and parent accounts are completely free and unlimited." },
     { q: "Are there setup or onboarding fees?", a: "For the Professional and Enterprise plans, onboarding and data migration is included free of charge. Basic plans have a nominal one-time setup fee." },
@@ -62,7 +36,7 @@ export default function Pricing() {
         <FloatingIcons icons={["Star", "Award", "Lightbulb"]} count={4} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-20">
-            {plans.map((plan, idx) => (
+            {pricingPlans.map((plan, idx) => (
               <SectionReveal key={idx} delay={idx * 0.1} className={`bg-white rounded-3xl p-8 shadow-2xl relative ${plan.isPopular ? 'border-2 border-brand-teal scale-105' : 'border border-brand-navy/10 mt-8 mb-8'}`}>
                 {plan.isPopular && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-teal text-white px-4 py-1 rounded-full text-sm font-bold tracking-wide">

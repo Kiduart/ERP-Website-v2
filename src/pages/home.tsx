@@ -1,10 +1,12 @@
 import Head from "next/head";
+import { Fragment } from "react";
 import { Link } from "wouter";
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
+import { pricingPlans } from "@/data/pricing";
 import {
   ArrowRight,
   Bell,
@@ -110,24 +112,6 @@ const howItWorks = [
     step: "03",
     title: "Track performance with AI",
     desc: "Use insights, alerts, and reports to take faster decisions on collections, attendance, and academic operations.",
-  },
-];
-
-const pricingPreview = [
-  {
-    name: "Starter",
-    price: "For growing schools",
-    features: ["Admissions + student records", "Attendance + timetable", "Parent communication"],
-  },
-  {
-    name: "Professional",
-    price: "Most popular for K-12",
-    features: ["Fee management", "Exam + report cards", "Role-based dashboards"],
-  },
-  {
-    name: "Enterprise",
-    price: "For large institutions",
-    features: ["Multi-branch workflows", "Advanced AI insights", "Priority onboarding support"],
   },
 ];
 
@@ -504,40 +488,87 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 bg-brand-beige/20 border-y border-brand-navy/5 relative overflow-hidden">
-          <BackgroundBlobs blobs={[{ color: "#003049", size: 350, position: "center-left", opacity: 0.12 }]} />
+        <section className="py-24 bg-brand-navy border-y border-white/10 relative overflow-hidden" style={{ color: "#fcf6d3" }}>
+          <BackgroundBlobs
+            blobs={[
+              { color: "#fcbf49", size: 360, position: "top-left", opacity: 0.14 },
+              { color: "#0c716b", size: 360, position: "bottom-right", opacity: 0.14 },
+            ]}
+          />
           <FloatingIcons icons={["CheckCircle2", "ShieldCheck", "Users"]} count={4} />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <SectionReveal className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-brand-navy mb-4">Why choose us over generic school software?</h2>
-              <p className="text-lg text-brand-navy/70 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold text-brand-beige mb-4">Why choose us over generic school software?</h2>
+              <p className="text-lg max-w-3xl mx-auto text-brand-beige/75">
                 This comparison section helps visitors understand why your school management software is a stronger operational choice.
               </p>
             </SectionReveal>
 
-            <div className="space-y-6">
-              {comparisons.map((item, idx) => (
-                <SectionReveal key={item.title} delay={idx * 0.08} className="grid gap-6 rounded-[2rem] border border-brand-navy/10 bg-white p-8 lg:grid-cols-[0.8fr_1fr_1fr]">
-                  <div>
-                    <h3 className="text-2xl font-bold text-brand-navy">{item.title}</h3>
+            <SectionReveal className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl">
+              <div className="hidden md:grid md:grid-cols-[0.9fr_1.05fr_1.05fr]">
+                <div className="border-b border-r border-white/10 bg-white/5 px-8 py-6">
+                  <h3 className="text-sm font-bold uppercase tracking-[0.24em] text-brand-yellow">Comparison</h3>
+                </div>
+                <div className="border-b border-r border-white/10 bg-brand-teal/15 px-8 py-6">
+                  <div className="flex items-center gap-3 font-bold text-brand-beige">
+                    <CheckCircle2 className="h-5 w-5 text-brand-yellow" />
+                    <span>KIDUART ERP</span>
                   </div>
-                  <div className="rounded-2xl bg-brand-teal/10 p-6">
-                    <div className="flex items-center gap-3 text-brand-teal font-bold">
-                      <CheckCircle2 className="h-5 w-5" />
-                      <span>KIDUART ERP</span>
+                </div>
+                <div className="border-b border-white/10 bg-white/5 px-8 py-6">
+                  <div className="flex items-center gap-3 font-bold text-brand-beige">
+                    <X className="h-5 w-5 text-brand-orange" />
+                    <span>Generic Alternatives</span>
+                  </div>
+                </div>
+
+                {comparisons.map((item, idx) => (
+                  <Fragment key={item.title}>
+                    <div className={`border-r border-white/10 px-8 py-8 ${idx !== comparisons.length - 1 ? "border-b" : ""} border-white/10`}>
+                      <h3 className="text-2xl font-bold text-brand-beige">{item.title}</h3>
                     </div>
-                    <p className="mt-4 text-brand-navy/75 leading-7">{item.ours}</p>
-                  </div>
-                  <div className="rounded-2xl bg-brand-navy/5 p-6">
-                    <div className="flex items-center gap-3 text-brand-orange font-bold">
-                      <X className="h-5 w-5" />
-                      <span>Generic Alternatives</span>
+                    <div className={`border-r border-white/10 bg-brand-teal/10 px-8 py-8 ${idx !== comparisons.length - 1 ? "border-b" : ""} border-white/10`}>
+                      <p className="leading-7 text-brand-beige/85">{item.ours}</p>
                     </div>
-                    <p className="mt-4 text-brand-navy/75 leading-7">{item.other}</p>
+                    <div className={`px-8 py-8 ${idx !== comparisons.length - 1 ? "border-b" : ""} border-white/10`}>
+                      <p className="leading-7 text-brand-beige/70">{item.other}</p>
+                    </div>
+                  </Fragment>
+                ))}
+              </div>
+
+              <div className="md:hidden">
+                <div className="grid grid-cols-3 border-b border-white/10 bg-white/5">
+                  <div className="px-4 py-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-yellow">Comparison</div>
+                  <div className="border-l border-white/10 px-4 py-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-beige">KIDUART</div>
+                  <div className="border-l border-white/10 px-4 py-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-beige">Others</div>
+                </div>
+
+                {comparisons.map((item, idx) => (
+                  <div key={item.title} className={idx !== comparisons.length - 1 ? "border-b border-white/10" : ""}>
+                    <div className="px-4 py-5">
+                      <h3 className="text-lg font-bold text-brand-beige">{item.title}</h3>
+                    </div>
+                    <div className="grid grid-cols-1">
+                      <div className="border-t border-white/10 bg-brand-teal/10 px-4 py-4">
+                        <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-brand-beige">
+                          <CheckCircle2 className="h-4 w-4 text-brand-yellow" />
+                          <span>KIDUART ERP</span>
+                        </div>
+                        <p className="text-sm leading-6 text-brand-beige/85">{item.ours}</p>
+                      </div>
+                      <div className="border-t border-white/10 px-4 py-4">
+                        <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-brand-beige">
+                          <X className="h-4 w-4 text-brand-orange" />
+                          <span>Generic Alternatives</span>
+                        </div>
+                        <p className="text-sm leading-6 text-brand-beige/70">{item.other}</p>
+                      </div>
+                    </div>
                   </div>
-                </SectionReveal>
-              ))}
-            </div>
+                ))}
+              </div>
+            </SectionReveal>
           </div>
         </section>
 
@@ -552,22 +583,21 @@ export default function Home() {
               </p>
             </SectionReveal>
 
-            <div className="grid md:grid-cols-3 gap-8 px-20">
-              {pricingPreview.map((plan, idx) => {
-                const isPopular = idx === 1; // middle card
-
+            <div className="grid gap-8 md:grid-cols-3">
+              {pricingPlans.map((plan, idx) => {
+                const buttonLabel = plan.price === "Custom" ? "Contact Sales" : "View Pricing";
                 return (
                   <SectionReveal
                     key={plan.name}
                     delay={idx * 0.08}
                     className={`relative rounded-[2rem] p-8 transition-all duration-300
-        ${isPopular
+        ${plan.isPopular
                         ? "bg-white border-2 border-brand-navy shadow-lg scale-[1.03]"
                         : "bg-brand-beige/20 border border-brand-navy/10"
                       }`}
                   >
                     {/* Most Popular badge */}
-                    {isPopular && (
+                    {plan.isPopular && (
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-navy text-white text-xs font-semibold px-4 py-1 rounded-full">
                         Most popular
                       </div>
@@ -577,13 +607,14 @@ export default function Home() {
                     <h3 className="text-xl font-semibold text-brand-navy text-center">
                       {plan.name}
                     </h3>
+                    <p className="mt-2 text-center text-sm text-brand-navy/60">
+                      {plan.desc}
+                    </p>
 
                     {/* Price */}
                     <p className="mt-4 text-center text-2xl font-bold text-brand-navy">
                       {plan.price}
-                    </p>
-                    <p className="text-center text-sm text-brand-navy/60 mt-1">
-                      Billed monthly
+                      <span className="ml-1 text-sm font-medium text-brand-navy/60">{plan.unit}</span>
                     </p>
 
                     {/* Divider */}
@@ -591,7 +622,7 @@ export default function Home() {
 
                     {/* Features */}
                     <div className="space-y-4">
-                      {plan.features.map((feature) => (
+                      {plan.features.slice(0, 4).map((feature) => (
                         <div key={feature} className="flex items-start gap-3">
                           <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-navy" />
                           <span className="text-sm text-brand-navy/80">{feature}</span>
@@ -603,12 +634,12 @@ export default function Home() {
                     <Link
                       href="/pricing"
                       className={`mt-8 block w-full text-center rounded-xl py-3 font-semibold transition-all
-          ${isPopular
+          ${plan.isPopular
                           ? "bg-brand-navy text-white hover:bg-brand-navy/90"
                           : "bg-white border border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white"
                         }`}
                     >
-                      Get it now
+                      {buttonLabel}
                     </Link>
                   </SectionReveal>
                 );
