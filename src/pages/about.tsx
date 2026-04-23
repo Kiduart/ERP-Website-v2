@@ -1,5 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Target, Lightbulb, Trophy } from "lucide-react";
@@ -7,22 +8,13 @@ import { Link } from "wouter";
 
 export default function About() {
   return (
-    <PageTransition className="pt-24 pb-0">
-      {/* Hero */}
-      <section className="bg-brand-navy py-20 text-center relative overflow-hidden min-h-screen flex items-center" style={{ color: '#fcf6d3' }}>
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }
-        ]} />
-        <FloatingIcons icons={["Users", "BookOpen", "GraduationCap"]} count={6} heroMode={true} />
-        <div className="absolute inset-0 bg-brand-teal/20 blur-3xl opacity-50 w-full h-full mix-blend-color-dodge"></div>
-        <div className="max-w-4xl mx-auto px-4 relative z-10 w-full">
-          <SectionReveal>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Transforming Education Through Technology</h1>
-            <p className="text-xl max-w-2xl mx-auto" style={{ color: 'rgba(252,246,211,0.8)' }}>We believe that when schools are run efficiently, educators have more time to inspire the next generation.</p>
-          </SectionReveal>
-        </div>
-      </section>
+    <PageTransition className="pt-20 pb-0 tooo">
+      <HeroSection
+        title="Transforming Education Through Technology"
+        subtitle="We believe that when schools are run efficiently, educators have more time to inspire the next generation."
+        image="https://images.unsplash.com/photo-1731654448820-8f80a44d111c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        layout="center"
+      />
 
       {/* Mission Vision */}
       <section className="py-24 bg-white relative overflow-hidden">

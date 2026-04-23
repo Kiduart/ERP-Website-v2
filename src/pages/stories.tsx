@@ -1,5 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Search, MapPin, TrendingUp, ArrowRight, FolderSearch } from "lucide-react";
@@ -111,21 +112,24 @@ export default function CustomerStories() {
   });
 
   return (
-    <PageTransition className="pt-24 pb-0">
-      {/* Hero */}
-      <section className="bg-brand-navy py-20 lg:py-32 relative overflow-hidden text-center min-h-screen flex items-center" style={{ color: '#fcf6d3' }}>
+    <PageTransition className="pt-20 pb-0 tooo">
+      <HeroSection
+        title="Customer Success Stories"
+        subtitle="See how educational institutions around the world are using KIDUART to transform their operations and improve outcomes."
+        image="https://plus.unsplash.com/premium_photo-1661439606291-a8cb589567bb?q=80&w=2660&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        layout="center"
+      />
+
+      <section className="py-16 bg-brand-beige/20 min-h-[50vh] relative overflow-hidden">
         <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }
+          { color: "#f77f00", size: 300, position: "center-left", opacity: 0.15 },
+          { color: "#003049", size: 300, position: "center-right", opacity: 0.12 }
         ]} />
-        <FloatingIcons icons={["Award", "Star", "Heart"]} count={6} heroMode={true} />
-        <div className="absolute inset-0 bg-brand-teal/20 blur-[120px] mix-blend-color-dodge"></div>
-        <div className="max-w-4xl mx-auto px-4 relative z-10 w-full">
-          <SectionReveal>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Customer Success Stories</h1>
-            <p className="text-xl mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(252,246,211,0.8)' }}>See how educational institutions around the world are using KIDUART to transform their operations and improve outcomes.</p>
-            
-            <div className="relative max-w-xl mx-auto">
+        <FloatingIcons icons={["Users", "Building2", "BookOpen"]} count={4} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          <SectionReveal className="mb-10 max-w-xl mx-auto">
+            <div className="relative">
               <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
                 <Search className="w-5 h-5 text-brand-navy/40" />
               </div>
@@ -138,17 +142,7 @@ export default function CustomerStories() {
               />
             </div>
           </SectionReveal>
-        </div>
-      </section>
 
-      <section className="py-16 bg-brand-beige/20 min-h-[50vh] relative overflow-hidden">
-        <BackgroundBlobs blobs={[
-          { color: "#f77f00", size: 300, position: "center-left", opacity: 0.15 },
-          { color: "#003049", size: 300, position: "center-right", opacity: 0.12 }
-        ]} />
-        <FloatingIcons icons={["Users", "Building2", "BookOpen"]} count={4} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
           {/* Filters */}
           <SectionReveal className="flex flex-wrap gap-2 justify-center mb-16">
             {filters.map((f) => {

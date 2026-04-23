@@ -4,7 +4,7 @@ import { Terminal, Key, Shield, Code2, Server } from "lucide-react";
 
 export default function ApiDocs() {
   return (
-    <PageTransition className="pt-24 pb-0">
+    <PageTransition className="pt-20 pb-0 tooo">
       <section className="bg-brand-navy py-20 lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-teal/20 via-brand-navy to-brand-navy" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">

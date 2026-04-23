@@ -1,5 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Rocket, Heart, BookOpen, Laptop, Briefcase, Smile, MapPin, Building2, Clock, CheckCircle } from "lucide-react";
@@ -22,32 +23,13 @@ export default function Careers() {
   ];
 
   return (
-    <PageTransition className="pt-24 pb-0">
-      {/* Hero */}
-      <section className="bg-brand-navy text-white py-24 text-center relative overflow-hidden min-h-screen flex flex-col justify-center" style={{ color: '#fcf6d3' }}>
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }
-        ]} />
-        <FloatingIcons icons={["GraduationCap", "BookOpen", "Users"]} count={6} heroMode={true} />
-        <div className="max-w-4xl mx-auto px-4 relative z-10 w-full">
-          <SectionReveal>
-            <div className="inline-block px-4 py-1 rounded-full bg-brand-yellow/20 text-brand-yellow font-bold text-sm mb-6">
-              We're Hiring
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Build the Future of Education With Us</h1>
-            <p className="text-xl max-w-2xl mx-auto mb-12" style={{ color: 'rgba(252,246,211,0.7)' }}>Join a passionate team dedicated to removing administrative friction so educators can focus on what matters most: teaching.</p>
-            
-            <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800" 
-                alt="KIDUART Team" 
-                className="w-full h-[400px] object-cover"
-              />
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
+    <PageTransition className="pt-20 pb-0 tooo">
+      <HeroSection
+        title="Build the Future of Education With Us"
+        subtitle="Join a passionate team dedicated to removing administrative friction so educators can focus on what matters most: teaching."
+        image="https://plus.unsplash.com/premium_photo-1682310075673-b408eb1ca6fd?q=80&w=1812&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        layout="center"
+      />
 
       {/* Why work with us */}
       <section className="py-24 bg-brand-beige/30 relative overflow-hidden">

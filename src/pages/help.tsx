@@ -1,4 +1,5 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Search, Play, Settings, Users, BarChart3, ArrowRight, MessageCircle, Ticket, Mail, X } from "lucide-react";
@@ -27,31 +28,13 @@ export default function HelpCenter() {
   ];
 
   return (
-    <PageTransition className="pt-24 pb-0">
-      {/* Hero */}
-      <section className="bg-brand-navy py-24 text-center relative overflow-hidden min-h-screen flex items-center" style={{ color: '#fcf6d3' }}>
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.15 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.15 }
-        ]} />
-        <FloatingIcons icons={["MessageSquare", "Lightbulb", "GraduationCap"]} count={6} heroMode={true} />
-        <div className="max-w-4xl mx-auto px-4 relative z-10 w-full">
-          <SectionReveal>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">How Can We Help You?</h1>
-            <div className="relative max-w-2xl mx-auto">
-              <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-                <Search className="w-6 h-6 text-brand-navy/40" />
-              </div>
-              <input 
-                type="text" 
-                placeholder="Search for articles, guides, or troubleshooting..." 
-                className="w-full bg-white rounded-full py-5 pl-14 pr-6 text-lg shadow-xl focus:outline-none focus:ring-4 focus:ring-brand-teal"
-                style={{ color: '#003049' }}
-              />
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
+    <PageTransition className="pt-20 pb-0 tooo">
+      <HeroSection
+        title="How Can We Help You?"
+        subtitle="Search guides, troubleshooting articles, and support resources for every part of your KIDUART ERP journey."
+        image="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&q=80"
+        layout="center"
+      />
 
       {/* Categories */}
       <section className="py-20 bg-brand-beige/20 relative overflow-hidden">
@@ -60,7 +43,7 @@ export default function HelpCenter() {
           { color: "#0c716b", size: 300, position: "center-right", opacity: 0.15 }
         ]} />
         <FloatingIcons icons={["Star", "Award", "Lightbulb"]} count={4} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 relative z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((cat, idx) => (
               <SectionReveal key={idx} delay={idx * 0.1} className="bg-white rounded-2xl p-8 shadow-xl shadow-brand-navy/5 border border-brand-navy/5 hover:-translate-y-1 transition-transform cursor-pointer group">

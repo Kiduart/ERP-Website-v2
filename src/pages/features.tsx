@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Link } from "wouter";
@@ -28,21 +29,13 @@ export default function Features() {
     : advancedFeatures.filter(f => f.category === activeCategory);
 
   return (
-    <PageTransition className="pt-24 pb-0">
-      <section className="bg-brand-navy relative overflow-hidden min-h-screen flex items-center" style={{ color: '#fcf6d3' }}>
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }
-        ]} />
-        <FloatingIcons icons={["GraduationCap", "BookOpen", "Star"]} count={6} heroMode={true} />
-        <div className="absolute inset-0 bg-[url('https://pixabay.com/get/g1e68c95f748af125fb1854529379d85e6c79ab0a562c6b04b986ae8d9005c3e25ae923a9dcdc7255d3b13d1dc94cf8b0936d07fcfba3be1c78a4cb1a2ff147c5_1280.jpg')] bg-cover bg-center opacity-5 mix-blend-overlay"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center w-full py-20 lg:py-32">
-          <SectionReveal>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Powerful Features Built for Modern Schools</h1>
-            <p className="text-xl max-w-3xl mx-auto mb-10" style={{ color: 'rgba(252,246,211,0.7)' }}>A comprehensive suite of tools designed to centralize data, automate workflows, and improve communication across your entire institution.</p>
-          </SectionReveal>
-        </div>
-      </section>
+    <PageTransition className="pt-20 pb-0 tooo">
+      <HeroSection
+        title="Powerful Features Built for Modern Schools"
+        subtitle="A comprehensive suite of tools designed to centralize data, automate workflows, and improve communication across your entire institution."
+        image="https://images.unsplash.com/photo-1696395050055-eb7a315bb1cb?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        layout="center"
+      />
 
       <section className="py-24 bg-white relative overflow-hidden">
         <BackgroundBlobs blobs={[

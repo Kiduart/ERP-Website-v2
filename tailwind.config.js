@@ -55,12 +55,12 @@ export default {
         },
 
         brand: {
-          navy: "#003049",
-          beige: "#faf8f0",
-          teal: "#0c716b",
-          yellow: "#fcbf49",
-          orange: "#f77f00",
-          bronze: "#ba6f20",
+          navy: "hsl(var(--brand-navy) / <alpha-value>)",
+          beige: "hsl(var(--brand-beige) / <alpha-value>)",
+          teal: "hsl(var(--brand-teal) / <alpha-value>)",
+          yellow: "hsl(var(--brand-yellow) / <alpha-value>)",
+          orange: "hsl(var(--brand-orange) / <alpha-value>)",
+          bronze: "hsl(var(--brand-bronze) / <alpha-value>)",
         },
       },
 

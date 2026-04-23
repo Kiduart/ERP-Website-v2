@@ -44,7 +44,7 @@ export default function LeaderProfile() {
   }
 
   return (
-    <PageTransition className="pt-24 pb-0">
+    <PageTransition className="pt-20 pb-0">
       <section className="bg-brand-beige/30 py-20 lg:py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
@@ -55,9 +55,7 @@ export default function LeaderProfile() {
             <div className="flex flex-col md:flex-row gap-12 lg:gap-20 items-center md:items-start">
               {/* Photo */}
               <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 rounded-full border-8 border-white shadow-2xl overflow-hidden bg-brand-navy/10 relative">
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-brand-teal to-brand-navy text-white text-7xl font-black shadow-inner">
-                  {leader.name.split(' ').map((n: string) => n[0]).join('')}
-                </div>
+                <img src={`/images/${leader.img}`} alt={leader.name} className="h-full w-full object-cover" />
               </div>
 
               {/* Header Info */}

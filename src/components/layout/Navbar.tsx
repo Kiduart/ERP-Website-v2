@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, GraduationCap } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 type NavLink = {
   label: string;
@@ -52,17 +52,14 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-brand-beige/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
+        scrolled ? "bg-brand-beige/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-3 "
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center text-white group-hover:scale-105 transition-transform">
-              <GraduationCap className="w-6 h-6" />
-            </div>
-            <span className="text-2xl font-bold text-brand-navy tracking-tight">KIDUART ERP</span>
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
+            <img src="/logo.png" alt="KIDUART" className="h-10 w-auto md:h-16" />
           </Link>
 
           {/* Desktop Nav */}

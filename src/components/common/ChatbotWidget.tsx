@@ -65,7 +65,7 @@ export function ChatbotWidget() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-brand-navy text-white flex items-center justify-center shadow-xl hover:scale-105 transition-transform z-50"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-brand-navy text-white shadow-xl transition-transform hover:scale-105"
       >
         <MessageCircle className="w-7 h-7" />
       </button>
@@ -77,7 +77,7 @@ export function ChatbotWidget() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-6 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-brand-navy/10 z-50 flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 flex w-[calc(100vw-2rem)] max-w-80 flex-col overflow-hidden rounded-2xl border border-brand-navy/10 bg-white shadow-2xl sm:max-w-96"
           >
             {/* Header */}
             <div className="bg-brand-navy p-4 flex items-center justify-between text-white">

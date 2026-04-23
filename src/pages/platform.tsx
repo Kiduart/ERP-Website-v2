@@ -1,5 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Link } from "wouter";
@@ -84,26 +85,14 @@ export default function Platform() {
   ];
 
   return (
-    <PageTransition className="pt-24 pb-0">
-      <section className="bg-brand-navy py-20 lg:py-32 relative overflow-hidden min-h-screen flex items-center" style={{ color: '#fcf6d3' }}>
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }
-        ]} />
-        <FloatingIcons icons={["LayoutDashboard", "Users", "BarChart2"]} count={6} heroMode={true} />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy to-transparent opacity-80" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center w-full">
-          <SectionReveal>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              One Platform. Every Role. Every Dashboard.
-            </h1>
-            <p className="text-xl max-w-3xl mx-auto" style={{ color: 'rgba(252,246,211,0.8)' }}>
-              Explore the full range of KIDUART ERP dashboards built for every stakeholder in your school.
-            </p>
-          </SectionReveal>
-        </div>
-      </section>
+    <PageTransition className="pt-20 pb-0">
+      <HeroSection
+        title="One Platform. Every Role. Every Dashboard."
+        subtitle="Explore the full range of KIDUART ERP dashboards built for every stakeholder in your school."
+        image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+        layout="center"
+        floatingIcons={["LayoutDashboard", "Users", "BarChart2"]}
+      />
 
       <section className="py-24 bg-white relative overflow-hidden">
         <BackgroundBlobs blobs={[
@@ -141,7 +130,6 @@ export default function Platform() {
           </div>
         </div>
       </section>
-
       <section className="py-24 bg-brand-beige/20 border-t border-brand-navy/5">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <SectionReveal>

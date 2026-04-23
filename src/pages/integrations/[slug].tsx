@@ -40,7 +40,7 @@ export default function IntegrationDetail() {
   const Icon = data.icon;
 
   return (
-    <PageTransition className="pt-24 pb-0">
+    <PageTransition className="pt-20 pb-0 tooo">
       {/* Hero */}
       <section className="bg-brand-navy py-20 lg:py-32 relative overflow-hidden min-h-screen flex items-center" style={{ color: '#fcf6d3' }}>
         <BackgroundBlobs blobs={[

@@ -32,7 +32,7 @@ export default function CustomerStoryDetail() {
   const otherStories = Object.entries(storiesData).filter(([key]) => key !== slug).slice(0, 3);
 
   return (
-    <PageTransition className="pt-24 pb-0">
+    <PageTransition className="pt-20 pb-0 tooo">
       {/* Hero */}
       <section className="bg-brand-navy py-20 lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-brand-teal/20 blur-[120px] mix-blend-overlay"></div>

@@ -287,7 +287,7 @@ export default function BlogPost() {
   };
 
   return (
-    <PageTransition className="pt-24 pb-0">
+    <PageTransition className="pt-20 pb-0 tooo">
       {/* Article Hero */}
       <section className="bg-brand-beige/30 py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -1,5 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Check, Info, HelpCircle } from "lucide-react";
@@ -43,20 +44,14 @@ export default function Pricing() {
   ];
 
   return (
-    <PageTransition className="pt-24 pb-0">
-      <section className="bg-brand-navy text-white py-20 lg:py-32 text-center relative overflow-hidden min-h-screen flex items-center" style={{ color: '#fcf6d3' }}>
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }
-        ]} />
-        <FloatingIcons icons={["Calculator", "BarChart2", "CreditCard"]} count={6} heroMode={true} />
-        <div className="max-w-3xl mx-auto px-4 relative z-10 w-full">
-          <SectionReveal>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">Simple Pricing for Schools</h1>
-            <p className="text-xl text-white/70">No hidden fees, no complex tiers. Pay only for the active students enrolled in your institution.</p>
-          </SectionReveal>
-        </div>
-      </section>
+    <PageTransition className="pt-20 pb-0">
+      <HeroSection
+        title="Simple Pricing for Schools"
+        subtitle="No hidden fees, no complex tiers. Pay only for the active students enrolled in your institution."
+        image="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80"
+        layout="center"
+        floatingIcons={["LayoutDashboard", "Users", "BarChart2"]}
+      />
 
       {/* Pricing Cards */}
       <section className="py-24 bg-brand-beige/20 relative overflow-hidden">
@@ -66,7 +61,7 @@ export default function Pricing() {
         ]} />
         <FloatingIcons icons={["Star", "Award", "Lightbulb"]} count={4} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto -mt-32 relative z-20">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-20">
             {plans.map((plan, idx) => (
               <SectionReveal key={idx} delay={idx * 0.1} className={`bg-white rounded-3xl p-8 shadow-2xl relative ${plan.isPopular ? 'border-2 border-brand-teal scale-105' : 'border border-brand-navy/10 mt-8 mb-8'}`}>
                 {plan.isPopular && (

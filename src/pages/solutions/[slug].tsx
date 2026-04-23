@@ -81,7 +81,7 @@ export default function SolutionDetail() {
   const otherSlugs = Object.keys(solutionsData).filter(s => s !== slug).slice(0, 3);
 
   return (
-    <PageTransition className="pt-24 pb-0">
+    <PageTransition className="pt-20 pb-0 tooo">
       {/* HERO */}
       <section className="bg-brand-navy relative overflow-hidden min-h-screen flex items-center py-20 lg:py-32" style={{ color: '#fcf6d3' }}>
         <BackgroundBlobs blobs={[

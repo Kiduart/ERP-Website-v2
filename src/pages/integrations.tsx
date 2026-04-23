@@ -1,5 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { BookOpen, MessageSquare, CreditCard, PieChart, Code2, Blocks, Zap } from "lucide-react";
@@ -50,24 +51,13 @@ export default function Integrations() {
   ];
 
   return (
-    <PageTransition className="pt-24 pb-0">
-      <section className="bg-brand-beige/50 relative overflow-hidden min-h-screen flex items-center py-20 lg:py-32">
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }
-        ]} />
-        <FloatingIcons icons={["Code2", "Blocks", "Zap"]} count={6} heroMode={true} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
-          <SectionReveal>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 text-brand-teal font-semibold text-sm mb-6 border border-brand-teal/20">
-              <Blocks className="w-4 h-4" />
-              Over 50+ Integrations
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-brand-navy mb-6">Connect Your School Tools</h1>
-            <p className="text-xl text-brand-navy/70 max-w-3xl mx-auto">KIDUART plays nicely with the software you already use. Sync your data across platforms to create a unified ecosystem.</p>
-          </SectionReveal>
-        </div>
-      </section>
+    <PageTransition className="pt-20 pb-0 tooo">
+      <HeroSection
+        title="Connect Your School Tools"
+        subtitle="KIDUART plays nicely with the software you already use. Sync your data across platforms to create a unified ecosystem."
+        image="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&q=80"
+        layout="center"
+      />
 
       <section className="py-24 bg-white relative overflow-hidden">
         <BackgroundBlobs blobs={[

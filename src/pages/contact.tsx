@@ -1,25 +1,18 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { PhoneCall, Mail, LifeBuoy, MapPin, Send } from "lucide-react";
 
 export default function Contact() {
   return (
-    <PageTransition className="pt-24 pb-0">
-      {/* Hero */}
-      <section className="bg-brand-beige/50 py-20 min-h-[50vh] flex items-center relative overflow-hidden">
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }
-        ]} />
-        <FloatingIcons icons={["MessageSquare", "Mail"]} count={6} heroMode={true} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
-          <SectionReveal>
-            <h1 className="text-4xl md:text-6xl font-bold text-brand-navy mb-6">We're Here to Help</h1>
-            <p className="text-xl text-brand-navy/70 max-w-2xl mx-auto">Whether you're looking for a demo, need technical support, or have a general inquiry, our team is ready to assist.</p>
-          </SectionReveal>
-        </div>
-      </section>
+    <PageTransition className="pt-20 pb-0 tooo">
+      <HeroSection
+        title="We're Here to Help"
+        subtitle="Whether you're looking for a demo, need technical support, or have a general inquiry, our team is ready to assist."
+        image="https://plus.unsplash.com/premium_photo-1661645149911-76d82af38b36?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        layout="center"
+      />
 
       <section className="py-20 bg-white relative overflow-hidden">
         <BackgroundBlobs blobs={[

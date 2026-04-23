@@ -25,13 +25,12 @@ export function ScrollToTopButton() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
-          whileHover={{ scale: 1.1, opacity: 0.9, backgroundColor: '#004a6e' }}
+          whileHover={{ scale: 1.1, opacity: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-20 right-6 z-40 w-11 h-11 rounded-full flex items-center justify-center shadow-lg transition-all"
-          style={{ backgroundColor: '#003049', color: '#fcf6d3', boxShadow: '0 4px 12px rgba(0,48,73,0.25)' }}
+          className="fixed bottom-24 right-8 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-brand-navy text-white shadow-lg transition-all hover:bg-brand-teal sm:bottom-24"
           aria-label="Scroll to top"
         >
-          <ArrowUp className="w-6 h-6" color="#fcf6d3" />
+          <ArrowUp className="w-6 h-6" />
         </motion.button>
       )}
     </AnimatePresence>

@@ -1,91 +1,111 @@
 import { Link } from "wouter";
-import { GraduationCap, Twitter, Facebook, Linkedin, ArrowRight } from "lucide-react";
+import { Facebook, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-brand-beige border-t border-brand-navy/10 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
-          
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-brand-navy flex items-center justify-center text-white">
-                <GraduationCap className="w-5 h-5" />
-              </div>
-              <span className="text-xl font-bold text-brand-navy">KIDUART ERP</span>
+    <footer className="border-t border-brand-navy/10 bg-brand-beige pt-10 pb-8 sm:pt-14">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-[2rem] bg-brand-navy px-6 py-8 text-white shadow-[0_24px_60px_rgba(0,48,73,0.18)] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+          <div className="max-w-3xl">
+            <h3 className="text-3xl font-bold leading-tight text-white sm:text-4xl">
+              Subscribe to stay updated with KIDUART ERP product improvements and school innovation insights.
+            </h3>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+              Get the latest education tech news.
+            </p>
+          </div>
+
+          <form
+            className="mt-8 flex flex-col gap-3 rounded-[1.75rem] border border-white/10 bg-white/10 p-2 sm:flex-row sm:items-center sm:rounded-full sm:pl-6"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="h-14 flex-1 bg-transparent px-4 text-base text-white placeholder:text-white/55 focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="inline-flex h-14 items-center justify-center rounded-full bg-white px-8 text-base font-semibold text-brand-navy transition-transform hover:-translate-y-0.5"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+        <div className="grid grid-cols-1 gap-12 py-16 md:grid-cols-2 xl:grid-cols-[1.2fr_0.8fr_0.8fr_0.95fr]">
+          <div className="max-w-sm">
+            <Link href="/" className="inline-flex items-center">
+              <img src="/logo.png" alt="KIDUART" className="h-20 w-auto" />
             </Link>
-            <p className="text-brand-navy/70 text-sm mb-6 leading-relaxed">
+            <p className="mt-6 text-sm leading-7 text-brand-navy/70">
               Transforming modern education through intelligent, intuitive, and powerful technology.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
-                <Twitter className="w-5 h-5" />
+
+            <div className="mt-6 space-y-3 text-sm text-brand-navy/75">
+              <a href="tel:+15551234567" className="flex items-center gap-3 transition-colors hover:text-brand-teal">
+                <Phone className="h-4 w-4 text-brand-teal" />
+                <span>+1 (555) 123-4567</span>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
-                <Facebook className="w-5 h-5" />
+              <a href="mailto:support@kiduart.com" className="flex items-center gap-3 transition-colors hover:text-brand-teal">
+                <Mail className="h-4 w-4 text-brand-teal" />
+                <span>support@kiduart.com</span>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
-                <Linkedin className="w-5 h-5" />
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 text-brand-teal" />
+                <span>Noida, Uttar Pradesh, India</span>
+              </div>
+            </div>
+
+            <div className="mt-8 flex gap-4">
+              <a href="#" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand-navy shadow-sm transition-colors hover:bg-brand-navy hover:text-white">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand-navy shadow-sm transition-colors hover:bg-brand-navy hover:text-white">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="#" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand-navy shadow-sm transition-colors hover:bg-brand-navy hover:text-white">
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold text-brand-navy mb-6">Company</h4>
+            <h4 className="mb-6 text-sm font-bold uppercase tracking-[0.25em] text-brand-teal">Company</h4>
             <ul className="space-y-4">
-              <li><Link href="/about" className="text-brand-navy/70 hover:text-brand-teal transition-colors text-sm">About Us</Link></li>
-              <li><Link href="/careers" className="text-brand-navy/70 hover:text-brand-teal transition-colors text-sm">Careers</Link></li>
-              <li><Link href="/stories" className="text-brand-navy/70 hover:text-brand-teal transition-colors text-sm">Customer Stories</Link></li>
+              <li><Link href="/about" className="text-sm text-brand-navy/75 transition-colors hover:text-brand-teal">About Us</Link></li>
+              <li><Link href="/careers" className="text-sm text-brand-navy/75 transition-colors hover:text-brand-teal">Careers</Link></li>
+              <li><Link href="/stories" className="text-sm text-brand-navy/75 transition-colors hover:text-brand-teal">Customer Stories</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-brand-navy mb-6">Product</h4>
+            <h4 className="mb-6 text-sm font-bold uppercase tracking-[0.25em] text-brand-teal">Product</h4>
             <ul className="space-y-4">
-              <li><Link href="/features" className="text-brand-navy/70 hover:text-brand-teal transition-colors text-sm">Features</Link></li>
-              <li><Link href="/integrations" className="text-brand-navy/70 hover:text-brand-teal transition-colors text-sm">Integrations</Link></li>
-              <li><Link href="/pricing" className="text-brand-navy/70 hover:text-brand-teal transition-colors text-sm">Pricing</Link></li>
-              <li><Link href="/security" className="text-brand-navy/70 hover:text-brand-teal transition-colors text-sm">Security</Link></li>
+              <li><Link href="/features" className="text-sm text-brand-navy/75 transition-colors hover:text-brand-teal">Features</Link></li>
+              <li><Link href="/integrations" className="text-sm text-brand-navy/75 transition-colors hover:text-brand-teal">Integrations</Link></li>
+              <li><Link href="/pricing" className="text-sm text-brand-navy/75 transition-colors hover:text-brand-teal">Pricing</Link></li>
+              <li><Link href="/security" className="text-sm text-brand-navy/75 transition-colors hover:text-brand-teal">Security</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-brand-navy mb-6">Resources</h4>
+            <h4 className="mb-6 text-sm font-bold uppercase tracking-[0.25em] text-brand-teal">Resources</h4>
             <ul className="space-y-4">
-              <li><Link href="/blog" className="text-brand-navy/70 hover:text-brand-teal transition-colors text-sm">Blog & Insights</Link></li>
-              <li><Link href="/help" className="text-brand-navy/70 hover:text-brand-teal transition-colors text-sm">Help Center</Link></li>
+              <li><Link href="/blog" className="text-sm text-brand-navy/75 transition-colors hover:text-brand-teal">Blog & Insights</Link></li>
+              <li><Link href="/help" className="text-sm text-brand-navy/75 transition-colors hover:text-brand-teal">Help Center</Link></li>
+              <li><Link href="/contact" className="text-sm text-brand-navy/75 transition-colors hover:text-brand-teal">Contact Us</Link></li>
             </ul>
-          </div>
-
-          <div className="lg:col-span-1">
-            <h4 className="font-bold text-brand-navy mb-6">Stay Updated</h4>
-            <p className="text-brand-navy/70 text-sm mb-4">Get the latest education tech news.</p>
-            <form className="relative flex items-center" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Email address" 
-                className="w-full bg-white rounded-xl py-3 pl-4 pr-12 text-sm border-0 focus:ring-2 focus:ring-brand-teal shadow-sm placeholder:text-brand-navy/40"
-              />
-              <button type="submit" className="absolute right-2 w-8 h-8 rounded-lg bg-brand-navy text-white flex items-center justify-center hover:bg-brand-teal transition-colors">
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </form>
-            <div className="mt-6">
-              <p className="text-sm font-medium text-brand-navy">Contact Us</p>
-              <a href="mailto:support@kiduart.com" className="text-brand-teal hover:underline text-sm block mt-1">support@kiduart.com</a>
-              <a href="tel:+15551234567" className="text-brand-navy/70 hover:text-brand-teal text-sm block mt-1">+1 (555) 123-4567</a>
-            </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-brand-navy/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-brand-navy/60">
-            © {new Date().getFullYear()} KIDUART Inc. All rights reserved.
-          </p>
-          <div className="flex flex-wrap gap-6 text-sm text-brand-navy/60">
-            <Link href="#" className="hover:text-brand-navy">Privacy Statement</Link>
-            <Link href="#" className="hover:text-brand-navy">Terms of Use</Link>
-            <Link href="#" className="hover:text-brand-navy">Cookie Preferences</Link>
+        <div className="border-t border-brand-navy/10 pt-6 text-center">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-brand-navy/60">
+            <Link href="#" className="transition-colors hover:text-brand-navy">Privacy Statement</Link>
+            <Link href="#" className="transition-colors hover:text-brand-navy">Terms of Use</Link>
+            <Link href="#" className="transition-colors hover:text-brand-navy">Cookie Preferences</Link>
+            <Link href="#" className="transition-colors hover:text-brand-navy">Accessibility</Link>
+            <span>&copy; {new Date().getFullYear()} KIDUART Inc. All rights reserved.</span>
           </div>
         </div>
       </div>

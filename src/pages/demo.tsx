@@ -45,7 +45,7 @@ export default function RequestDemo() {
   };
 
   return (
-    <PageTransition className="pt-24 pb-0 bg-brand-beige/20 min-h-screen flex items-center relative overflow-hidden">
+    <PageTransition className="pt-20 pb-0 bg-brand-beige/20 min-h-screen flex items-center relative overflow-hidden">
       <BackgroundBlobs blobs={[
         { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
         { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }

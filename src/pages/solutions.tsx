@@ -1,5 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Link } from "wouter";
@@ -55,20 +56,15 @@ export default function Solutions() {
   ];
 
   return (
-    <PageTransition className="pt-24 pb-0">
-      <section className="bg-brand-beige/50 relative overflow-hidden min-h-screen flex items-center py-20 lg:py-32">
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }
-        ]} />
-        <FloatingIcons icons={["Users", "BookOpen", "GraduationCap"]} count={6} heroMode={true} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
-          <SectionReveal>
-            <h1 className="text-4xl md:text-6xl font-bold text-brand-navy mb-6">Solutions for Every Role in Education</h1>
-            <p className="text-xl text-brand-navy/70 max-w-3xl mx-auto">KIDUART ERP is designed to empower every stakeholder. When everyone has the right tools, the entire institution thrives.</p>
-          </SectionReveal>
-        </div>
-      </section>
+    <PageTransition className="pt-20 pb-0">
+      <HeroSection
+        title="Solutions for Every Role in Education"
+        subtitle="KIDUART ERP is designed to empower every stakeholder. When everyone has the right tools, the entire institution thrives."
+        image="https://plus.unsplash.com/premium_photo-1663127006530-532d877480ee?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        // image="https://plus.unsplash.com/premium_photo-1741698742721-c17decd1ad60?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        layout="center"
+        floatingIcons={["LayoutDashboard", "Users", "BarChart2"]}
+      />
 
       <section className="py-24 relative overflow-hidden">
         <BackgroundBlobs blobs={[

@@ -101,7 +101,7 @@ export default function HelpArticle() {
   };
 
   return (
-    <PageTransition className="pt-24 pb-0">
+    <PageTransition className="pt-20 pb-0 tooo">
       {/* Breadcrumb & Header */}
       <section className="bg-brand-navy py-16 text-white border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

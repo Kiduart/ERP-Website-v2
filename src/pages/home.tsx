@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Link } from "wouter";
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { 
@@ -43,80 +44,24 @@ function AnimatedCounter({ value, suffix = "" }: { value: number, suffix?: strin
 
 export default function Home() {
   return (
-    <PageTransition className="pt-24 pb-0">
-      {/* HERO SECTION */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden min-h-screen flex items-center">
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 500, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 600, position: "bottom-right", opacity: 0.35 },
-          { color: "#f77f00", size: 400, position: "center-right", opacity: 0.30 }
-        ]} />
-        <FloatingIcons 
-          icons={["GraduationCap", "BookOpen", "Star", "Brain", "Lightbulb", "Award"]} 
-          count={6} 
-          heroMode={true} 
-        />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="max-w-2xl">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }} 
-                animate={{ opacity: 1, scale: 1 }} 
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 text-brand-teal font-semibold text-sm mb-6 border border-brand-teal/20"
-              >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-teal opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-teal"></span>
-                </span>
-                KIDUART ERP 2.0 is now live
-              </motion.div>
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight font-extrabold text-brand-navy mb-6"
-              >
-                Transform Your School with <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-orange">AI-Powered</span> ERP
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                transition={{ delay: 0.2 }}
-                className="text-lg text-brand-navy/70 mb-8 leading-relaxed"
-              >
-                Streamline operations, boost student success, and engage parents with the most intuitive school management platform built for modern education.
-              </motion.p>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                transition={{ delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-4"
-              >
-                <Link href="/demo" className="px-8 py-4 rounded-full bg-brand-navy text-white font-bold text-lg hover:bg-brand-teal shadow-xl hover:shadow-brand-teal/25 transition-all duration-300 hover:-translate-y-1 text-center">
-                  Request Demo
-                </Link>
-                <Link href="/features" className="px-8 py-4 rounded-full bg-white border border-brand-navy/10 text-brand-navy font-bold text-lg hover:bg-brand-beige transition-all duration-300 flex items-center justify-center gap-2 group">
-                  Explore Features <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
-            </div>
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }} 
-              animate={{ opacity: 1, x: 0 }} 
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-teal/20 to-brand-orange/20 blur-3xl rounded-[3rem] -z-10" />
-              <img 
-                src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800" 
-                alt="Students in classroom" 
-                className="w-full h-auto drop-shadow-2xl rounded-2xl border border-white/50 object-cover"
-              />
-            </motion.div>
-          </div>
+    <PageTransition className="pt-20 pb-0">
+      <HeroSection
+        title="Transform Your School with AI-Powered ERP"
+        subtitle="Streamline operations, boost student success, and engage parents with the most intuitive school management platform built for modern education."
+        // image="https://plus.unsplash.com/premium_photo-1764688021978-818a9be9f4de?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        image="https://plus.unsplash.com/premium_photo-1764691435961-ecb3a0a5d311?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        layout="center"
+        floatingIcons={["LayoutDashboard", "Users", "BarChart2"]}
+      >
+        <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          <Link href="/demo" className="px-8 py-4 rounded-full bg-white text-brand-navy font-bold text-lg hover:bg-brand-beige shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
+            Request Demo
+          </Link>
+          <Link href="/features" className="px-8 py-4 rounded-full border border-white/20 bg-white/10 text-white font-bold text-lg hover:bg-white/15 transition-all duration-300 flex items-center justify-center gap-2 group">
+            Explore Features <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
-      </section>
+      </HeroSection>
 
       {/* STATS SECTION */}
       <section className="py-12 bg-white border-y border-brand-navy/5 relative overflow-hidden">
@@ -205,7 +150,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-brand-yellow font-semibold text-sm mb-6 border border-white/20">
               Future-Ready Education
             </div>
-            <h2 className="text-4xl font-bold mb-4">Powered by Artificial Intelligence</h2>
+            <h2 className="text-4xl font-bold mb-4 text-brand-beige">Powered by Artificial Intelligence</h2>
             <p className="text-lg" style={{ color: 'rgba(252,246,211,0.7)' }}>KIDUART ERP uses advanced machine learning to provide actionable insights and automate repetitive tasks.</p>
           </SectionReveal>
 
@@ -221,8 +166,8 @@ export default function Home() {
                   <item.icon className="w-6 h-6 text-brand-yellow" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p style={{ color: 'rgba(252,246,211,0.7)' }}>{item.desc}</p>
+                  <h3 className="text-xl font-bold mb-2 text-brand-beige">{item.title}</h3>
+                  <p style={{ color: '#fcf6d3b3' }}>{item.desc}</p>
                 </div>
               </SectionReveal>
             ))}

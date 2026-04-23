@@ -1,5 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Calendar, ArrowRight, Mail } from "lucide-react";
@@ -70,21 +71,13 @@ export default function Blog() {
   const filteredPosts = activeCategory === "All" ? posts : posts.filter(p => p.category === activeCategory);
 
   return (
-    <PageTransition className="pt-24 pb-0">
-      {/* Hero */}
-      <section className="bg-brand-beige/50 relative overflow-hidden min-h-screen flex items-center py-20 lg:py-32">
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.35 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.35 }
-        ]} />
-        <FloatingIcons icons={["BookOpen", "MessageSquare", "Star"]} count={6} heroMode={true} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
-          <SectionReveal>
-            <h1 className="text-4xl md:text-6xl font-bold text-brand-navy mb-6">Insights for Modern Education</h1>
-            <p className="text-xl text-brand-navy/70 max-w-2xl mx-auto">Expert advice, industry trends, and best practices for running a successful educational institution.</p>
-          </SectionReveal>
-        </div>
-      </section>
+    <PageTransition className="pt-20 pb-0 tooo">
+      <HeroSection
+        title="Insights for Modern Education"
+        subtitle="Expert advice, industry trends, and best practices for running a successful educational institution."
+        image="https://plus.unsplash.com/premium_photo-1661963097356-23ddd3ef08de?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        layout="center"
+      />
 
       {/* Featured Article */}
       <section className="py-12 bg-white relative overflow-hidden">

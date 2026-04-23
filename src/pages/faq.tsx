@@ -63,7 +63,7 @@ export default function FAQ() {
   };
 
   return (
-    <PageTransition className="pt-24 pb-0">
+    <PageTransition className="pt-20 pb-0 tooo">
       <section className="bg-brand-beige/30 py-20 border-b border-brand-navy/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionReveal>
