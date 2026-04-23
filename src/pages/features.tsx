@@ -1,195 +1,355 @@
-import { useState } from "react";
-import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
-import { CtaSection } from "@/components/ui/CtaSection";
-import { HeroSection } from "@/components/ui/HeroSection";
+import Head from "next/head";
+import { Link } from "wouter";
+import { ArrowRight, Bell, BrainCircuit, CalendarCheck, CreditCard, FileText, LayoutDashboard, ShieldCheck, Sparkles, UserCog, Users } from "lucide-react";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
-import { Link } from "wouter";
-import { 
-  Users, CalendarCheck, GraduationCap, MessageCircle, 
-  Clock, BrainCircuit, ShieldAlert, Blocks, ArrowRight
-} from "lucide-react";
+import { CtaSection } from "@/components/ui/CtaSection";
+import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
+import { HeroSection } from "@/components/ui/HeroSection";
+
+type FeatureItem = {
+  icon: typeof Users;
+  title: string;
+  description: string;
+};
+
+const featureCategories: { title: string; label: string; accent: string; items: FeatureItem[] }[] = [
+  {
+    title: "Core Modules",
+    label: "School ERP features",
+    accent: "text-brand-teal",
+    items: [
+      {
+        icon: Users,
+        title: "Student Management",
+        description: "Centralize student profiles, academic records, documents, and parent details in one secure system so your team always works with updated data.",
+      },
+      {
+        icon: FileText,
+        title: "Admission Management",
+        description: "Handle inquiries, application forms, document verification, and enrollment workflows faster without juggling spreadsheets or offline paperwork.",
+      },
+      {
+        icon: CalendarCheck,
+        title: "Attendance System",
+        description: "Track student attendance in real time with automated reports and AI-based insights to identify irregular patterns early.",
+      },
+      {
+        icon: CreditCard,
+        title: "Fee Management",
+        description: "Automate fee collection, due reminders, receipts, and payment tracking so finance teams reduce follow-ups and improve cash flow visibility.",
+      },
+      {
+        icon: FileText,
+        title: "Exam & Report Cards",
+        description: "Create exams, publish marks, and generate report cards quickly while giving teachers and school leaders clearer performance visibility.",
+      },
+    ],
+  },
+  {
+    title: "AI Features",
+    label: "AI-powered school management software modules",
+    accent: "text-brand-yellow",
+    items: [
+      {
+        icon: BrainCircuit,
+        title: "AI Attendance Insights",
+        description: "Detect absenteeism trends and get actionable insights that help your admin team intervene before attendance issues get worse.",
+      },
+      {
+        icon: Sparkles,
+        title: "Auto Timetable Generator",
+        description: "Generate balanced, conflict-free class schedules in minutes based on sections, staff availability, and subject requirements.",
+      },
+      {
+        icon: Bell,
+        title: "Smart Notifications",
+        description: "Send timely alerts for attendance, fees, exams, and school updates with less manual work and better parent communication.",
+      },
+      {
+        icon: LayoutDashboard,
+        title: "Performance Predictions",
+        description: "Spot academic risk signals earlier with AI-supported trend analysis so teachers and school leaders can plan timely support.",
+      },
+    ],
+  },
+  {
+    title: "Admin Tools",
+    label: "School management software modules",
+    accent: "text-brand-orange",
+    items: [
+      {
+        icon: UserCog,
+        title: "Staff Management",
+        description: "Manage teacher and staff records, responsibilities, leave details, and daily operations from one organized admin workspace.",
+      },
+      {
+        icon: CreditCard,
+        title: "Payroll System",
+        description: "Process salaries, deductions, and monthly payroll workflows more accurately while reducing repetitive HR tasks.",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Role-Based Access",
+        description: "Control who sees what with secure permissions for admins, teachers, accountants, coordinators, parents, and students.",
+      },
+      {
+        icon: LayoutDashboard,
+        title: "Reports & Analytics",
+        description: "Track admissions, collections, attendance, and academic performance through dashboards built for faster school-level decisions.",
+      },
+    ],
+  },
+  {
+    title: "Parent & Student Apps",
+    label: "Best school ERP India experience",
+    accent: "text-brand-navy",
+    items: [
+      {
+        icon: Users,
+        title: "Parent App",
+        description: "Give parents a simple mobile experience to view attendance, fees, notices, and school updates without calling the office repeatedly.",
+      },
+      {
+        icon: LayoutDashboard,
+        title: "Student Dashboard",
+        description: "Help students stay on top of class updates, exam schedules, results, and important tasks from one personalized dashboard.",
+      },
+      {
+        icon: Bell,
+        title: "Notifications & Alerts",
+        description: "Deliver instant reminders and alerts so parents and students never miss deadlines, events, exams, or payment updates.",
+      },
+    ],
+  },
+];
+
+const aiAssistantPoints = [
+  "Auto timetable generation for faster academic planning",
+  "Student performance suggestions based on trends and outcomes",
+  "Smart communication drafts for notices, reminders, and parent updates",
+  "Predictive analytics to surface attendance and performance risks early",
+];
+
+const pageHighlights = [
+  { value: "16+", label: "connected school ERP features" },
+  { value: "4", label: "organized module categories" },
+  { value: "1", label: "AI-powered school management system" },
+];
 
 export default function Features() {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const categories = ["All", "Student Management", "Attendance", "Finance", "Communication", "AI & Automation", "Security"];
-
-  const advancedFeatures = [
-    { slug: "communication", category: "Communication", icon: MessageCircle, title: "Parent App", desc: "Dedicated mobile app for parents to view grades, pay fees, and chat with teachers." },
-    { slug: "timetable", category: "Attendance", icon: Clock, title: "Auto-Timetable", desc: "Algorithm generates conflict-free schedules based on teacher availability." },
-    { slug: "reports", category: "AI & Automation", icon: BrainCircuit, title: "AI Assistant", desc: "Chatbot for quick queries, report generation, and data lookup." },
-    { slug: "student-management", category: "Student Management", icon: Blocks, title: "LMS Integration", desc: "Syncs with Canvas, Moodle, and Google Classroom seamlessly." },
-    { slug: "student-management", category: "Security", icon: ShieldAlert, title: "Role-Based Access", desc: "Granular permissions ensure staff only see what they need to see." },
-    { slug: "fee-management", category: "Finance", icon: Users, title: "HR & Payroll", desc: "Manage staff attendance, leave, and process payroll automatically." }
-  ];
-
-  const filteredFeatures = activeCategory === "All" 
-    ? advancedFeatures 
-    : advancedFeatures.filter(f => f.category === activeCategory);
-
   return (
-    <PageTransition className="pt-20 pb-0 tooo">
-      <HeroSection
-        title="Powerful Features Built for Modern Schools"
-        subtitle="A comprehensive suite of tools designed to centralize data, automate workflows, and improve communication across your entire institution."
-        image="https://images.unsplash.com/photo-1696395050055-eb7a315bb1cb?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        layout="center"
-      />
+    <>
+      <Head>
+        <title>School ERP Features | Complete School Management System</title>
+        <meta
+          name="description"
+          content="Explore school ERP features for admissions, attendance, fees, exams, payroll, parent app, and AI tools. Discover the best school ERP India schools can use to manage every operation."
+        />
+        <meta
+          name="keywords"
+          content="school ERP features, school management software modules, best school ERP India, AI school ERP, school attendance system, school fee management software"
+        />
+      </Head>
 
-      <section className="py-24 bg-white relative overflow-hidden">
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 300, position: "center-left", opacity: 0.15 },
-          { color: "#0c716b", size: 300, position: "center-right", opacity: 0.15 }
-        ]} />
-        <FloatingIcons icons={["Star", "Award", "Lightbulb"]} count={4} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionReveal className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-brand-navy">Core Platform Capabilities</h2>
-          </SectionReveal>
-
-          <div className="space-y-24">
-            {/* Feature 1 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <SectionReveal>
-                <div className="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
-                  <Users className="w-8 h-8 text-brand-teal" />
-                </div>
-                <h3 className="text-3xl font-bold text-brand-navy mb-4">Student Management</h3>
-                <p className="text-lg text-brand-navy/70 mb-6">Maintain comprehensive digital records for every student. Track academic progress, disciplinary history, medical information, and extracurricular activities all in one secure place.</p>
-                <ul className="space-y-3">
-                  {['Digital enrollment forms', 'Document management', 'Custom student tags & groups', 'Alumni tracking'].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-brand-navy font-medium">
-                      <div className="w-6 h-6 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-sm">✓</div>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </SectionReveal>
-              <SectionReveal delay={0.2} className="bg-brand-beige rounded-3xl p-8 aspect-square flex items-center justify-center relative">
-                 <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-3xl"></div>
-                 {/* Decorative UI element representing student profiles */}
-                 <div className="w-full max-w-sm glass-panel p-6 rounded-2xl relative z-10 shadow-2xl shadow-brand-navy/10">
-                    <div className="flex items-center gap-4 border-b border-brand-navy/10 pb-4 mb-4">
-                      <div className="w-16 h-16 bg-brand-navy/10 rounded-full"></div>
-                      <div>
-                        <div className="h-4 w-32 bg-brand-navy/80 rounded mb-2"></div>
-                        <div className="h-3 w-20 bg-brand-navy/40 rounded"></div>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
-                      <div className="h-3 w-full bg-brand-navy/10 rounded"></div>
-                      <div className="h-3 w-4/5 bg-brand-navy/10 rounded"></div>
-                      <div className="h-3 w-5/6 bg-brand-navy/10 rounded"></div>
-                    </div>
-                 </div>
-              </SectionReveal>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <SectionReveal delay={0.2} className="order-2 md:order-1 bg-brand-teal/10 rounded-3xl p-8 aspect-square flex items-center justify-center">
-                 <div className="w-full max-w-sm bg-white p-6 rounded-2xl shadow-xl border border-brand-teal/20">
-                    <div className="flex justify-between items-center mb-6">
-                      <div className="h-5 w-24 bg-brand-navy/80 rounded"></div>
-                      <div className="h-6 w-16 bg-brand-orange rounded-full"></div>
-                    </div>
-                    <div className="grid grid-cols-5 gap-2 mb-4">
-                      {[1,2,3,4,5].map(i => <div key={i} className="h-8 rounded bg-brand-navy/5"></div>)}
-                    </div>
-                    <div className="grid grid-cols-5 gap-2">
-                      {[1,2,3,4,5].map(i => <div key={i} className={`h-8 rounded ${i===3 ? 'bg-brand-orange/20' : 'bg-brand-teal/20'}`}></div>)}
-                    </div>
-                 </div>
-              </SectionReveal>
-              <SectionReveal className="order-1 md:order-2">
-                <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mb-6">
-                  <CalendarCheck className="w-8 h-8 text-brand-orange" />
-                </div>
-                <h3 className="text-3xl font-bold text-brand-navy mb-4">Smart Attendance</h3>
-                <p className="text-lg text-brand-navy/70 mb-6">Eliminate manual roll calls. Teachers can mark attendance in seconds via mobile or web, triggering automated SMS/email alerts to parents for unexcused absences.</p>
-                <ul className="space-y-3">
-                  {['Biometric/RFID integration', 'Subject-wise attendance', 'Leave request portal', 'Monthly attendance reports'].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-brand-navy font-medium">
-                      <div className="w-6 h-6 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange text-sm">✓</div>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </SectionReveal>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <SectionReveal>
-                <div className="w-16 h-16 bg-brand-yellow/20 rounded-2xl flex items-center justify-center mb-6">
-                  <GraduationCap className="w-8 h-8 text-brand-yellow" />
-                </div>
-                <h3 className="text-3xl font-bold text-brand-navy mb-4">Grade & Performance Tracking</h3>
-                <p className="text-lg text-brand-navy/70 mb-6">A flexible gradebook that supports various grading scales (GPA, CCE, custom). Generate beautifully designed report cards with a single click.</p>
-                <ul className="space-y-3">
-                  {['Customizable assessment structures', 'Online exam support', 'Class ranking & percentiles', 'Graphical performance trends'].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-brand-navy font-medium">
-                      <div className="w-6 h-6 rounded-full bg-brand-yellow/30 flex items-center justify-center text-brand-yellow text-sm">✓</div>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </SectionReveal>
-              <SectionReveal delay={0.2} className="bg-brand-navy rounded-3xl p-8 aspect-square flex items-center justify-center overflow-hidden relative">
-                {/* Graph mockup */}
-                <div className="absolute bottom-0 left-0 w-full h-1/2 flex items-end px-8 pb-8 gap-4 opacity-80">
-                  {[40, 60, 45, 80, 65, 90, 75].map((h, i) => (
-                    <div key={i} className="flex-1 bg-brand-teal rounded-t-sm" style={{ height: `${h}%` }}></div>
-                  ))}
-                </div>
-              </SectionReveal>
-            </div>
+      <PageTransition className="pt-20 pb-0">
+        <HeroSection
+          title="School ERP Features - Complete School Management System"
+          subtitle="From admissions to exams, manage every school operation with our AI-powered ERP platform."
+          image="https://images.unsplash.com/photo-1696395050055-eb7a315bb1cb?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          layout="center"
+          floatingIcons={["LayoutDashboard", "Users", "CalendarCheck", "Brain"]}
+        >
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <Link
+              href="/demo"
+              className="rounded-full bg-white px-8 py-4 text-center text-lg font-bold text-brand-navy shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-brand-beige"
+            >
+              Book Free Demo
+            </Link>
+            <Link
+              href="/contact"
+              className="flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:bg-white/15"
+            >
+              Talk to Sales <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
-        </div>
-      </section>
+        </HeroSection>
 
-      {/* Advanced Features Grid */}
-      <section className="py-24 bg-brand-beige/20 border-t border-brand-navy/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionReveal className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-navy mb-4">Advanced Capabilities</h2>
-            <p className="text-lg text-brand-navy/70 max-w-2xl mx-auto">Beyond basic management, KIDUART ERP offers cutting-edge tools to elevate your institution.</p>
-          </SectionReveal>
-
-          {/* Filter Bar */}
-          <SectionReveal className="mb-12 flex flex-wrap justify-center gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                  activeCategory === cat 
-                    ? "bg-brand-navy text-white shadow-md" 
-                    : "bg-white text-brand-navy/70 border border-brand-navy/10 hover:border-brand-navy/30"
-                }`}
+        <section className="relative overflow-hidden border-y border-brand-navy/5 bg-white py-12">
+          <BackgroundBlobs
+            blobs={[
+              { color: "#fcbf49", size: 280, position: "center-left", opacity: 0.14 },
+              { color: "#0c716b", size: 280, position: "center-right", opacity: 0.14 },
+            ]}
+          />
+          <div className="relative z-10 mx-auto grid max-w-6xl gap-6 px-4 text-center sm:px-6 md:grid-cols-3 lg:px-8">
+            {pageHighlights.map((highlight, index) => (
+              <SectionReveal
+                key={highlight.label}
+                delay={index * 0.08}
+                className="rounded-3xl border border-brand-navy/8 bg-brand-beige/20 px-6 py-8"
               >
-                {cat}
-              </button>
-            ))}
-          </SectionReveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredFeatures.map((feat, idx) => (
-              <SectionReveal key={`${feat.title}-${idx}`} delay={idx * 0.05} className="bg-white p-8 rounded-2xl border border-brand-navy/5 shadow-sm flex flex-col hover:shadow-md transition-shadow h-full">
-                <feat.icon className="w-10 h-10 text-brand-teal mb-6" />
-                <h4 className="text-xl font-bold text-brand-navy mb-3">{feat.title}</h4>
-                <p className="text-brand-navy/70 mb-6 flex-grow">{feat.desc}</p>
-                <Link href={`/features/${feat.slug}`} className="inline-flex items-center text-brand-teal font-bold hover:text-brand-navy transition-colors group">
-                  Learn More <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                <div className="text-4xl font-extrabold text-brand-navy">{highlight.value}</div>
+                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-brand-navy/60">{highlight.label}</p>
               </SectionReveal>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <CtaSection title="Experience all features in action" subtitle="Schedule a personalized walkthrough of the platform." />
-    </PageTransition>
+        <section className="relative overflow-hidden bg-brand-beige/25 py-24">
+          <BackgroundBlobs
+            blobs={[
+              { color: "#003049", size: 380, position: "top-left", opacity: 0.1 },
+              { color: "#f77f00", size: 340, position: "bottom-right", opacity: 0.12 },
+            ]}
+          />
+          <FloatingIcons icons={["Users", "CreditCard", "Bell", "ShieldCheck"]} count={5} />
+
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionReveal className="mx-auto mb-16 max-w-4xl text-center">
+              <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand-teal">Structured Modules</p>
+              <h2 className="mt-4 text-4xl font-bold text-brand-navy">Everything your school needs, grouped the way buyers expect</h2>
+              <p className="mt-4 text-lg leading-8 text-brand-navy/70">
+                We have organized every module into clear categories so schools can evaluate the platform faster and understand how each feature improves day-to-day operations.
+              </p>
+            </SectionReveal>
+
+            <div className="space-y-16">
+              {featureCategories.map((category, categoryIndex) => (
+                <SectionReveal
+                  key={category.title}
+                  delay={categoryIndex * 0.05}
+                  className="rounded-[2rem] border border-brand-navy/8 bg-white/95 p-8 shadow-lg shadow-brand-navy/5"
+                >
+                  <div className="mb-8 flex flex-col gap-3 border-b border-brand-navy/8 pb-6 md:flex-row md:items-end md:justify-between">
+                    <div>
+                      <p className={`text-sm font-bold uppercase tracking-[0.24em] ${category.accent}`}>{category.label}</p>
+                      <h3 className="mt-3 text-3xl font-bold text-brand-navy">{category.title}</h3>
+                    </div>
+                    <p className="max-w-2xl text-brand-navy/65">
+                      Benefit-led school management software modules designed to reduce manual work, improve visibility, and make operations easier for every team.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                    {category.items.map((item, itemIndex) => (
+                      <div
+                        key={item.title}
+                        className="flex h-full flex-col rounded-3xl border border-brand-navy/8 bg-brand-beige/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/25 hover:shadow-md"
+                      >
+                        <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm">
+                          <item.icon className={`h-7 w-7 ${category.accent}`} />
+                        </div>
+                        <h4 className="text-xl font-bold text-brand-navy">{item.title}</h4>
+                        <p className="mt-3 flex-grow leading-7 text-brand-navy/72">{item.description}</p>
+                        <div className="mt-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand-navy/45">
+                          Module {String(itemIndex + 1).padStart(2, "0")}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden bg-brand-navy py-24" style={{ color: "#fcf6d3" }}>
+          <BackgroundBlobs
+            blobs={[
+              { color: "#fcbf49", size: 420, position: "top-right", opacity: 0.16 },
+              { color: "#0c716b", size: 420, position: "bottom-left", opacity: 0.16 },
+            ]}
+          />
+          <FloatingIcons icons={["Brain", "Sparkles", "Bell", "LayoutDashboard"]} count={4} />
+
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+              <SectionReveal>
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-brand-yellow">
+                  AI Assistant for Schools
+                </div>
+                <h2 className="mt-6 text-4xl font-bold text-brand-beige">Your biggest differentiator should be visible in seconds</h2>
+                <p className="mt-5 max-w-2xl text-lg leading-8 text-brand-beige/80">
+                  Our AI assistant helps schools move faster on academic planning, communication, and decision-making. Instead of being a vague add-on, it supports real workflows that admins, teachers, and leadership teams use every day.
+                </p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {aiAssistantPoints.map((point, index) => (
+                    <div
+                      key={point}
+                      className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-brand-beige/90"
+                    >
+                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-yellow/15">
+                        <Sparkles className="h-5 w-5 text-brand-yellow" />
+                      </div>
+                      <p>{point}</p>
+                    </div>
+                  ))}
+                </div>
+              </SectionReveal>
+
+              <SectionReveal delay={0.12} className="rounded-[2rem] border border-white/10 bg-white/5 p-7 shadow-2xl">
+                <div className="rounded-[1.75rem] border border-white/10 bg-brand-beige p-6 text-brand-navy">
+                  <div className="flex items-center justify-between border-b border-brand-navy/10 pb-4">
+                    <div>
+                      <p className="text-sm font-bold uppercase tracking-[0.24em] text-brand-teal">AI Command Center</p>
+                      <h3 className="mt-2 text-2xl font-bold">School-specific AI help</h3>
+                    </div>
+                    <BrainCircuit className="h-10 w-10 text-brand-orange" />
+                  </div>
+
+                  <div className="mt-6 space-y-4">
+                    {[
+                      "Generate a timetable for Class 8 to 10 with no teacher conflicts",
+                      "Draft a fee reminder message for parents with overdue payments",
+                      "Identify students with falling attendance in the last 30 days",
+                      "Show likely performance concerns before exams begin",
+                    ].map((task) => (
+                      <div key={task} className="rounded-2xl bg-white px-4 py-4 shadow-sm">
+                        <p className="text-sm leading-6 text-brand-navy/75">{task}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </SectionReveal>
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden bg-white py-24">
+          <BackgroundBlobs blobs={[{ color: "#0c716b", size: 320, position: "center-right", opacity: 0.12 }]} />
+          <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <SectionReveal className="rounded-[2rem] border border-brand-navy/8 bg-brand-beige/20 p-8 text-center md:p-12">
+              <p className="text-sm font-bold uppercase tracking-[0.24em] text-brand-orange">Built for Real Schools</p>
+              <h2 className="mt-4 text-4xl font-bold text-brand-navy">See how these school ERP features work in real school operations</h2>
+              <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-brand-navy/70">
+                If you are comparing school ERP features, school management software modules, or the best school ERP in India, the fastest way to judge fit is a live walkthrough with your own workflows.
+              </p>
+              <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+                <Link
+                  href="/demo"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-navy px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-brand-teal"
+                >
+                  Book a Free Demo and See How Our ERP Works in Real Schools
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full border border-brand-navy/15 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-teal/35 hover:text-brand-teal"
+                >
+                  Ask About Your Use Case
+                </Link>
+              </div>
+            </SectionReveal>
+          </div>
+        </section>
+
+        <CtaSection
+          title="Book a Free Demo and See How Our ERP Works in Real Schools"
+          subtitle="Explore admissions, attendance, fees, exams, payroll, parent app, and AI workflows in one live walkthrough."
+        />
+      </PageTransition>
+    </>
   );
 }
