@@ -1,11 +1,12 @@
 import Head from "next/head";
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, Building, Building2, CheckCircle2, Presentation, Users } from "lucide-react";
+import { motion } from "framer-motion";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { CtaSection } from "@/components/ui/CtaSection";
-import { HeroSection } from "@/components/ui/HeroSection";
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
+import { useState } from "react";
 
 type RoleSolution = {
   title: string;
@@ -103,7 +104,25 @@ const impactStats = [
   { value: "24/7", label: "parent visibility and alerts" },
 ];
 
+
+const cards = [
+  {
+    id: 1,
+    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=900",
+  },
+  {
+    id: 2,
+    img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=900",
+  },
+  {
+    id: 3,
+    img: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&q=80&w=900",
+  },
+];
+
+
 export default function Solutions() {
+  const [active, setActive] = useState<number | null>(1);
   return (
     <>
       <Head>
@@ -119,28 +138,106 @@ export default function Solutions() {
       </Head>
 
       <PageTransition className="pt-20 pb-0">
-        <HeroSection
-          title="School ERP Solutions for Teachers, Parents, Students & Administrators"
-          subtitle="One platform that solves real problems for every stakeholder in your school ecosystem."
-          image="https://plus.unsplash.com/premium_photo-1663127006530-532d877480ee?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          layout="center"
-          floatingIcons={["Users", "BookOpen", "BarChart2"]}
-        >
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/demo"
-              className="rounded-full bg-white px-8 py-4 text-center text-lg font-bold text-brand-navy shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-brand-beige"
-            >
-              Book Free Demo
-            </Link>
-            <Link
-              href="/features"
-              className="flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:bg-white/15"
-            >
-              Explore Platform Modules <ArrowRight className="h-5 w-5" />
-            </Link>
+        <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f6f7fb,#ffffff)] py-24">
+          <BackgroundBlobs
+            blobs={[
+              { color: "hsl(var(--blob-yellow))", size: 360, position: "top-left", opacity: 0.12 },
+              { color: "hsl(var(--blob-teal))", size: 360, position: "bottom-right", opacity: 0.1 },
+            ]}
+          />
+
+          <div className="page-shell relative z-10 grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+            <SectionReveal>
+              <div className="inline-flex rounded-full border border-brand-navy/10 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-brand-teal">
+                Role-based school ERP solutions
+              </div>
+              <h1 className="mt-6 max-w-xl text-[clamp(2.15rem,1.4rem+1.9vw,3.6rem)] font-bold leading-[1.03] text-brand-navy">
+                Find the right solution for every team in your school.
+              </h1>
+              <p className="mt-5 max-w-xl text-[clamp(1rem,0.95rem+0.15vw,1.05rem)] leading-8 text-brand-navy/72">
+                Explore how teachers, parents, students, and administrators each get workflows designed for their daily responsibilities instead of one generic screen for everyone.
+              </p>
+
+              <div className="mt-8 flex max-w-xl items-center gap-3 rounded-full border border-brand-navy/10 bg-white px-4 py-3 shadow-lg shadow-brand-navy/5">
+                <input
+                  value="Search by team, workflow, or outcome"
+                  readOnly
+                  className="w-full bg-transparent text-sm font-medium text-brand-navy/55 outline-none"
+                />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy text-white">
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["Teachers", "Parents", "Students", "School admins", "District teams"].map((item) => (
+                  <div key={item} className="rounded-full bg-brand-beige px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-navy/70">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
+
+            <SectionReveal delay={0.08} className="relative hidden lg:block">
+              {/* Background shapes */}
+              {/* <div className="absolute right-6 top-12 h-[19rem] w-[14rem] rounded-[2rem] bg-brand-teal" />
+              <div className="absolute right-0 top-24 h-[19rem] w-[14rem] rounded-[2rem] bg-brand-navy/12" /> */}
+
+              <div className="relative mx-auto w-[30rem] h-[28rem]">
+                {/* Floating stats card */}
+                <div className="absolute left-10 -bottom-10 z-50 rounded-[1.5rem] border border-brand-navy/10 bg-white px-5 py-4 shadow-xl">
+                  <div className="text-center text-sm font-semibold text-brand-navy/50">
+                    Live snapshots
+                  </div>
+                  <div className="mt-3 space-y-1">
+                    {["319 job roles", "265 school flows", "324 admin actions"].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-xl bg-brand-beige/60 px-4 py-1 text-sm font-bold text-brand-navy"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Cards */}
+                <div className="relative flex items-center justify-center h-full">
+                  {cards.map((card, index) => {
+                    const isActive = active === card.id;
+
+                    return (
+                      <div
+                        key={card.id}
+                        onMouseEnter={() => setActive(card.id)}
+                        className={`
+          absolute cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+          ${index === 0 ? "translate-x-[0px] translate-y-[0px] rotate-[0deg] z-20" : ""}
+          ${index === 1 ? "translate-x-[50px] translate-y-[30px] rotate-[6deg] z-20" : ""}
+          ${index === 2 ? "translate-x-[110px] translate-y-[60px] rotate-[12deg] z-10" : ""}
+
+          ${isActive
+                            ? "scale-105 z-30 shadow-[0_40px_100px_rgba(0,0,0,0.25)]"
+                            : "scale-95 opacity-70"}
+        `}
+                      >
+                        <div className="w-[18rem] rounded-[2rem] border border-black/10 bg-[#2b211b] p-3">
+                          <img
+                            src={card.img}
+                            alt="preview"
+                            className="h-[23rem] w-full rounded-[1.5rem] object-cover"
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </SectionReveal>
+
           </div>
-        </HeroSection>
+        </section>
 
         <section className="relative overflow-hidden bg-white py-24">
           <BackgroundBlobs
@@ -162,9 +259,12 @@ export default function Solutions() {
 
             <div className="grid gap-8 md:grid-cols-2">
               {roles.map((role, index) => (
-                <SectionReveal
+                <motion.div
                   key={role.title}
-                  delay={index * 0.08}
+                  initial={{ opacity: 0, y: 90, x: index % 2 === 0 ? -50 : 50, rotate: index % 2 === 0 ? -4 : 4, scale: 0.92 }}
+                  whileInView={{ opacity: 1, y: 0, x: 0, rotate: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-120px" }}
+                  transition={{ duration: 0.75, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   className={`flex h-full flex-col rounded-[2rem] p-8 shadow-lg shadow-brand-navy/5 ${role.cardClass}`}
                   style={role.cardClass.includes("bg-brand-navy") ? { color: "#fcf6d3" } : undefined}
                 >
@@ -201,7 +301,7 @@ export default function Solutions() {
                       <ArrowRight className="h-5 w-5" />
                     </Link>
                   </div>
-                </SectionReveal>
+                </motion.div>
               ))}
             </div>
           </div>

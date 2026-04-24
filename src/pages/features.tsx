@@ -5,7 +5,7 @@ import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { CtaSection } from "@/components/ui/CtaSection";
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
-import { HeroSection } from "@/components/ui/HeroSection";
+import { CircleShowcaseHero } from "@/components/ui/CustomHeroes";
 
 type FeatureItem = {
   icon: typeof Users;
@@ -153,28 +153,28 @@ export default function Features() {
       </Head>
 
       <PageTransition className="pt-20 pb-0">
-        <HeroSection
+        <CircleShowcaseHero
+          eyebrow="Connected school ERP features"
           title="School ERP Features - Complete School Management System"
           subtitle="From admissions to exams, manage every school operation with our AI-powered ERP platform."
           image="https://images.unsplash.com/photo-1696395050055-eb7a315bb1cb?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          layout="center"
-          floatingIcons={["LayoutDashboard", "Users", "CalendarCheck", "Brain"]}
-        >
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          actions={(
+            <>
             <Link
               href="/demo"
-              className="rounded-full bg-white px-8 py-4 text-center text-lg font-bold text-brand-navy shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-brand-beige"
+              className="rounded-full bg-brand-orange px-8 py-4 text-center text-base font-bold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-brand-navy"
             >
               Book Free Demo
             </Link>
             <Link
               href="/contact"
-              className="flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:bg-white/15"
+              className="flex items-center justify-center gap-2 rounded-full border border-brand-navy/12 bg-white px-8 py-4 text-base font-bold text-brand-navy transition-colors duration-300 hover:border-brand-teal hover:text-brand-teal"
             >
               Talk to Sales <ArrowRight className="h-5 w-5" />
             </Link>
-          </div>
-        </HeroSection>
+            </>
+          )}
+        />
 
         <section className="relative overflow-hidden border-y border-brand-navy/5 bg-white py-12">
           <BackgroundBlobs
@@ -220,7 +220,7 @@ export default function Features() {
                 <SectionReveal
                   key={category.title}
                   delay={categoryIndex * 0.05}
-                  className="rounded-[2rem] border border-brand-navy/8 bg-white/95 p-8 shadow-lg shadow-brand-navy/5"
+                  className=""
                 >
                   <div className="mb-8 flex flex-col gap-3 border-b border-brand-navy/8 pb-6 md:flex-row md:items-end md:justify-between">
                     <div>
@@ -236,7 +236,7 @@ export default function Features() {
                     {category.items.map((item, itemIndex) => (
                       <div
                         key={item.title}
-                        className="flex h-full flex-col rounded-3xl border border-brand-navy/8 bg-brand-beige/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/25 hover:shadow-md"
+                        className="flex h-full flex-col rounded-3xl border border-brand-navy/8 bg-white/95 shadow-lg shadow-brand-navy/5 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/25 hover:shadow-md"
                       >
                         <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm">
                           <item.icon className={`h-7 w-7 ${category.accent}`} />

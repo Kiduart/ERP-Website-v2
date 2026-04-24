@@ -1,6 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
-import { HeroSection } from "@/components/ui/HeroSection";
+import { TechBackdropHero } from "@/components/ui/CustomHeroes";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Target, Lightbulb, Trophy } from "lucide-react";
@@ -9,11 +9,19 @@ import { Link } from "wouter";
 export default function About() {
   return (
     <PageTransition className="pt-20 pb-0 tooo">
-      <HeroSection
+      <TechBackdropHero
+        eyebrow="About KIDUART"
         title="Transforming Education Through Technology"
         subtitle="We believe that when schools are run efficiently, educators have more time to inspire the next generation."
-        image="https://images.unsplash.com/photo-1731654448820-8f80a44d111c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        layout="center"
+        image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+        actions={(
+          <Link
+            href="/contact"
+            className="rounded-full bg-white px-7 py-3.5 text-sm font-bold text-brand-navy transition-colors hover:bg-brand-beige"
+          >
+            Learn More
+          </Link>
+        )}
       />
 
       {/* Mission Vision */}

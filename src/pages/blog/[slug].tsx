@@ -9,7 +9,7 @@ const blogData: Record<string, any> = {
     title: "The Future of AI in Education: What Schools Need to Know in 2026",
     author: "Dr. Priya Sharma", date: "March 5, 2026", category: "AI in Education",
     readTime: "8 min read",
-    excerpt: "Artificial intelligence is no longer a future concept for education — it's happening now, reshaping how schools operate, how teachers teach, and how students learn.",
+    excerpt: "Artificial intelligence is no longer a future concept for education â€” it's happening now, reshaping how schools operate, how teachers teach, and how students learn.",
     content: `## The AI Revolution in Education Is Here
 
 In 2026, artificial intelligence has moved from experimental to essential in modern education systems. Schools that have embraced AI-powered management tools are reporting significant gains: 40% reduction in administrative work, 25% improvement in student retention rates, and near-perfect fee collection efficiency.
@@ -41,7 +41,7 @@ Parent portals powered by AI notify parents exactly when they need to know somet
 
 ## Conclusion
 
-The schools thriving in 2026 are those that embraced AI not as a replacement for human judgment, but as an amplifier. KIDUART's KIDUORBIT AI is built on exactly this principle — augmenting every role in the school community, not replacing it.`,
+The schools thriving in 2026 are those that embraced AI not as a replacement for human judgment, but as an amplifier. KIDUART's KIDUORBIT AI is built on exactly this principle â€” augmenting every role in the school community, not replacing it.`,
     relatedSlugs: ["school-erp-benefits", "digital-transformation-schools", "student-data-management"]
   },
   "school-erp-benefits": {
@@ -67,7 +67,7 @@ Parent satisfaction scores at ERP-enabled schools are consistently higher. When 
 
 ## Benefit 4: Data-Driven Decisions
 
-A unified ERP gives administrators a real-time dashboard of every aspect of school health — enrollment trends, financial performance, academic outcomes, and staff metrics. Decision-making becomes evidence-based.
+A unified ERP gives administrators a real-time dashboard of every aspect of school health â€” enrollment trends, financial performance, academic outcomes, and staff metrics. Decision-making becomes evidence-based.
 
 ## Benefit 5: Compliance Made Simple
 
@@ -87,7 +87,7 @@ The ROI calculation for school ERP is straightforward: staff time saved + improv
     title: "The Complete Guide to Digital Transformation for Schools",
     author: "Sarah Williams", date: "February 10, 2026", category: "Education Technology",
     readTime: "10 min read",
-    excerpt: "Digital transformation in education isn't just about buying new software — it's a cultural shift that requires strategy, leadership, and the right technology foundation.",
+    excerpt: "Digital transformation in education isn't just about buying new software â€” it's a cultural shift that requires strategy, leadership, and the right technology foundation.",
     content: `## What Digital Transformation Actually Means for Schools
 
 Digital transformation is overused and often misunderstood. For schools, it doesn't mean replacing teachers with technology. It means removing every unnecessary friction point between your school's mission and its execution.
@@ -153,7 +153,7 @@ Technology is only part of the equation. Schools that succeed with digital paren
 
 ## Getting Started
 
-Start with attendance notifications — they're the highest-value, lowest-effort win. Parents universally appreciate knowing immediately when their child isn't in school. From there, expand to grades, fees, and general communications.`,
+Start with attendance notifications â€” they're the highest-value, lowest-effort win. Parents universally appreciate knowing immediately when their child isn't in school. From there, expand to grades, fees, and general communications.`,
     relatedSlugs: ["school-erp-benefits", "digital-transformation-schools", "student-data-management"]
   },
   "student-data-management": {
@@ -163,7 +163,7 @@ Start with attendance notifications — they're the highest-value, lowest-effort
     excerpt: "How schools collect, store, and use student data has enormous implications for privacy, compliance, and ultimately student outcomes.",
     content: `## The Student Data Challenge
 
-Modern schools collect more student data than ever before — academic records, health information, behavioral data, family details, and now digital learning data. Managing this responsibly is both a compliance requirement and a moral obligation.
+Modern schools collect more student data than ever before â€” academic records, health information, behavioral data, family details, and now digital learning data. Managing this responsibly is both a compliance requirement and a moral obligation.
 
 ## Data Privacy First
 
@@ -185,7 +185,7 @@ Proper student data management requires:
 
 ## Using Data to Improve Outcomes
 
-Compliant data management isn't just about protection — it's about using data responsibly to help students succeed. When data is clean, centralized, and accessible to the right people, it enables:
+Compliant data management isn't just about protection â€” it's about using data responsibly to help students succeed. When data is clean, centralized, and accessible to the right people, it enables:
 - Early identification of struggling students
 - Personalized intervention strategies
 - Evidence-based teaching adjustments
@@ -193,7 +193,7 @@ Compliant data management isn't just about protection — it's about using data 
 
 ## Practical Steps for Schools
 
-1. Conduct a data audit — know what you collect and why
+1. Conduct a data audit â€” know what you collect and why
 2. Implement a proper ERP with built-in privacy controls
 3. Train all staff on data handling procedures
 4. Establish a privacy officer role or responsibility
@@ -204,7 +204,7 @@ Compliant data management isn't just about protection — it's about using data 
     title: "How KIDUORBIT's Predictive Analytics Is Saving Students From Failure",
     author: "KIDUART Research Team", date: "March 10, 2026", category: "AI in Education",
     readTime: "6 min read",
-    excerpt: "Early intervention is the most powerful tool in education. KIDUORBIT's AI identifies at-risk students weeks before traditional methods — and schools are seeing dramatic results.",
+    excerpt: "Early intervention is the most powerful tool in education. KIDUORBIT's AI identifies at-risk students weeks before traditional methods â€” and schools are seeing dramatic results.",
     content: `## The Problem With Traditional Early Warning Systems
 
 Most schools rely on teachers to identify struggling students. But teachers manage 30+ students each, across multiple subjects. By the time a pattern becomes obvious, valuable intervention time has already been lost.
@@ -216,7 +216,7 @@ KIDUORBIT analyzes three primary data streams continuously:
 2. **Academic trajectory**: Grade trends across subjects, assignment completion rates
 3. **Engagement signals**: Participation in activities, library usage, communication frequency
 
-When these signals combine in concerning patterns, KIDUORBIT flags the student for review — weeks before grades would show an issue.
+When these signals combine in concerning patterns, KIDUORBIT flags the student for review â€” weeks before grades would show an issue.
 
 ## Real Results From KIDUART Schools
 
@@ -232,10 +232,88 @@ KIDUORBIT is built with privacy by design. All analysis is anonymous in processi
 
 ## What Happens After a Flag?
 
-KIDUORBIT doesn't just raise an alert — it suggests intervention strategies based on what has worked for similar students in similar situations. Teachers receive actionable recommendations, not just data.`,
+KIDUORBIT doesn't just raise an alert â€” it suggests intervention strategies based on what has worked for similar students in similar situations. Teachers receive actionable recommendations, not just data.`,
     relatedSlugs: ["ai-in-education-2026", "school-erp-benefits", "student-data-management"]
   }
 };
+
+function renderInline(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+
+  return parts.filter(Boolean).map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={`${part}-${index}`} className="font-semibold text-brand-navy">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+
+    return <React.Fragment key={`${part}-${index}`}>{part}</React.Fragment>;
+  });
+}
+
+function renderContentBlocks(text: string) {
+  return text
+    .trim()
+    .split("\n\n")
+    .map((block, index) => {
+      const lines = block.split("\n").filter(Boolean);
+      const firstLine = lines[0] ?? "";
+
+      if (firstLine.startsWith("## ")) {
+        const heading = firstLine.replace("## ", "").trim();
+        return (
+          <section key={`h2-${index}`} className="scroll-mt-32">
+            <h2
+              id={heading.toLowerCase().replace(/\s+/g, "-")}
+              className="mt-12 border-b border-brand-navy/10 pb-4 text-[clamp(1.7rem,1.35rem+1vw,2.4rem)] font-bold text-brand-navy"
+            >
+              {heading}
+            </h2>
+          </section>
+        );
+      }
+
+      if (firstLine.startsWith("### ")) {
+        return (
+          <h3 key={`h3-${index}`} className="mt-10 text-[clamp(1.3rem,1.15rem+0.55vw,1.75rem)] font-semibold text-brand-navy">
+            {firstLine.replace("### ", "").trim()}
+          </h3>
+        );
+      }
+
+      if (lines.every((line) => line.startsWith("- "))) {
+        return (
+          <ul key={`ul-${index}`} className="space-y-3 rounded-[1.5rem] border border-brand-navy/10 bg-brand-beige/20 p-6">
+            {lines.map((line, lineIndex) => (
+              <li key={`li-${lineIndex}`} className="ml-5 list-disc text-[clamp(1rem,0.95rem+0.25vw,1.08rem)] leading-8 text-brand-navy/80 marker:text-brand-teal">
+                {renderInline(line.replace("- ", "").trim())}
+              </li>
+            ))}
+          </ul>
+        );
+      }
+
+      if (lines.every((line) => /^\d+\.\s/.test(line))) {
+        return (
+          <ol key={`ol-${index}`} className="space-y-3 rounded-[1.5rem] border border-brand-navy/10 bg-white p-6 shadow-sm">
+            {lines.map((line, lineIndex) => (
+              <li key={`ol-li-${lineIndex}`} className="ml-5 list-decimal text-[clamp(1rem,0.95rem+0.25vw,1.08rem)] leading-8 text-brand-navy/80 marker:font-semibold marker:text-brand-teal">
+                {renderInline(line.replace(/^\d+\.\s/, "").trim())}
+              </li>
+            ))}
+          </ol>
+        );
+      }
+
+      return (
+        <p key={`p-${index}`} className="text-[clamp(1rem,0.95rem+0.25vw,1.08rem)] leading-8 text-brand-navy/80">
+          {renderInline(lines.join(" "))}
+        </p>
+      );
+    });
+}
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -243,84 +321,55 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <PageTransition className="pt-32 pb-24 text-center min-h-[60vh] flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold text-brand-navy mb-6">Article Not Found</h1>
-        <p className="text-xl text-brand-navy/70 mb-8">The blog post you are looking for doesn't exist.</p>
-        <Link href="/blog" className="px-8 py-4 rounded-full bg-brand-navy text-white font-bold inline-flex items-center gap-2">
-          <ArrowLeft className="w-5 h-5" /> Back to Blog
+      <PageTransition className="flex min-h-[60vh] flex-col items-center justify-center pt-32 pb-24 text-center">
+        <h1 className="mb-6 text-4xl font-bold text-brand-navy">Article Not Found</h1>
+        <p className="mb-8 text-xl text-brand-navy/70">The blog post you are looking for doesn't exist.</p>
+        <Link href="/blog" className="inline-flex items-center gap-2 rounded-full bg-brand-navy px-8 py-4 font-bold text-white">
+          <ArrowLeft className="h-5 w-5" /> Back to Blog
         </Link>
       </PageTransition>
     );
   }
 
-  // Parse headers for TOC
-  const headers = post.content.split('\\n').filter((line: string) => line.startsWith('## ')).map((line: string) => line.replace('## ', '').trim());
-
-  // Render markdown content
-  const renderContent = (text: string) => {
-    return text.split('\\n').map((line: string, index: number) => {
-      if (line.startsWith('### ')) {
-        return <h3 key={index} className="text-2xl font-bold text-brand-navy mt-8 mb-4">{line.replace('### ', '')}</h3>;
-      }
-      if (line.startsWith('## ')) {
-        return <h2 key={index} id={line.replace('## ', '').trim().toLowerCase().replace(/\\s+/g, '-')} className="text-3xl font-bold text-brand-navy mt-12 mb-6 border-b border-brand-navy/10 pb-4">{line.replace('## ', '')}</h2>;
-      }
-      if (line.startsWith('- ')) {
-        return <li key={index} className="ml-6 mb-2 text-brand-navy/80 text-lg list-disc">{line.replace('- ', '').replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>')}</li>;
-      }
-      if (line.trim() === '') {
-        return <br key={index} />;
-      }
-      
-      // Handle bold text
-      const parts = line.split(/\\*\\*(.*?)\\*\\*/g);
-      if (parts.length > 1) {
-        return (
-          <p key={index} className="text-lg text-brand-navy/80 mb-6 leading-relaxed">
-            {parts.map((part, i) => i % 2 === 1 ? <strong key={i} className="text-brand-navy font-bold">{part}</strong> : part)}
-          </p>
-        );
-      }
-      
-      return <p key={index} className="text-lg text-brand-navy/80 mb-6 leading-relaxed">{line}</p>;
-    });
-  };
+  const headers = post.content
+    .split("\n")
+    .filter((line: string) => line.startsWith("## "))
+    .map((line: string) => line.replace("## ", "").trim());
 
   return (
-    <PageTransition className="pt-20 pb-0 tooo">
-      {/* Article Hero */}
-      <section className="bg-brand-beige/30 py-16 lg:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <PageTransition className="pt-20 pb-0">
+      <section className="section-space-tight bg-brand-beige/30">
+        <div className="reading-shell text-center">
           <SectionReveal>
-            <Link href="/blog" className="inline-flex items-center text-brand-teal font-bold mb-8 hover:underline">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Blog
+            <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-brand-teal transition-colors hover:text-brand-navy">
+              <ArrowLeft className="h-4 w-4" /> Back to Blog
             </Link>
-            
-            <div className="mb-6">
-              <span className="px-4 py-1.5 rounded-full bg-brand-navy text-white text-sm font-bold shadow-sm">
-                {post.category}
-              </span>
+
+            <div className="mt-8 inline-flex rounded-full bg-brand-navy px-4 py-1.5 text-sm font-bold text-white shadow-sm">
+              {post.category}
             </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy mb-8 leading-tight">
+
+            <h1 className="mt-6 text-[clamp(2.2rem,1.35rem+3vw,4.6rem)] font-extrabold leading-[0.96] text-brand-navy">
               {post.title}
             </h1>
-            
-            <div className="flex flex-wrap items-center justify-center gap-6 text-brand-navy/60 font-medium">
+
+            <p className="mx-auto mt-6 max-w-3xl text-[clamp(1.05rem,0.96rem+0.3vw,1.18rem)] leading-8 text-brand-navy/70">
+              {post.excerpt}
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm font-medium text-brand-navy/60 sm:gap-6">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal font-bold border border-brand-teal/30">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-teal/30 bg-brand-teal/15 font-bold text-brand-teal">
                   {post.author.charAt(0)}
                 </div>
                 <span>{post.author}</span>
               </div>
-              <span className="hidden sm:block w-1 h-1 rounded-full bg-brand-navy/30"></span>
               <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5" />
+                <Calendar className="h-4 w-4" />
                 <span>{post.date}</span>
               </div>
-              <span className="hidden sm:block w-1 h-1 rounded-full bg-brand-navy/30"></span>
               <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
+                <Clock className="h-4 w-4" />
                 <span>{post.readTime}</span>
               </div>
             </div>
@@ -328,106 +377,96 @@ export default function BlogPost() {
         </div>
       </section>
 
-      {/* Featured Image Placeholder */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
+      <section className="page-shell relative z-10 -mt-6 sm:-mt-8">
         <SectionReveal>
-          <div className="w-full h-[400px] md:h-[500px] rounded-3xl bg-gradient-to-tr from-brand-teal to-brand-navy shadow-2xl overflow-hidden border-4 border-white flex items-center justify-center">
-            <span className="text-white/20 font-bold text-4xl">Featured Image</span>
+          <div className="overflow-hidden rounded-[2rem] border border-white/60 bg-[linear-gradient(135deg,hsl(var(--brand-teal)),hsl(var(--brand-navy)))] px-8 py-12 shadow-[0_30px_80px_rgba(0,48,73,0.16)] sm:px-12 sm:py-16">
+            <div className="mx-auto max-w-4xl rounded-[1.75rem] border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm">
+              <div className="text-xs font-semibold uppercase tracking-[0.3em] text-white/55">Featured topic</div>
+              <div className="mt-5 text-[clamp(1.8rem,1.1rem+1.4vw,2.8rem)] font-bold leading-tight text-white">{post.category}</div>
+              <p className="mx-auto mt-5 max-w-2xl text-[clamp(1rem,0.94rem+0.25vw,1.08rem)] leading-8 text-white/75">
+                Structured for quick reading, better scanning, and a cleaner reading rhythm across desktop and mobile screens.
+              </p>
+            </div>
           </div>
         </SectionReveal>
       </section>
 
-      {/* Article Body */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-16">
-            
-            {/* Sidebar TOC & Share */}
-            <div className="lg:w-1/4 hidden lg:block">
-              <div className="sticky top-32">
+      <section className="section-space bg-white">
+        <div className="page-shell">
+          <div className="grid gap-10 xl:grid-cols-[17rem_minmax(0,1fr)]">
+            <aside className="hidden xl:block">
+              <div className="sticky top-28 space-y-6">
                 {headers.length > 0 && (
-                  <div className="mb-10">
-                    <h3 className="text-sm font-bold text-brand-navy uppercase tracking-wider mb-4">In this article</h3>
-                    <ul className="space-y-3 border-l-2 border-brand-navy/10 pl-4">
-                      {headers.map((h: string, i: number) => (
-                        <li key={i}>
-                          <a href={`#${h.toLowerCase().replace(/\\s+/g, '-')}`} className="text-brand-navy/60 hover:text-brand-teal transition-colors text-sm font-medium block">
-                            {h}
+                  <div className="rounded-[1.75rem] border border-brand-navy/10 bg-brand-beige/25 p-6">
+                    <h2 className="text-xs font-bold uppercase tracking-[0.24em] text-brand-teal">In this article</h2>
+                    <ul className="mt-5 space-y-3">
+                      {headers.map((header: string) => (
+                        <li key={header}>
+                          <a href={`#${header.toLowerCase().replace(/\s+/g, "-")}`} className="text-sm font-medium leading-6 text-brand-navy/70 transition-colors hover:text-brand-teal">
+                            {header}
                           </a>
                         </li>
                       ))}
                     </ul>
                   </div>
                 )}
-                
-                <div>
-                  <h3 className="text-sm font-bold text-brand-navy uppercase tracking-wider mb-4">Share</h3>
-                  <div className="flex gap-3">
-                    <button className="w-10 h-10 rounded-full bg-brand-beige/50 flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors">
-                      <Twitter className="w-4 h-4" />
-                    </button>
-                    <button className="w-10 h-10 rounded-full bg-brand-beige/50 flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors">
-                      <Linkedin className="w-4 h-4" />
-                    </button>
-                    <button className="w-10 h-10 rounded-full bg-brand-beige/50 flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors">
-                      <Facebook className="w-4 h-4" />
-                    </button>
-                    <button className="w-10 h-10 rounded-full bg-brand-beige/50 flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors">
-                      <LinkIcon className="w-4 h-4" />
-                    </button>
+
+                <div className="rounded-[1.75rem] border border-brand-navy/10 bg-white p-6 shadow-sm">
+                  <h2 className="text-xs font-bold uppercase tracking-[0.24em] text-brand-teal">Share article</h2>
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    {[Twitter, Linkedin, Facebook, LinkIcon].map((Icon, index) => (
+                      <button
+                        key={index}
+                        className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-beige/55 text-brand-navy transition-colors hover:bg-brand-navy hover:text-white"
+                      >
+                        <Icon className="h-4 w-4" />
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
+            </aside>
 
-            {/* Main Content */}
-            <div className="lg:w-3/4 max-w-3xl">
+            <main className="min-w-0">
               <SectionReveal>
-                <div className="prose prose-lg prose-brand-navy max-w-none">
-                  <p className="text-2xl text-brand-navy font-medium leading-relaxed mb-12">
-                    {post.excerpt}
-                  </p>
-                  
-                  {renderContent(post.content)}
-                </div>
+                <article className="reading-shell rounded-[2rem] border border-brand-navy/10 bg-white p-6 shadow-[0_18px_50px_rgba(0,48,73,0.06)] sm:p-8 lg:p-10">
+                  <div className="space-y-6">
+                    {renderContentBlocks(post.content)}
+                  </div>
+                </article>
               </SectionReveal>
 
-              {/* Mobile Share */}
-              <div className="mt-16 pt-8 border-t border-brand-navy/10 lg:hidden">
-                <h3 className="text-sm font-bold text-brand-navy uppercase tracking-wider mb-4">Share this article</h3>
-                <div className="flex gap-3">
-                  <button className="w-12 h-12 rounded-full bg-brand-beige/50 flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors">
-                    <Twitter className="w-5 h-5" />
-                  </button>
-                  <button className="w-12 h-12 rounded-full bg-brand-beige/50 flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors">
-                    <Linkedin className="w-5 h-5" />
-                  </button>
-                  <button className="w-12 h-12 rounded-full bg-brand-beige/50 flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors">
-                    <Facebook className="w-5 h-5" />
-                  </button>
+              <div className="reading-shell mt-10 rounded-[1.75rem] border border-brand-navy/10 bg-brand-teal px-6 py-8 text-white shadow-lg xl:hidden">
+                <h2 className="text-sm font-bold uppercase tracking-[0.24em] text-white/70">Share this article</h2>
+                <div className="mt-5 flex gap-3">
+                  {[Twitter, Linkedin, Facebook].map((Icon, index) => (
+                    <button key={index} className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white hover:text-brand-navy">
+                      <Icon className="h-5 w-5" />
+                    </button>
+                  ))}
                 </div>
               </div>
-            </div>
-            
+            </main>
           </div>
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="py-20 bg-brand-teal text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="section-space-tight bg-brand-teal text-white">
+        <div className="reading-shell text-center">
           <SectionReveal>
-            <Mail className="w-12 h-12 text-white/80 mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Enjoying this content?</h2>
-            <p className="text-xl text-white/80 mb-8">Subscribe to our newsletter for more insights on education technology.</p>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="flex-1 bg-white/10 border border-white/20 rounded-xl px-6 py-4 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white"
+            <Mail className="mx-auto h-12 w-12 text-white/80" />
+            <h2 className="mt-6 text-[clamp(2rem,1.3rem+1.8vw,3.2rem)] font-bold leading-tight">Enjoying this content?</h2>
+            <p className="mt-4 text-[clamp(1rem,0.95rem+0.25vw,1.1rem)] leading-8 text-white/80">
+              Subscribe to our newsletter for more insights on education technology.
+            </p>
+            <form className="mx-auto mt-8 flex max-w-xl flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="h-14 flex-1 rounded-xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white"
                 required
               />
-              <button type="submit" className="px-8 py-4 rounded-xl bg-brand-navy text-white font-bold hover:bg-white hover:text-brand-navy transition-all shadow-lg">
+              <button type="submit" className="rounded-xl bg-brand-navy px-8 py-4 font-bold text-white shadow-lg transition-all hover:bg-white hover:text-brand-navy">
                 Subscribe
               </button>
             </form>
@@ -435,34 +474,33 @@ export default function BlogPost() {
         </div>
       </section>
 
-      {/* Related Articles */}
-      <section className="py-24 bg-brand-beige/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-space bg-brand-beige/20">
+        <div className="page-shell">
           <SectionReveal className="mb-12">
-            <h2 className="text-3xl font-bold text-brand-navy">Related Articles</h2>
+            <div className="section-kicker">Continue reading</div>
+            <h2 className="mt-6 text-[clamp(1.8rem,1.3rem+1.2vw,2.8rem)] font-bold text-brand-navy">Related articles</h2>
           </SectionReveal>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {post.relatedSlugs.map((slug: string, idx: number) => {
-              const relatedPost = blogData[slug];
+
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {post.relatedSlugs.map((relatedSlug: string, index: number) => {
+              const relatedPost = blogData[relatedSlug];
               if (!relatedPost) return null;
+
               return (
-                <SectionReveal key={slug} delay={idx * 0.1}>
-                  <Link href={`/blog/${slug}`} className="bg-white rounded-2xl shadow-lg shadow-brand-navy/5 border border-brand-navy/5 overflow-hidden flex flex-col h-full group hover:-translate-y-1 transition-transform block">
-                    <div className="h-48 bg-gradient-to-br from-brand-navy/20 to-brand-teal/20 relative p-6 flex items-end">
-                      <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold bg-white text-brand-navy shadow-sm">
+                <SectionReveal key={relatedSlug} delay={index * 0.1}>
+                  <Link href={`/blog/${relatedSlug}`} className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-brand-navy/10 bg-white shadow-lg shadow-brand-navy/5 transition-transform hover:-translate-y-1">
+                    <div className="relative h-44 bg-[linear-gradient(135deg,hsl(var(--brand-navy))/0.18,hsl(var(--brand-teal))/0.2)] p-6">
+                      <div className="inline-flex rounded-full bg-white px-3 py-1 text-xs font-bold text-brand-navy shadow-sm">
                         {relatedPost.category}
                       </div>
                     </div>
-                    <div className="p-6 flex flex-col flex-grow">
-                      <h3 className="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-teal transition-colors">
+                    <div className="flex flex-grow flex-col p-6">
+                      <h3 className="mb-3 text-[clamp(1.15rem,1rem+0.45vw,1.4rem)] font-bold text-brand-navy transition-colors group-hover:text-brand-teal">
                         {relatedPost.title}
                       </h3>
-                      <p className="text-brand-navy/70 text-sm mb-6 flex-grow line-clamp-3">
-                        {relatedPost.excerpt}
-                      </p>
-                      <div className="flex items-center gap-2 font-bold text-brand-teal mt-auto">
-                        Read Article <ArrowRight className="w-4 h-4" />
+                      <p className="section-copy mb-6 flex-grow text-brand-navy/70 line-clamp-3">{relatedPost.excerpt}</p>
+                      <div className="mt-auto inline-flex items-center gap-2 font-bold text-brand-teal">
+                        Read Article <ArrowRight className="h-4 w-4" />
                       </div>
                     </div>
                   </Link>

@@ -1,6 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
-import { HeroSection } from "@/components/ui/HeroSection";
+import { AgencySplitHero } from "@/components/ui/CustomHeroes";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Rocket, Heart, BookOpen, Laptop, Briefcase, Smile, MapPin, Building2, Clock, CheckCircle } from "lucide-react";
@@ -24,11 +24,18 @@ export default function Careers() {
 
   return (
     <PageTransition className="pt-20 pb-0 tooo">
-      <HeroSection
+      <AgencySplitHero
+        eyebrow="17 years of experience"
         title="Build the Future of Education With Us"
         subtitle="Join a passionate team dedicated to removing administrative friction so educators can focus on what matters most: teaching."
-        image="https://plus.unsplash.com/premium_photo-1682310075673-b408eb1ca6fd?q=80&w=1812&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        layout="center"
+        image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1400"
+        actions={(
+          <>
+            <a href="#open-roles" className="rounded-full bg-brand-navy px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-teal">
+              Read More
+            </a>
+          </>
+        )}
       />
 
       {/* Why work with us */}

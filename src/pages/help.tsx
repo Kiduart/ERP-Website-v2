@@ -1,5 +1,5 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
-import { HeroSection } from "@/components/ui/HeroSection";
+import { PlayfulSplitHero } from "@/components/ui/CustomHeroes";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Search, Play, Settings, Users, BarChart3, ArrowRight, MessageCircle, Ticket, Mail, X } from "lucide-react";
@@ -29,11 +29,21 @@ export default function HelpCenter() {
 
   return (
     <PageTransition className="pt-20 pb-0 tooo">
-      <HeroSection
+      <PlayfulSplitHero
+        eyebrow="Helpful IT solutions"
         title="How Can We Help You?"
         subtitle="Search guides, troubleshooting articles, and support resources for every part of your KIDUART ERP journey."
-        image="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&q=80"
-        layout="center"
+        image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1400"
+        actions={(
+          <>
+            <button className="rounded-full bg-brand-teal px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-navy">
+              Schedule A Call
+            </button>
+            <button className="rounded-full bg-white px-7 py-3.5 text-sm font-bold text-brand-navy shadow-sm transition-colors hover:text-brand-teal">
+              Watch Videos
+            </button>
+          </>
+        )}
       />
 
       {/* Categories */}

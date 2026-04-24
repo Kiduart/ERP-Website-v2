@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { Link } from "wouter";
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
-import { HeroSection } from "@/components/ui/HeroSection";
+import { HomeCurveHero } from "@/components/ui/CustomHeroes";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { pricingPlans } from "@/data/pricing";
@@ -184,71 +184,79 @@ export default function Home() {
         />
       </Head>
 
-      <PageTransition className="pt-20 pb-0">
-        <HeroSection
+      <PageTransition className="pt-0 pb-0">
+        <HomeCurveHero
           title="AI-Powered School ERP Software for Smart School Management"
           subtitle="Manage admissions, fees, attendance, exams & communication — all in one platform designed for modern schools."
           image="https://plus.unsplash.com/premium_photo-1764691435961-ecb3a0a5d311?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0"
-          layout="center"
-          floatingIcons={["LayoutDashboard", "Users", "BarChart2"]}
-        >
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          actions={(
+            <>
             <Link
               href="/demo"
-              className="px-8 py-4 rounded-full bg-white text-brand-navy font-bold text-lg hover:bg-brand-beige shadow-xl transition-all duration-300 hover:-translate-y-1 text-center"
+              className="rounded-full bg-white px-8 py-4 text-center text-lg font-bold text-brand-navy shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-brand-beige"
             >
               Get Free Demo
             </Link>
             <Link
               href="/pricing"
-              className="px-8 py-4 rounded-full border border-white/20 bg-white/10 text-white font-bold text-lg hover:bg-white/15 transition-all duration-300 flex items-center justify-center gap-2 group"
+              className="flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:bg-white/15"
             >
-              Start Free Trial <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Start Free Trial <ArrowRight className="h-5 w-5" />
             </Link>
-          </div>
-        </HeroSection>
+            </>
+          )}
+        />
 
-        <section className="py-12 bg-white border-y border-brand-navy/5 relative overflow-hidden">
+        <section className="section-space-tight relative overflow-hidden border-y border-brand-navy/5 bg-white">
           <BackgroundBlobs
             blobs={[
-              { color: "#fcbf49", size: 300, position: "center-left", opacity: 0.15 },
-              { color: "#0c716b", size: 300, position: "center-right", opacity: 0.15 },
+              { color: "hsl(var(--blob-yellow))", size: 300, position: "center-left", opacity: 0.15 },
+              { color: "hsl(var(--blob-teal))", size: 300, position: "center-right", opacity: 0.15 },
             ]}
           />
           <FloatingIcons icons={["Calculator", "BarChart2"]} count={4} />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <SectionReveal className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-brand-navy/5 text-center">
+          <div className="page-shell relative z-10">
+            <SectionReveal className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="section-kicker">Connected school ERP impact</div>
+              <h2 className="section-title mt-6 text-brand-navy">The operating numbers school leaders care about first</h2>
+              <p className="section-copy mt-4 text-brand-navy/70">
+                Each metric highlights what this platform actually improves across admissions, academics, parent communication, and collections.
+              </p>
+            </SectionReveal>
+            <SectionReveal className="grid grid-cols-2 gap-4 text-center md:grid-cols-4 md:gap-6">
               {[
-                { label: "Students Managed", value: 10000, suffix: "+" },
-                { label: "Teachers Using Platform", value: 500, suffix: "+" },
-                { label: "Operational Workflows", value: 25, suffix: "+" },
-                { label: "Platform Uptime", value: 99.9, suffix: "%" },
+                { label: "Student records managed", area: "School operations", value: 10000, suffix: "+" },
+                { label: "Teachers using dashboards", area: "Daily usage", value: 500, suffix: "+" },
+                { label: "Automated workflows", area: "ERP automation", value: 25, suffix: "+" },
+                { label: "Platform uptime", area: "Reliability", value: 99.9, suffix: "%" },
               ].map((stat, idx) => (
-                <div key={idx} className="px-4">
-                  <div className="text-3xl lg:text-4xl font-extrabold text-brand-navy mb-2">
+                <div key={idx} className="rounded-3xl border border-brand-navy/10 bg-brand-beige/20 px-4 py-6 shadow-sm">
+                  <div className="text-xs font-semibold uppercase tracking-[0.24em] text-brand-teal/80">{stat.area}</div>
+                  <div className="stat-value mt-4 font-extrabold text-brand-navy">
                     {stat.value}
                     {stat.suffix}
                   </div>
-                  <div className="text-sm font-medium text-brand-navy/60 uppercase tracking-wider">{stat.label}</div>
+                  <div className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-brand-navy/55">{stat.label}</div>
                 </div>
               ))}
             </SectionReveal>
           </div>
         </section>
 
-        <section className="py-24 bg-brand-beige/30 relative overflow-hidden">
+        <section className="section-space relative overflow-hidden bg-brand-beige/30">
           <BackgroundBlobs
             blobs={[
-              { color: "#f77f00", size: 400, position: "top-right", opacity: 0.15 },
-              { color: "#003049", size: 400, position: "bottom-left", opacity: 0.12 },
+              { color: "hsl(var(--blob-orange))", size: 400, position: "top-right", opacity: 0.15 },
+              { color: "hsl(var(--brand-navy))", size: 400, position: "bottom-left", opacity: 0.12 },
             ]}
           />
           <FloatingIcons icons={["Users", "Calendar", "CreditCard", "MessageSquare", "PieChart"]} count={5} />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <SectionReveal className="text-center max-w-4xl mx-auto mb-16">
-              <h2 className="text-4xl font-bold text-brand-navy mb-4">School ERP Software India teams can actually use every day</h2>
-              <p className="text-lg text-brand-navy/70">
+          <div className="page-shell relative z-10">
+            <SectionReveal className="mx-auto mb-16 max-w-4xl text-center">
+              <div className="section-kicker">Connected school ERP features</div>
+              <h2 className="section-title mt-6 text-brand-navy">School ERP software India teams can actually use every day</h2>
+              <p className="section-copy mt-4 text-brand-navy/70">
                 Explore the core modules inside our school management software, built to reduce admin workload and improve visibility across your institution.
               </p>
             </SectionReveal>
@@ -263,8 +271,8 @@ export default function Home() {
                     <div className={`w-14 h-14 rounded-xl ${feature.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                       <feature.icon className={`w-7 h-7 ${feature.color}`} />
                     </div>
-                    <h3 className="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-teal transition-colors">{feature.title}</h3>
-                    <p className="text-brand-navy/70 leading-relaxed">{feature.desc}</p>
+                    <h3 className="text-[clamp(1.15rem,1rem+0.45vw,1.4rem)] font-bold text-brand-navy mb-3 group-hover:text-brand-teal transition-colors">{feature.title}</h3>
+                    <p className="section-copy text-brand-navy/70">{feature.desc}</p>
                   </Link>
                 </SectionReveal>
               ))}
@@ -272,26 +280,26 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 bg-brand-navy text-white overflow-hidden relative" style={{ color: "#fcf6d3" }}>
+        <section className="section-space relative overflow-hidden bg-brand-navy text-white" style={{ color: "rgb(var(--hero-foreground-rgb))" }}>
           <BackgroundBlobs
             blobs={[
-              { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.15 },
-              { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.15 },
+              { color: "hsl(var(--blob-yellow))", size: 400, position: "top-left", opacity: 0.15 },
+              { color: "hsl(var(--blob-teal))", size: 400, position: "bottom-right", opacity: 0.15 },
             ]}
           />
           <FloatingIcons icons={["Brain", "Atom", "Lightbulb"]} count={4} />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
-            <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-brand-teal rounded-full blur-[100px]" />
-            <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-brand-orange rounded-full blur-[100px]" />
+            <div className="absolute top-[-10%] right-[-5%] w-96 h-96 rounded-full bg-brand-teal blur-[100px]" />
+            <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 rounded-full bg-brand-orange blur-[100px]" />
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <SectionReveal className="text-center max-w-3xl mx-auto mb-16">
+          <div className="page-shell relative z-10">
+            <SectionReveal className="mx-auto mb-16 max-w-3xl text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-brand-yellow font-semibold text-sm mb-6 border border-white/20">
                 Practical AI for School Teams
               </div>
-              <h2 className="text-4xl font-bold mb-4 text-brand-beige">How AI Helps Your School</h2>
-              <p className="text-lg" style={{ color: "rgba(252,246,211,0.7)" }}>
+              <h2 className="section-title mb-4 text-brand-beige">How AI helps your school teams work faster</h2>
+              <p className="section-copy" style={{ color: "rgb(var(--hero-muted-rgb) / 0.7)" }}>
                 AI should not feel like a buzzword. It should help admins, teachers, and finance teams act faster on real school workflows.
               </p>
             </SectionReveal>
@@ -307,8 +315,8 @@ export default function Home() {
                     <item.icon className="w-6 h-6 text-brand-yellow" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-brand-beige">{item.title}</h3>
-                    <p style={{ color: "#fcf6d3b3" }}>{item.desc}</p>
+                    <h3 className="text-[clamp(1.1rem,0.98rem+0.45vw,1.35rem)] font-bold mb-2 text-brand-beige">{item.title}</h3>
+                    <p className="section-copy" style={{ color: "rgb(var(--hero-muted-rgb) / 0.7)" }}>{item.desc}</p>
                   </div>
                 </SectionReveal>
               ))}
@@ -316,7 +324,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="section-space relative overflow-hidden bg-white">
           <BackgroundBlobs
             blobs={[
               { color: "#0c716b", size: 400, position: "top-left", opacity: 0.15 },
@@ -324,10 +332,10 @@ export default function Home() {
             ]}
           />
           <FloatingIcons icons={["CheckCircle2", "Users", "Star"]} count={4} />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="page-shell relative z-10">
             <SectionReveal className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-brand-navy mb-4">How It Works</h2>
-              <p className="text-lg text-brand-navy/70 max-w-3xl mx-auto">
+              <h2 className="section-title text-brand-navy mb-4">How it works</h2>
+              <p className="section-copy text-brand-navy/70 max-w-3xl mx-auto">
                 Launch your school management software in three practical steps without overwhelming your team.
               </p>
             </SectionReveal>
@@ -336,8 +344,8 @@ export default function Home() {
               {howItWorks.map((item, idx) => (
                 <SectionReveal key={item.step} delay={idx * 0.08} className="rounded-3xl border border-brand-navy/10 bg-brand-beige/20 p-8">
                   <div className="text-sm font-bold tracking-[0.25em] text-brand-teal uppercase">{item.step}</div>
-                  <h3 className="mt-4 text-2xl font-bold text-brand-navy">{item.title}</h3>
-                  <p className="mt-4 text-brand-navy/70 leading-7">{item.desc}</p>
+                  <h3 className="mt-4 text-[clamp(1.3rem,1.1rem+0.6vw,1.8rem)] font-bold text-brand-navy">{item.title}</h3>
+                  <p className="section-copy mt-4 text-brand-navy/70">{item.desc}</p>
                 </SectionReveal>
               ))}
             </div>

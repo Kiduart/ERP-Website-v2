@@ -1,6 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
-import { HeroSection } from "@/components/ui/HeroSection";
+import { CircleShowcaseHero } from "@/components/ui/CustomHeroes";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { BookOpen, MessageSquare, CreditCard, PieChart, Code2, Blocks, Zap } from "lucide-react";
@@ -52,11 +52,27 @@ export default function Integrations() {
 
   return (
     <PageTransition className="pt-20 pb-0 tooo">
-      <HeroSection
+      <CircleShowcaseHero
+        eyebrow="School ERP integrations"
         title="Connect Your School Tools"
         subtitle="KIDUART plays nicely with the software you already use. Sync your data across platforms to create a unified ecosystem."
         image="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&q=80"
-        layout="center"
+        actions={(
+          <>
+            <Link
+              href="/contact"
+              className="rounded-full bg-brand-orange px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-navy"
+            >
+              Request Integration Help
+            </Link>
+            <Link
+              href="/integrations/api-docs"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-navy/12 bg-white px-7 py-3.5 text-sm font-bold text-brand-navy transition-colors hover:border-brand-teal hover:text-brand-teal"
+            >
+              View API Docs
+            </Link>
+          </>
+        )}
       />
 
       <section className="py-24 bg-white relative overflow-hidden">

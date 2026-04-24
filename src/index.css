@@ -58,7 +58,17 @@
   --a11y-letter-spacing: 0em;
   --a11y-text-align: left;
   --a11y-font-family: 'Inter', sans-serif;
-  --layout-width-scale: 1.5;
+  --layout-width-scale: 1;
+  --container-max: 80rem;
+  --content-max: 48rem;
+  --container-gutter: clamp(1rem, 3vw, 2rem);
+  --section-space: clamp(4rem, 8vw, 7rem);
+  --section-space-tight: clamp(3rem, 6vw, 5rem);
+  --hero-foreground-rgb: 252 246 211;
+  --hero-muted-rgb: 252 246 211;
+  --blob-yellow: 40 97% 64%;
+  --blob-teal: 177 81% 25%;
+  --blob-orange: 30 100% 48%;
 }
 
 @layer base {
@@ -66,7 +76,7 @@
     @apply border-border;
   }
   html {
-    font-size: calc(16px * var(--a11y-font-scale));
+    font-size: calc(14px * var(--a11y-font-scale));
   }
   body {
     @apply antialiased bg-background text-foreground;
@@ -76,7 +86,7 @@
     text-align: var(--a11y-text-align);
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight text-brand-navy;
+    @apply font-bold tracking-tight;
   }
   input,
   textarea,
@@ -125,6 +135,53 @@
 }
 
 @layer utilities {
+  .page-shell {
+    width: min(var(--container-max), calc(100% - (var(--container-gutter) * 2)));
+    margin-inline: auto;
+  }
+  .reading-shell {
+    width: min(var(--content-max), calc(100% - (var(--container-gutter) * 2)));
+    margin-inline: auto;
+  }
+  .section-space {
+    padding-block: var(--section-space);
+  }
+  .section-space-tight {
+    padding-block: var(--section-space-tight);
+  }
+  .surface-light {
+    color: hsl(var(--brand-navy));
+  }
+  .surface-light :is(h1, h2, h3, h4, h5, h6) {
+    color: hsl(var(--brand-navy));
+  }
+  .surface-light :is(p, li, span, small, label) {
+    color: color-mix(in srgb, hsl(var(--brand-navy)) 78%, transparent);
+  }
+  .surface-dark {
+    color: hsl(var(--brand-beige));
+  }
+  .surface-dark :is(h1, h2, h3, h4, h5, h6) {
+    color: hsl(var(--brand-beige));
+  }
+  .surface-dark :is(p, li, span, small, label) {
+    color: rgb(var(--hero-muted-rgb) / 0.82);
+  }
+  .section-kicker {
+    @apply inline-flex items-center rounded-full border border-brand-navy/10 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-brand-teal;
+  }
+  .section-title {
+    font-size: clamp(1.65rem, 1.2rem + 1.35vw, 2rem);
+    line-height: 1.08;
+  }
+  .section-copy {
+    font-size: clamp(0.98rem, 0.94rem + 0.16vw, 1rem);
+    line-height: 1.72;
+  }
+  .stat-value {
+    font-size: clamp(1.7rem, 1.3rem + 1.2vw, 2rem);
+    line-height: 1;
+  }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-navy to-brand-teal;
   }

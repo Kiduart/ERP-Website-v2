@@ -1,6 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
-import { HeroSection } from "@/components/ui/HeroSection";
+import { PricingShowcaseHero } from "@/components/ui/CustomHeroes";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Check, Info, HelpCircle } from "lucide-react";
@@ -19,12 +19,10 @@ export default function Pricing() {
 
   return (
     <PageTransition className="pt-20 pb-0">
-      <HeroSection
+      <PricingShowcaseHero
+        eyebrow="Simple school ERP pricing"
         title="Simple Pricing for Schools"
         subtitle="No hidden fees, no complex tiers. Pay only for the active students enrolled in your institution."
-        image="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80"
-        layout="center"
-        floatingIcons={["LayoutDashboard", "Users", "BarChart2"]}
       />
 
       {/* Pricing Cards */}

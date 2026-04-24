@@ -1,5 +1,5 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
-import { HeroSection } from "@/components/ui/HeroSection";
+import { BankingContactHero } from "@/components/ui/CustomHeroes";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { PhoneCall, Mail, LifeBuoy, MapPin, Send } from "lucide-react";
@@ -7,11 +7,21 @@ import { PhoneCall, Mail, LifeBuoy, MapPin, Send } from "lucide-react";
 export default function Contact() {
   return (
     <PageTransition className="pt-20 pb-0 tooo">
-      <HeroSection
+      <BankingContactHero
+        eyebrow="Talk to our team"
         title="We're Here to Help"
         subtitle="Whether you're looking for a demo, need technical support, or have a general inquiry, our team is ready to assist."
-        image="https://plus.unsplash.com/premium_photo-1661645149911-76d82af38b36?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        layout="center"
+        image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1200"
+        actions={(
+          <>
+            <a href="mailto:sales@eduerp.com" className="rounded-full bg-brand-navy px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-teal">
+              Email Sales
+            </a>
+            <a href="mailto:support@eduerp.com" className="rounded-full border border-brand-navy/12 bg-white px-7 py-3.5 text-sm font-bold text-brand-navy transition-colors hover:border-brand-teal hover:text-brand-teal">
+              Contact Support
+            </a>
+          </>
+        )}
       />
 
       <section className="py-20 bg-white relative overflow-hidden">

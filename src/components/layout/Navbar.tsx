@@ -34,7 +34,9 @@ const DROPDOWNS = {
 
 export function Navbar() {
   const [location] = useLocation();
+  const isHomePage = location === "/" || location === "/home";
   const [scrolled, setScrolled] = useState(false);
+  const transparentMode = isHomePage && !scrolled;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -52,7 +54,7 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-brand-beige/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-3 "
+        transparentMode ? "bg-white/20 py-3" : "bg-brand-beige backdrop-blur-md shadow-md py-3"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,8 +72,12 @@ export function Navbar() {
                 href={link.href}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 ${
                   location === link.href
-                    ? "text-brand-teal bg-white/50"
-                    : "text-brand-navy hover:text-brand-teal hover:bg-white/30"
+                    ? transparentMode
+                      ? "text-brand-navy font-bolder bg-white/12"
+                      : "text-brand-teal bg-white/50"
+                    : transparentMode
+                      ? "text-brand-navy font-bolder hover:bg-white/40"
+                      : "text-brand-navy hover:text-brand-teal hover:bg-white/30"
                 }`}
               >
                 {link.label}
@@ -91,7 +97,9 @@ export function Navbar() {
                 onMouseEnter={() => setActiveDropdown(title)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-brand-navy hover:text-brand-teal hover:bg-white/30 transition-colors">
+                <button className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  transparentMode ? "text-brand-navy hover:bg-white/40" : "text-brand-navy hover:text-brand-teal hover:bg-white/30"
+                }`}>
                   {title} <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === title ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
@@ -123,19 +131,21 @@ export function Navbar() {
           <div className="flex items-center gap-4">
             <Link 
               href="/login" 
-              className="hidden md:block text-sm font-bold text-brand-navy hover:text-brand-teal transition-colors"
+              className={`hidden md:block text-sm font-bold transition-colors text-brand-navy hover:text-brand-teal`}
             >
               Login
             </Link>
             <Link
               href="/demo"
-              className="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-brand-navy text-white font-semibold text-sm hover:bg-brand-teal shadow-lg hover:shadow-brand-teal/25 transition-all duration-300 hover:-translate-y-0.5"
+              className={`hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg transition-all duration-300 hover:-translate-y-0.5 ${
+                 "bg-brand-navy text-white hover:bg-brand-teal hover:shadow-brand-teal/25"
+              }`}
             >
               Request Demo
             </Link>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 text-brand-navy hover:bg-white/50 rounded-lg"
+              className={`lg:hidden rounded-lg p-2 ${transparentMode ? "text-white hover:bg-white/12" : "text-brand-navy hover:bg-white/50"}`}
             >
               {mobileOpen ? <X /> : <Menu />}
             </button>

@@ -1,6 +1,6 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
-import { HeroSection } from "@/components/ui/HeroSection";
+import { TeamPanelsHero } from "@/components/ui/CustomHeroes";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Search, MapPin, TrendingUp, ArrowRight, FolderSearch } from "lucide-react";
@@ -113,11 +113,16 @@ export default function CustomerStories() {
 
   return (
     <PageTransition className="pt-20 pb-0 tooo">
-      <HeroSection
+      <TeamPanelsHero
+        eyebrow="Customer stories"
         title="Customer Success Stories"
         subtitle="See how educational institutions around the world are using KIDUART to transform their operations and improve outcomes."
-        image="https://plus.unsplash.com/premium_photo-1661439606291-a8cb589567bb?q=80&w=2660&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        layout="center"
+        image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200"
+        actions={(
+          <Link href="/demo" className="rounded-full bg-brand-navy px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-teal">
+            Get Started For Free
+          </Link>
+        )}
       />
 
       <section className="py-16 bg-brand-beige/20 min-h-[50vh] relative overflow-hidden">
