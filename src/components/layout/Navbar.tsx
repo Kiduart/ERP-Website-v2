@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 type NavLink = {
@@ -9,27 +9,122 @@ type NavLink = {
   badge?: string;
 };
 
+type DropdownItem = {
+  label: string;
+  href: string;
+  note?: string;
+};
+
+type DropdownGroup = {
+  title: string;
+  items: DropdownItem[];
+};
+
 const NAV_LINKS: NavLink[] = [
   { label: "Features", href: "/features" },
   { label: "Solutions", href: "/solutions" },
   { label: "Platform", href: "/platform" },
 ];
 
-const DROPDOWNS = {
+const DROPDOWNS: Record<string, DropdownGroup[]> = {
   Resources: [
-    { label: "Blog", href: "/blog" },
-    { label: "Help Center", href: "/help" },
-    { label: "Customer Stories", href: "/stories" },
+    {
+      title: "Insights",
+      items: [
+        { label: "Blog", href: "/blog", note: "Ideas, guides, and updates" },
+        { label: "Customer Stories", href: "/stories", note: "See real school outcomes" },
+      ],
+    },
+    {
+      title: "Support",
+      items: [
+        { label: "Help Center", href: "/help", note: "Docs, walkthroughs, and answers" },
+      ],
+    },
   ],
-  "More": [
-    { label: "Pricing", href: "/pricing" },
-    { label: "Security", href: "/security" },
-    { label: "Integrations", href: "/integrations" },
-    { label: "KIDUORBIT AI", href: "/kiduorbit" },
-    { label: "About", href: "/about" },
-    { label: "Careers", href: "/careers" },
-    { label: "Contact", href: "/contact" },
+  More: [
+    {
+      title: "Platform Add-ons",
+      items: [
+        { label: "Pricing", href: "/pricing", note: "Plans built for growing schools" },
+        { label: "Security", href: "/security", note: "Data, compliance, and trust" },
+        { label: "Integrations", href: "/integrations", note: "Connect your school stack" },
+        { label: "KIDUORBIT AI", href: "/kiduorbit", note: "Our AI workspace for schools" },
+      ],
+    },
+    {
+      title: "Company",
+      items: [
+        { label: "About", href: "/about", note: "Who we are building for" },
+        { label: "Careers", href: "/careers", note: "Join the team" },
+        { label: "Contact", href: "/contact", note: "Talk to KIDUART" },
+      ],
+    },
   ],
+};
+
+const dropdownPanelVariants: Variants = {
+  hidden: {
+    opacity: 1,
+    y: 10,
+    scaleY: 0,
+    scaleX: 1,
+    transformOrigin: "top center",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scaleY: 1,
+    scaleX: 1,
+    transformOrigin: "top center",
+    transition: {
+      duration: 0.32,
+      ease: [0.22, 1, 0.36, 1] as const,
+      when: "beforeChildren",
+      staggerChildren: 0.07,
+      delayChildren: 0.1,
+    },
+  },
+  exit: {
+    opacity: 1,
+    y: 8,
+    scaleY: 0,
+    scaleX: 1,
+    transformOrigin: "top center",
+    transition: { duration: 0.22, ease: [0.4, 0, 1, 1] as const },
+  },
+};
+
+const dropdownGroupVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 6,
+    clipPath: "inset(0 0 100% 0 round 1rem)",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    clipPath: "inset(0 0 0% 0 round 1rem)",
+    transition: {
+      duration: 0.3,
+      ease: [0.22, 1, 0.36, 1] as const,
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const dropdownItemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 4,
+    clipPath: "inset(0 0 100% 0 round 0.75rem)",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    clipPath: "inset(0 0 0% 0 round 0.75rem)",
+    transition: { duration: 0.24, ease: [0.22, 1, 0.36, 1] as const },
+  },
 };
 
 export function Navbar() {
@@ -90,7 +185,7 @@ export function Navbar() {
             ))}
 
             {/* Dropdowns */}
-            {Object.entries(DROPDOWNS).map(([title, items]) => (
+            {Object.entries(DROPDOWNS).map(([title, groups]) => (
               <div
                 key={title}
                 className="relative"
@@ -105,21 +200,47 @@ export function Navbar() {
                 <AnimatePresence>
                   {activeDropdown === title && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-1 w-48 glass-panel rounded-xl overflow-hidden py-2"
+                      variants={dropdownPanelVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      style={{ transformOrigin: "top center" }}
+                      className={`absolute top-full mt-3 overflow-hidden rounded-[1.5rem] border border-white/55 bg-white shadow-[0_26px_70px_rgba(0,48,73,0.16)] backdrop-blur-xl ${
+                        title === "More" ? "left-1/2 w-[34rem] -translate-x-1/2 p-4" : "left-0 w-[28rem] p-4"
+                      }`}
                     >
-                      {items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-4 py-2 text-sm text-brand-navy hover:bg-brand-beige/50 hover:text-brand-teal transition-colors"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
+                      <div className={`grid gap-4 ${groups.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
+                        {groups.map((group) => (
+                          <motion.div
+                            key={group.title}
+                            variants={dropdownGroupVariants}
+                            className="rounded-[1.15rem] border border-brand-navy/20 bg-white/72 p-3"
+                          >
+                            <div className="px-3 pb-2 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-teal/85">
+                              {group.title}
+                            </div>
+                            <div className="space-y-1">
+                              {group.items.map((item) => (
+                                <motion.div key={item.href} variants={dropdownItemVariants}>
+                                  <Link
+                                    href={item.href}
+                                    className="block rounded-[1rem] px-3 py-3 transition-colors hover:bg-brand-beige/65"
+                                  >
+                                    <div className="text-sm font-semibold text-brand-navy transition-colors hover:text-brand-teal">
+                                      {item.label}
+                                    </div>
+                                    {item.note && (
+                                      <div className="mt-1 text-xs leading-5 text-brand-navy/52">
+                                        {item.note}
+                                      </div>
+                                    )}
+                                  </Link>
+                                </motion.div>
+                              ))}
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -180,18 +301,27 @@ export function Navbar() {
                 ))}
               </div>
               
-              {Object.entries(DROPDOWNS).map(([title, items]) => (
+              {Object.entries(DROPDOWNS).map(([title, groups]) => (
                 <div key={title} className="space-y-2">
                   <h4 className="font-bold text-sm text-brand-teal px-2 uppercase tracking-wider">{title}</h4>
-                  <div className="grid grid-cols-2 gap-2">
-                    {items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block px-4 py-2 rounded-lg text-brand-navy hover:bg-brand-beige/50 text-sm"
-                      >
-                        {item.label}
-                      </Link>
+                  <div className="space-y-3">
+                    {groups.map((group) => (
+                      <div key={group.title} className="rounded-xl bg-brand-beige/25 p-3">
+                        <div className="px-1 pb-2 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-navy/55">
+                          {group.title}
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          {group.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="block rounded-lg px-3 py-2 text-sm text-brand-navy hover:bg-brand-beige/50"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>

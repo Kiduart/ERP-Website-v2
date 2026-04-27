@@ -12,7 +12,7 @@ export function GetInTouchSection() {
             <span>KIDUART ERP</span>
           </div>
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div className="mt-10 grid gap-10 lg:grid-cols-[0.8fr_1.1fr] lg:items-end">
             <div className="rounded-[1.75rem]">
               <p className="max-w-xs text-xs font-medium uppercase tracking-[0.34em] text-[#d9c8b3]">
                 School operations, admissions, and AI-led growth
@@ -43,7 +43,7 @@ export function GetInTouchSection() {
 
             <div className="rounded-[1.75rem] border border-brand-navy/10 bg-brand-navy/70 p-6 text-white shadow-[0_18px_50px_rgba(0,48,73,0.22)] backdrop-blur-xl sm:p-7">
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid gap-5 sm:grid-cols-2">
+                <div className="grid gap-5 sm:grid-cols-[0.8fr_1.1fr] ">
                   <label className="block">
                     <span className="text-[11px] uppercase tracking-[0.28em] text-white/48">Full Name</span>
                     <input
