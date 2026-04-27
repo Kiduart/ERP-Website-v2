@@ -463,7 +463,7 @@ export default function BlogPost() {
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="h-14 flex-1 rounded-xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white"
+                className="field-surface-dark h-14 flex-1 rounded-xl border border-white/20 px-5 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white"
                 required
               />
               <button type="submit" className="rounded-xl bg-brand-navy px-8 py-4 font-bold text-white shadow-lg transition-all hover:bg-white hover:text-brand-navy">

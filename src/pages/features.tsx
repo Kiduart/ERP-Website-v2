@@ -6,6 +6,9 @@ import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { CtaSection } from "@/components/ui/CtaSection";
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CircleShowcaseHero } from "@/components/ui/CustomHeroes";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 type FeatureItem = {
   icon: typeof Users;
@@ -132,9 +135,9 @@ const aiAssistantPoints = [
 ];
 
 const pageHighlights = [
-  { value: "16+", label: "connected school ERP features" },
-  { value: "4", label: "organized module categories" },
-  { value: "1", label: "AI-powered school management system" },
+  { value: 16, suffix: "+", label: "connected school ERP features" },
+  { value: 4, suffix: "", label: "organized module categories" },
+  { value: 1, suffix: "", label: "AI-powered school management system" },
 ];
 
 export default function Features() {
@@ -190,7 +193,9 @@ export default function Features() {
                 delay={index * 0.08}
                 className="rounded-3xl border border-brand-navy/8 bg-brand-beige/20 px-6 py-8"
               >
-                <div className="text-4xl font-extrabold text-brand-navy">{highlight.value}</div>
+                <div className="text-4xl font-extrabold text-brand-navy">
+                  <AnimatedCounter end={highlight.value} suffix={highlight.suffix} />
+                </div>
                 <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-brand-navy/60">{highlight.label}</p>
               </SectionReveal>
             ))}
@@ -334,12 +339,15 @@ export default function Features() {
                   Book a Free Demo and See How Our ERP Works in Real Schools
                   <ArrowRight className="h-5 w-5" />
                 </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-full border border-brand-navy/15 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-teal/35 hover:text-brand-teal"
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-navy/15 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-teal/35 hover:text-brand-teal"
                 >
+                  <WhatsAppIcon className="h-5 w-5" />
                   Ask About Your Use Case
-                </Link>
+                </a>
               </div>
             </SectionReveal>
           </div>

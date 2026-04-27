@@ -158,6 +158,30 @@
     min-height: calc(100vh - var(--nav-height));
     min-height: calc(100dvh - var(--nav-height));
   }
+  .field-surface,
+  .field-surface-dark {
+    background-color: var(--field-bg) !important;
+    caret-color: #ffffff;
+  }
+  .field-surface {
+    --field-bg: #133d54;
+    color: #fff;
+  }
+  .field-surface-dark {
+    --field-bg: #133d54;
+    color: rgba(255, 255, 255, 0.96);
+  }
+  .field-surface:-webkit-autofill,
+  .field-surface:hover:-webkit-autofill,
+  .field-surface:focus:-webkit-autofill,
+  .field-surface-dark:-webkit-autofill,
+  .field-surface-dark:hover:-webkit-autofill,
+  .field-surface-dark:focus:-webkit-autofill {
+    -webkit-text-fill-color: #fff !important;
+    box-shadow: 0 0 0 1000px var(--field-bg) inset !important;
+    -webkit-box-shadow: 0 0 0 1000px var(--field-bg) inset !important;
+    transition: background-color 9999s ease-in-out 0s;
+  }
   .surface-light {
     color: hsl(var(--brand-navy));
   }

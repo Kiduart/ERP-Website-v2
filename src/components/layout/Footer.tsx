@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Facebook, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import { CONTACT_EMAIL, CONTACT_LOCATION, CONTACT_PHONE_DISPLAY } from "@/lib/contact";
 
 export function Footer() {
   return (
@@ -16,13 +17,14 @@ export function Footer() {
           </div>
 
           <form
-            className="mt-8 flex flex-col gap-3 rounded-[1.75rem] border border-white/10 bg-white/10 p-2 sm:flex-row sm:items-center sm:rounded-full sm:pl-6"
+            className="field-surface-dark mt-8 flex flex-col gap-3 rounded-[1.75rem] border border-white/10 p-2 sm:flex-row sm:items-center sm:rounded-full sm:pl-3"
             onSubmit={(e) => e.preventDefault()}
           >
             <input
               type="email"
               placeholder="Enter your email"
-              className="h-14 flex-1 bg-transparent px-4 text-base text-white placeholder:text-white/55 focus:outline-none"
+              required
+              className="field-surface-dark h-14 flex-1 rounded-full px-4 text-base text-white placeholder:text-white/55 focus:outline-none"
             />
             <button
               type="submit"
@@ -43,17 +45,17 @@ export function Footer() {
             </p>
 
             <div className="mt-6 space-y-3 text-sm text-brand-navy/75">
-              <a href="tel:+15551234567" className="flex items-center gap-3 transition-colors hover:text-brand-teal">
+              <a href="tel:+919876987234" className="flex items-center gap-3 transition-colors hover:text-brand-teal">
                 <Phone className="h-4 w-4 text-brand-teal" />
-                <span>+1 (555) 123-4567</span>
+                <span>{CONTACT_PHONE_DISPLAY}</span>
               </a>
-              <a href="mailto:support@kiduart.com" className="flex items-center gap-3 transition-colors hover:text-brand-teal">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-3 transition-colors hover:text-brand-teal">
                 <Mail className="h-4 w-4 text-brand-teal" />
-                <span>support@kiduart.com</span>
+                <span>{CONTACT_EMAIL}</span>
               </a>
               <div className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 text-brand-teal" />
-                <span>Noida, Uttar Pradesh, India</span>
+                <span>{CONTACT_LOCATION}</span>
               </div>
             </div>
 

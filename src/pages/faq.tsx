@@ -151,16 +151,16 @@ export default function FAQ() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-brand-navy mb-2">Name</label>
-                    <input required type="text" className="w-full px-4 py-3 rounded-xl border border-brand-navy/20 focus:outline-none focus:ring-2 focus:ring-brand-teal bg-white" placeholder="John Doe" />
+                    <input required type="text" className="field-surface w-full px-4 py-3 rounded-xl border border-brand-navy/20 focus:outline-none focus:ring-2 focus:ring-brand-teal" placeholder="John Doe" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-brand-navy mb-2">Email</label>
-                    <input required type="email" className="w-full px-4 py-3 rounded-xl border border-brand-navy/20 focus:outline-none focus:ring-2 focus:ring-brand-teal bg-white" placeholder="john@school.edu" />
+                    <input required type="email" className="field-surface w-full px-4 py-3 rounded-xl border border-brand-navy/20 focus:outline-none focus:ring-2 focus:ring-brand-teal" placeholder="john@school.edu" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-brand-navy mb-2">Question</label>
-                  <textarea required rows={4} className="w-full px-4 py-3 rounded-xl border border-brand-navy/20 focus:outline-none focus:ring-2 focus:ring-brand-teal bg-white resize-none" placeholder="How does the..." />
+                  <textarea required rows={4} className="field-surface w-full px-4 py-3 rounded-xl border border-brand-navy/20 focus:outline-none focus:ring-2 focus:ring-brand-teal resize-none" placeholder="How does the..." />
                 </div>
                 <button type="submit" className="w-full px-8 py-4 rounded-full bg-brand-navy text-white font-bold text-lg hover:bg-brand-teal transition-colors">
                   Send Question

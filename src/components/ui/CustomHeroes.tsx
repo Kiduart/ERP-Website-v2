@@ -233,7 +233,7 @@ export function EditorialMusicHero({
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="min-w-0 flex-1 bg-transparent px-4 py-2 text-sm text-brand-navy placeholder:text-brand-navy/35 focus:outline-none"
+                  className="field-surface min-w-0 flex-1 rounded-full px-4 py-2 text-sm text-brand-navy placeholder:text-brand-navy/35 focus:outline-none"
                 />
                 <button className="rounded-full bg-brand-teal px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-navy">
                   Get Started

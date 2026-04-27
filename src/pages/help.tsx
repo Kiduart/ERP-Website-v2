@@ -274,7 +274,7 @@ export default function HelpCenter() {
                 <input
                   type="text"
                   placeholder="Type your message..."
-                  className="flex-1 bg-brand-beige/30 border border-brand-navy/10 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-brand-teal"
+                  className="field-surface flex-1 border border-brand-navy/10 rounded-full px-4 py-2 text-sm text-brand-navy focus:outline-none focus:border-brand-teal"
                 />
                 <button type="submit" className="w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center hover:bg-brand-navy transition-colors">
                   <ArrowRight className="w-4 h-4" />

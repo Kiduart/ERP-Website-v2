@@ -10,12 +10,15 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2 } from "lucide-react";
+import { CONTACT_PHONE_DISPLAY, COUNTRY_CODES, DEFAULT_COUNTRY_CODE, WHATSAPP_URL } from "@/lib/contact";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 const demoSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
   lastName: z.string().min(2, "Last name is required"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone number is required"),
+  phoneCode: z.string().min(2, "Country code is required"),
+  phone: z.string().regex(/^\d{10}$/, "Enter a valid 10 digit phone number"),
   school: z.string().min(2, "School name is required"),
   role: z.string().min(2, "Role is required"),
   students: z.string().min(1, "Please select student count"),
@@ -30,7 +33,7 @@ export default function RequestDemo() {
   const form = useForm<DemoFormValues>({
     resolver: zodResolver(demoSchema),
     defaultValues: {
-      firstName: "", lastName: "", email: "", phone: "",
+      firstName: "", lastName: "", email: "", phoneCode: DEFAULT_COUNTRY_CODE, phone: "",
       school: "", role: "", students: "", country: "", message: ""
     }
   });
@@ -63,6 +66,13 @@ export default function RequestDemo() {
               <p className="text-lg text-brand-navy/70 mb-10">
                 Schedule a personalized 30-minute walkthrough of the platform with our education technology experts.
               </p>
+              <div className="mb-8 flex flex-wrap items-center gap-4 text-sm text-brand-navy/72">
+                <span className="font-semibold">Prefer a quick chat?</span>
+                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-semibold text-brand-navy shadow-sm transition-colors hover:text-brand-teal">
+                  <WhatsAppIcon className="h-4 w-4" />
+                  {CONTACT_PHONE_DISPLAY}
+                </a>
+              </div>
               
               <div className="space-y-6 mb-12">
                 {[
@@ -119,14 +129,14 @@ export default function RequestDemo() {
                     <FormField control={form.control} name="firstName" render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-brand-navy">First Name</FormLabel>
-                        <FormControl><Input placeholder="John" {...field} className="bg-brand-beige/30" /></FormControl>
+                        <FormControl><Input placeholder="John" {...field} className="field-surface" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="lastName" render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-brand-navy">Last Name</FormLabel>
-                        <FormControl><Input placeholder="Doe" {...field} className="bg-brand-beige/30" /></FormControl>
+                        <FormControl><Input placeholder="Doe" {...field} className="field-surface" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -136,23 +146,37 @@ export default function RequestDemo() {
                     <FormField control={form.control} name="email" render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-brand-navy">Work Email</FormLabel>
-                        <FormControl><Input placeholder="john@school.edu" {...field} className="bg-brand-beige/30" /></FormControl>
+                        <FormControl><Input placeholder="john@school.edu" {...field} className="field-surface" /></FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )} />
+                    <FormField control={form.control} name="phoneCode" render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-brand-navy">Country Code</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl><SelectTrigger className="field-surface"><SelectValue placeholder="Select code" /></SelectTrigger></FormControl>
+                          <SelectContent>
+                            {COUNTRY_CODES.map((code) => (
+                              <SelectItem key={code.value} value={code.value}>{code.label}</SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="phone" render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="md:col-span-1">
                         <FormLabel className="text-brand-navy">Phone Number</FormLabel>
-                        <FormControl><Input placeholder="+1 (555) 000-0000" {...field} className="bg-brand-beige/30" /></FormControl>
+                        <FormControl><Input placeholder="10 digit number" inputMode="numeric" maxLength={10} {...field} className="field-surface" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                   </div>
 
                   <FormField control={form.control} name="school" render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-brand-navy">School / Organization Name</FormLabel>
-                      <FormControl><Input placeholder="Oakridge Academy" {...field} className="bg-brand-beige/30" /></FormControl>
+                      <FormItem>
+                        <FormLabel className="text-brand-navy">School / Organization Name</FormLabel>
+                      <FormControl><Input placeholder="Oakridge Academy" {...field} className="field-surface" /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
@@ -162,7 +186,7 @@ export default function RequestDemo() {
                       <FormItem>
                         <FormLabel className="text-brand-navy">Your Role</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl><SelectTrigger className="bg-brand-beige/30"><SelectValue placeholder="Select" /></SelectTrigger></FormControl>
+                          <FormControl><SelectTrigger className="field-surface"><SelectValue placeholder="Select" /></SelectTrigger></FormControl>
                           <SelectContent>
                             <SelectItem value="Principal">Principal/Admin</SelectItem>
                             <SelectItem value="IT">IT Director</SelectItem>
@@ -177,7 +201,7 @@ export default function RequestDemo() {
                       <FormItem>
                         <FormLabel className="text-brand-navy">Students</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl><SelectTrigger className="bg-brand-beige/30"><SelectValue placeholder="Select" /></SelectTrigger></FormControl>
+                          <FormControl><SelectTrigger className="field-surface"><SelectValue placeholder="Select" /></SelectTrigger></FormControl>
                           <SelectContent>
                             <SelectItem value="<500">Under 500</SelectItem>
                             <SelectItem value="500-2000">500 - 2,000</SelectItem>
@@ -190,16 +214,16 @@ export default function RequestDemo() {
                     <FormField control={form.control} name="country" render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-brand-navy">Country</FormLabel>
-                        <FormControl><Input placeholder="USA" {...field} className="bg-brand-beige/30" /></FormControl>
+                        <FormControl><Input placeholder="India" {...field} className="field-surface" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                   </div>
 
                   <FormField control={form.control} name="message" render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-brand-navy">Anything specific you'd like to see?</FormLabel>
-                      <FormControl><Textarea placeholder="e.g. We are mainly looking for a better gradebook..." {...field} className="bg-brand-beige/30 resize-none" rows={3} /></FormControl>
+                      <FormItem>
+                        <FormLabel className="text-brand-navy">Anything specific you'd like to see?</FormLabel>
+                      <FormControl><Textarea placeholder="e.g. We are mainly looking for a better gradebook..." {...field} className="field-surface resize-none" rows={3} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />

@@ -3,6 +3,7 @@ import { BankingContactHero } from "@/components/ui/CustomHeroes";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { PhoneCall, Mail, LifeBuoy, MapPin, Send } from "lucide-react";
+import { CONTACT_EMAIL, CONTACT_LOCATION, CONTACT_PHONE_DISPLAY, COUNTRY_CODES, DEFAULT_COUNTRY_CODE } from "@/lib/contact";
 
 export default function Contact() {
   return (
@@ -14,10 +15,10 @@ export default function Contact() {
         image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1200"
         actions={(
           <>
-            <a href="mailto:sales@eduerp.com" className="rounded-full bg-brand-navy px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-teal">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="rounded-full bg-brand-navy px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-teal">
               Email Sales
             </a>
-            <a href="mailto:support@eduerp.com" className="rounded-full border border-brand-navy/12 bg-white px-7 py-3.5 text-sm font-bold text-brand-navy transition-colors hover:border-brand-teal hover:text-brand-teal">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="rounded-full border border-brand-navy/12 bg-white px-7 py-3.5 text-sm font-bold text-brand-navy transition-colors hover:border-brand-teal hover:text-brand-teal">
               Contact Support
             </a>
           </>
@@ -44,8 +45,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-bold text-brand-navy">Sales</h4>
-                      <p className="text-brand-navy/70 text-sm mb-1">+1 (555) 123-4567</p>
-                      <a href="mailto:sales@eduerp.com" className="text-brand-teal font-medium text-sm hover:underline">sales@eduerp.com</a>
+                      <p className="text-brand-navy/70 text-sm mb-1">{CONTACT_PHONE_DISPLAY}</p>
+                      <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-teal font-medium text-sm hover:underline">{CONTACT_EMAIL}</a>
                     </div>
                   </div>
                   
@@ -56,7 +57,7 @@ export default function Contact() {
                     <div>
                       <h4 className="font-bold text-brand-navy">Support</h4>
                       <p className="text-brand-navy/70 text-sm mb-1">Available 24/7 for Enterprise</p>
-                      <a href="mailto:support@eduerp.com" className="text-brand-teal font-medium text-sm hover:underline">support@eduerp.com</a>
+                      <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-teal font-medium text-sm hover:underline">{CONTACT_EMAIL}</a>
                     </div>
                   </div>
 
@@ -66,7 +67,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-bold text-brand-navy">General Inquiries</h4>
-                      <a href="mailto:hello@eduerp.com" className="text-brand-teal font-medium text-sm hover:underline">hello@eduerp.com</a>
+                      <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand-teal font-medium text-sm hover:underline">{CONTACT_EMAIL}</a>
                     </div>
                   </div>
                 </div>
@@ -77,15 +78,15 @@ export default function Contact() {
                 <div className="space-y-6">
                   <div>
                     <h4 className="font-bold text-brand-navy flex items-center gap-2 mb-1"><MapPin className="w-4 h-4 text-brand-teal" /> New York (HQ)</h4>
-                    <p className="text-brand-navy/70 text-sm ml-6">120 Broadway, Suite 300<br/>New York, NY 10271</p>
+                    <p className="text-brand-navy/70 text-sm ml-6">{CONTACT_LOCATION}</p>
                   </div>
                   <div>
-                    <h4 className="font-bold text-brand-navy flex items-center gap-2 mb-1"><MapPin className="w-4 h-4 text-brand-teal" /> London</h4>
-                    <p className="text-brand-navy/70 text-sm ml-6">100 Bishopsgate<br/>London, EC2N 4AG</p>
+                    <h4 className="font-bold text-brand-navy flex items-center gap-2 mb-1"><MapPin className="w-4 h-4 text-brand-teal" /> Support Desk</h4>
+                    <p className="text-brand-navy/70 text-sm ml-6">{CONTACT_PHONE_DISPLAY}<br/>{CONTACT_EMAIL}</p>
                   </div>
                   <div>
-                    <h4 className="font-bold text-brand-navy flex items-center gap-2 mb-1"><MapPin className="w-4 h-4 text-brand-teal" /> Singapore</h4>
-                    <p className="text-brand-navy/70 text-sm ml-6">Marina Bay Financial Centre<br/>8 Marina Blvd, 018981</p>
+                    <h4 className="font-bold text-brand-navy flex items-center gap-2 mb-1"><MapPin className="w-4 h-4 text-brand-teal" /> KIDUART Base</h4>
+                    <p className="text-brand-navy/70 text-sm ml-6">{CONTACT_LOCATION}</p>
                   </div>
                 </div>
               </SectionReveal>
@@ -95,21 +96,36 @@ export default function Contact() {
             <div className="lg:col-span-2">
               <SectionReveal delay={0.3} className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl shadow-brand-navy/10 border border-brand-navy/5">
                 <h2 className="text-3xl font-bold text-brand-navy mb-8">Send us a message</h2>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-brand-navy">Full Name</label>
-                      <input type="text" className="w-full bg-brand-beige/20 border border-brand-navy/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all" placeholder="John Doe" />
+                      <input required type="text" className="field-surface w-full border border-brand-navy/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all" placeholder="John Doe" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-brand-navy">Email Address</label>
-                      <input type="email" className="w-full bg-brand-beige/20 border border-brand-navy/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all" placeholder="john@school.edu" />
+                      <input required type="email" className="field-surface w-full border border-brand-navy/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all" placeholder="john@school.edu" />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-[14rem_minmax(0,1fr)] gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-brand-navy">Country Code</label>
+                      <select defaultValue={DEFAULT_COUNTRY_CODE} className="field-surface w-full border border-brand-navy/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all">
+                        {COUNTRY_CODES.map((code) => (
+                          <option key={code.value} value={code.value}>{code.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-brand-navy">Phone Number</label>
+                      <input required type="tel" inputMode="numeric" pattern="[0-9]{10}" maxLength={10} className="field-surface w-full border border-brand-navy/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all" placeholder="10 digit number" />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-brand-navy">How can we help?</label>
-                    <select className="w-full bg-brand-beige/20 border border-brand-navy/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all appearance-none">
+                    <select required className="field-surface w-full border border-brand-navy/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all appearance-none">
                       <option>I want to schedule a demo</option>
                       <option>I need technical support</option>
                       <option>Partnership inquiry</option>
@@ -120,10 +136,10 @@ export default function Contact() {
 
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-brand-navy">Message</label>
-                    <textarea rows={5} className="w-full bg-brand-beige/20 border border-brand-navy/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all resize-none" placeholder="Tell us more about what you need..."></textarea>
+                    <textarea required rows={5} className="field-surface w-full border border-brand-navy/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all resize-none" placeholder="Tell us more about what you need..."></textarea>
                   </div>
 
-                  <button type="button" className="w-full py-4 rounded-xl bg-brand-navy text-white font-bold text-lg hover:bg-brand-teal shadow-xl hover:shadow-brand-teal/25 transition-all duration-300 flex items-center justify-center gap-2">
+                  <button type="submit" className="w-full py-4 rounded-xl bg-brand-navy text-white font-bold text-lg hover:bg-brand-teal shadow-xl hover:shadow-brand-teal/25 transition-all duration-300 flex items-center justify-center gap-2">
                     Send Message <Send className="w-5 h-5" />
                   </button>
                 </form>

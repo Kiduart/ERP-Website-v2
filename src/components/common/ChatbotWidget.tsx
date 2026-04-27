@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Bot, Send } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 type Message = {
   id: string;
@@ -26,7 +28,7 @@ const RESPONSES: Record<string, string> = {
   "How do integrations work?": "KIDUART integrates with Google Classroom, Moodle, Canvas, Zoom, Stripe, and more. Visit our Integrations page or check our API docs for custom integrations."
 };
 
-const DEFAULT_RESPONSE = "Great question! Our sales team can help you better. Email us at support@kiduart.com or call +1 (555) 123-4567.";
+const DEFAULT_RESPONSE = `Great question! Our sales team can help you better. Email us at ${CONTACT_EMAIL} or call ${CONTACT_PHONE_DISPLAY}.`;
 
 export function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,13 +64,23 @@ export function ChatbotWidget() {
 
   return (
     <>
-      {/* Floating Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-brand-navy text-white shadow-xl transition-transform hover:scale-105"
-      >
-        <MessageCircle className="w-7 h-7" />
-      </button>
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-transform hover:scale-105"
+          aria-label="Open WhatsApp chat"
+        >
+          <WhatsAppIcon className="h-7 w-7" />
+        </a>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-navy text-white shadow-xl transition-transform hover:scale-105"
+        >
+          <MessageCircle className="w-7 h-7" />
+        </button>
+      </div>
 
       {/* Chat Panel */}
       <AnimatePresence>
@@ -135,7 +147,7 @@ export function ChatbotWidget() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend(inputValue)}
                 placeholder="Type your message..."
-                className="flex-1 bg-brand-beige/30 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-teal focus:outline-none"
+                className="field-surface flex-1 border-none rounded-xl px-4 py-2 text-sm text-brand-navy focus:ring-2 focus:ring-brand-teal focus:outline-none"
               />
               <button
                 onClick={() => handleSend(inputValue)}

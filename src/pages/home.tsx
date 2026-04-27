@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
 import { HomeCurveHero } from "@/components/ui/CustomHeroes";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { pricingPlans } from "@/data/pricing";
@@ -225,16 +226,15 @@ export default function Home() {
             </SectionReveal>
             <SectionReveal className="grid grid-cols-2 gap-4 text-center md:grid-cols-4 md:gap-6">
               {[
-                { label: "Student records managed", area: "School operations", value: 10000, suffix: "+" },
-                { label: "Teachers using dashboards", area: "Daily usage", value: 500, suffix: "+" },
-                { label: "Automated workflows", area: "ERP automation", value: 25, suffix: "+" },
-                { label: "Platform uptime", area: "Reliability", value: 99.9, suffix: "%" },
+                { label: "Student records managed", area: "School operations", value: 10000, suffix: "+", decimals: 0 },
+                { label: "Teachers using dashboards", area: "Daily usage", value: 500, suffix: "+", decimals: 0 },
+                { label: "Automated workflows", area: "ERP automation", value: 25, suffix: "+", decimals: 0 },
+                { label: "Platform uptime", area: "Reliability", value: 99.9, suffix: "%", decimals: 1 },
               ].map((stat, idx) => (
                 <div key={idx} className="rounded-3xl border border-brand-navy/10 bg-brand-beige/20 px-4 py-6 shadow-sm">
                   <div className="text-xs font-semibold uppercase tracking-[0.24em] text-brand-teal/80">{stat.area}</div>
                   <div className="stat-value mt-4 font-extrabold text-brand-navy">
-                    {stat.value}
-                    {stat.suffix}
+                    <AnimatedCounter end={stat.value} suffix={stat.suffix} decimals={stat.decimals} />
                   </div>
                   <div className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-brand-navy/55">{stat.label}</div>
                 </div>

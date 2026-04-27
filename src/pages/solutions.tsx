@@ -123,6 +123,7 @@ const cards = [
 
 export default function Solutions() {
   const [active, setActive] = useState<number | null>(1);
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       <Head>
@@ -160,9 +161,10 @@ export default function Solutions() {
 
               <div className="mt-8 flex max-w-xl items-center gap-3 rounded-full border border-brand-navy/10 bg-white px-4 py-3 shadow-lg shadow-brand-navy/5">
                 <input
-                  value="Search by team, workflow, or outcome"
-                  readOnly
-                  className="w-full bg-transparent text-sm font-medium text-brand-navy/55 outline-none"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="Search by team, workflow, or outcome"
+                  className="field-surface w-full rounded-full text-sm font-medium text-brand-navy/70 outline-none placeholder:text-brand-navy/45"
                 />
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy text-white">
                   <ArrowRight className="h-4 w-4" />
