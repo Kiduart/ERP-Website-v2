@@ -165,7 +165,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 ${
+                className={`hover-underline-group px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 ${
                   location === link.href
                     ? transparentMode
                       ? "text-brand-navy font-bolder bg-white/12"
@@ -175,7 +175,7 @@ export function Navbar() {
                       : "text-brand-navy hover:text-brand-teal hover:bg-white/30"
                 }`}
               >
-                {link.label}
+                <span className="center-gradient-underline">{link.label}</span>
                 {link.badge && (
                   <span className="px-1.5 py-0.5 rounded-full bg-brand-yellow text-brand-navy text-[10px] font-bold">
                     {link.badge}
@@ -224,9 +224,9 @@ export function Navbar() {
                                 <motion.div key={item.href} variants={dropdownItemVariants}>
                                   <Link
                                     href={item.href}
-                                    className="block rounded-[1rem] px-3 py-3 transition-colors hover:bg-brand-beige/65"
+                                    className="hover-underline-group block rounded-[1rem] px-3 py-3 transition-colors hover:bg-brand-beige/65"
                                   >
-                                    <div className="text-sm font-semibold text-brand-navy transition-colors hover:text-brand-teal">
+                                    <div className="center-gradient-underline text-sm font-semibold text-brand-navy transition-colors">
                                       {item.label}
                                     </div>
                                     {item.note && (

@@ -49,8 +49,8 @@ export default function IntegrationDetail() {
         ]} />
         <FloatingIcons icons={["Blocks", "Zap", "Code2"]} count={4} heroMode={true} />
 
-        <div className="page-shell hero-viewport-inner relative z-10 grid items-center gap-10 py-8 md:py-10 lg:grid-cols-[0.92fr_1.08fr]">
-          <SectionReveal className="max-w-xl">
+        <div className="page-shell hero-viewport-inner relative z-10 grid items-center gap-10 py-8 md:py-10">
+          <SectionReveal className="max-w-3xl">
             <nav className="mb-6 flex items-center gap-2 text-sm text-brand-navy/55">
               <Link href="/" className="hover:text-brand-teal">Home</Link>
               <span>/</span>
@@ -77,7 +77,7 @@ export default function IntegrationDetail() {
             </button>
           </SectionReveal>
 
-          <SectionReveal delay={0.08} className="relative">
+          {/* <SectionReveal delay={0.08} className="relative">
             <div className="relative mx-auto w-full max-w-4xl overflow-hidden rounded-[2rem] border border-brand-navy/10 bg-white shadow-[0_28px_70px_rgba(0,48,73,0.14)]">
               <div className="grid gap-4 p-5 md:grid-cols-[0.9fr_1.1fr] md:p-6">
                 <div className="rounded-[1.6rem] bg-[linear-gradient(180deg,#ffffff,#f5f8ff)] p-6">
@@ -108,7 +108,7 @@ export default function IntegrationDetail() {
                 </div>
               </div>
             </div>
-          </SectionReveal>
+          </SectionReveal> */}
         </div>
       </section>
 
