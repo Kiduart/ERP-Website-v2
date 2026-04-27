@@ -580,7 +580,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-16 border-t border-brand-navy/5 bg-brand-beige/30 relative overflow-hidden">
+        <section className="py-28 my-20 bg-brand-beige/30 relative overflow-hidden">
           <BackgroundBlobs blobs={[{ color: "#f77f00", size: 300, position: "center-right", opacity: 0.15 }]} />
           <FloatingIcons icons={["ShieldCheck", "Lock", "Eye"]} count={4} />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
