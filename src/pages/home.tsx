@@ -470,13 +470,13 @@ export default function Home() {
               </p>
             </SectionReveal>
 
-            <SectionReveal className="flex flex-wrap justify-center gap-4 mb-12">
+            {/* <SectionReveal className="flex flex-wrap justify-center gap-4 mb-12">
               {["Oakridge Academy", "Metro Schools", "Brighton Public School", "Greenfield Campus", "Starlight International"].map((logo) => (
                 <div key={logo} className="rounded-full border border-brand-navy/10 bg-brand-navy/80 px-5 py-3 text-sm font-semibold text-brand-beige">
                   {logo}
                 </div>
               ))}
-            </SectionReveal>
+            </SectionReveal> */}
 
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((t, idx) => (
