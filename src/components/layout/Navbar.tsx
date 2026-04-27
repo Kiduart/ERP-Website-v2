@@ -205,7 +205,7 @@ export function Navbar() {
                       animate="visible"
                       exit="exit"
                       style={{ transformOrigin: "top center" }}
-                      className={`absolute top-full mt-3 overflow-hidden rounded-[1.5rem] border border-white/55 bg-white shadow-[0_26px_70px_rgba(0,48,73,0.16)] backdrop-blur-xl ${
+                      className={`absolute top-full pt-4 overflow-hidden rounded-[1.5rem] border border-white/55 bg-white shadow-[0_26px_70px_rgba(0,48,73,0.16)] backdrop-blur-xl ${
                         title === "More" ? "left-1/2 w-[34rem] -translate-x-1/2 p-4" : "left-0 w-[28rem] p-4"
                       }`}
                     >

@@ -40,45 +40,75 @@ export default function IntegrationDetail() {
   const Icon = data.icon;
 
   return (
-    <PageTransition className="pt-20 pb-0 tooo">
+    <PageTransition className="pt-20 pb-0">
       {/* Hero */}
-      <section className="bg-brand-navy py-20 lg:py-32 relative overflow-hidden min-h-screen flex items-center" style={{ color: '#fcf6d3' }}>
+      <section className="hero-viewport relative overflow-hidden bg-[#f5f0e6]">
         <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.15 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.15 }
+          { color: "#fcbf49", size: 360, position: "top-left", opacity: 0.14 },
+          { color: "#0c716b", size: 360, position: "bottom-right", opacity: 0.14 }
         ]} />
-        <FloatingIcons icons={["Code2", "Blocks", "Zap"]} count={6} heroMode={true} />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          {/* Breadcrumb first */}
-          <nav className="flex items-center gap-2 text-sm mb-12 opacity-70">
-            <Link href="/" className="hover:underline">Home</Link>
-            <span>/</span>
-            <Link href="/integrations" className="hover:underline">Integrations</Link>
-            <span>/</span>
-            <span>{data.name}</span>
-          </nav>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <SectionReveal>
-              <div className="flex items-center gap-6 mb-8">
-                <div className={`w-24 h-24 rounded-2xl ${data.bg} flex items-center justify-center border border-white/10`}>
-                  <Icon className={`w-12 h-12 ${data.color}`} />
+        <FloatingIcons icons={["Blocks", "Zap", "Code2"]} count={4} heroMode={true} />
+
+        <div className="page-shell hero-viewport-inner relative z-10 grid items-center gap-10 py-8 md:py-10 lg:grid-cols-[0.92fr_1.08fr]">
+          <SectionReveal className="max-w-xl">
+            <nav className="mb-6 flex items-center gap-2 text-sm text-brand-navy/55">
+              <Link href="/" className="hover:text-brand-teal">Home</Link>
+              <span>/</span>
+              <Link href="/integrations" className="hover:text-brand-teal">Integrations</Link>
+              <span>/</span>
+              <span className="text-brand-navy/75">{data.name}</span>
+            </nav>
+
+            <div className="mb-5 inline-flex rounded-full bg-brand-orange/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand-orange">
+              {data.category}
+            </div>
+            <h1 className="text-[clamp(2.25rem,1.6rem+2.2vw,4.5rem)] font-bold leading-[0.98] text-brand-navy">
+              Connect {data.name}
+              <br />
+              with KIDUART
+              <br />
+              without extra friction
+            </h1>
+            <p className="mt-6 max-w-lg text-[clamp(1rem,0.96rem+0.2vw,1.08rem)] leading-7 text-brand-navy/65">
+              {data.description}
+            </p>
+            <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-navy px-8 py-4 text-base font-bold text-white shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-teal">
+              Connect Integration <ArrowRight className="w-5 h-5" />
+            </button>
+          </SectionReveal>
+
+          <SectionReveal delay={0.08} className="relative">
+            <div className="relative mx-auto w-full max-w-4xl overflow-hidden rounded-[2rem] border border-brand-navy/10 bg-white shadow-[0_28px_70px_rgba(0,48,73,0.14)]">
+              <div className="grid gap-4 p-5 md:grid-cols-[0.9fr_1.1fr] md:p-6">
+                <div className="rounded-[1.6rem] bg-[linear-gradient(180deg,#ffffff,#f5f8ff)] p-6">
+                  <div className={`mb-5 flex h-16 w-16 items-center justify-center rounded-2xl ${data.bg}`}>
+                    <Icon className={`h-8 w-8 ${data.color}`} />
+                  </div>
+                  <div className="text-sm font-bold uppercase tracking-[0.22em] text-brand-navy/45">Integration preview</div>
+                  <h2 className="mt-3 text-2xl font-bold text-brand-navy">{data.name}</h2>
+                  <p className="mt-3 text-sm leading-7 text-brand-navy/65">
+                    Designed to keep student data, assignments, attendance, and workflows aligned between both systems.
+                  </p>
+                  <div className="mt-5 rounded-[1.2rem] bg-brand-navy px-4 py-4 text-white">
+                    <div className="text-xs font-bold uppercase tracking-[0.22em] text-brand-yellow">Best for</div>
+                    <div className="mt-2 text-sm leading-6 text-white/85">{data.requirements[0]}</div>
+                  </div>
                 </div>
-                <div className="inline-block px-4 py-1 rounded-full bg-white/10 text-white font-bold text-sm" style={{ color: '#fcf6d3' }}>
-                  {data.category}
+
+                <div className="space-y-3 rounded-[1.6rem] bg-brand-beige/35 p-5">
+                  <div className="text-sm font-bold uppercase tracking-[0.22em] text-brand-teal">What you get</div>
+                  {data.benefits.slice(0, 4).map((benefit: string) => (
+                    <div key={benefit} className="rounded-2xl border border-brand-navy/6 bg-white px-4 py-4 shadow-sm">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className={`mt-0.5 h-5 w-5 shrink-0 ${data.color}`} />
+                        <span className="text-sm leading-6 text-brand-navy/76">{benefit}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-                {data.name}
-              </h1>
-              <p className="text-xl leading-relaxed mb-8" style={{ color: 'rgba(252,246,211,0.8)' }}>
-                {data.description}
-              </p>
-              <button className="px-8 py-4 rounded-full bg-brand-teal text-white font-bold text-lg hover:bg-white hover:text-brand-teal transition-all shadow-xl inline-flex items-center gap-2">
-                Connect Integration <ArrowRight className="w-5 h-5" />
-              </button>
-            </SectionReveal>
-          </div>
+            </div>
+          </SectionReveal>
         </div>
       </section>
 

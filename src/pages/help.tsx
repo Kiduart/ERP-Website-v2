@@ -185,7 +185,7 @@ export default function HelpCenter() {
             <h2 className="text-2xl font-bold text-brand-navy mb-8">Popular Articles</h2>
             <div className="bg-white rounded-2xl border border-brand-navy/10 overflow-hidden shadow-sm">
               {popularArticles.map((article, idx) => (
-                <Link key={idx} href={`/help-center/${article.slug}`} className="flex items-center justify-between p-5 border-b border-brand-navy/5 last:border-0 hover:bg-brand-beige/20 transition-colors group">
+                <Link key={idx} href={`/help/${article.slug}`} className="flex items-center justify-between p-5 border-b border-brand-navy/5 last:border-0 hover:bg-brand-beige/20 transition-colors group">
                   <span className="font-medium text-brand-navy/80 group-hover:text-brand-navy">{article.title}</span>
                   <ArrowRight className="w-5 h-5 text-brand-navy/30 group-hover:text-brand-teal transition-colors" />
                 </Link>

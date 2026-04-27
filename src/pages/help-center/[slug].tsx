@@ -167,7 +167,7 @@ export default function HelpArticle() {
           <div className="space-y-4">
             {relatedArticles.map(([key, data], idx) => (
               <SectionReveal key={key} delay={idx * 0.1}>
-                <Link href={`/help-center/${key}`} className="block bg-white p-6 rounded-2xl border border-brand-navy/5 shadow-sm hover:shadow-md hover:border-brand-teal/30 transition-all group flex items-center justify-between">
+                <Link href={`/help/${key}`} className="block bg-white p-6 rounded-2xl border border-brand-navy/5 shadow-sm hover:shadow-md hover:border-brand-teal/30 transition-all group flex items-center justify-between">
                   <div>
                     <h3 className="text-lg font-bold text-brand-navy group-hover:text-brand-teal transition-colors">{data.title}</h3>
                     <p className="text-sm text-brand-navy/50 mt-1">{data.category}</p>
