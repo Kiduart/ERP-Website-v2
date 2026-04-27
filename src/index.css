@@ -64,6 +64,7 @@
   --container-gutter: clamp(1rem, 3vw, 2rem);
   --section-space: clamp(4rem, 8vw, 7rem);
   --section-space-tight: clamp(3rem, 6vw, 5rem);
+  --nav-height: 5rem;
   --hero-foreground-rgb: 252 246 211;
   --hero-muted-rgb: 252 246 211;
   --blob-yellow: 40 97% 64%;
@@ -148,6 +149,14 @@
   }
   .section-space-tight {
     padding-block: var(--section-space-tight);
+  }
+  .hero-viewport {
+    min-height: calc(100vh - var(--nav-height));
+    min-height: calc(100dvh - var(--nav-height));
+  }
+  .hero-viewport-inner {
+    min-height: calc(100vh - var(--nav-height));
+    min-height: calc(100dvh - var(--nav-height));
   }
   .surface-light {
     color: hsl(var(--brand-navy));

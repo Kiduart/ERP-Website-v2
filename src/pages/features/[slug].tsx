@@ -1,7 +1,6 @@
 import { useParams, Link } from "wouter";
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
-import { HeroSection } from "@/components/ui/HeroSection";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import {
@@ -13,7 +12,6 @@ import {
   PieChart,
   CheckCircle2,
   ArrowLeft,
-  ArrowRight,
 } from "lucide-react";
 
 const featuresData: Record<string, any> = {
@@ -25,8 +23,6 @@ const featuresData: Record<string, any> = {
     headline: "Every student, every detail, all in one place.",
     description:
       "KIDUART's student information system gives administrators and teachers complete visibility into every student's academic journey, health records, and extracurricular activities.",
-    heroImage: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1200",
-    heroVariant: "split-light",
     capabilities: [
       "Digital enrollment & re-enrollment",
       "Customizable student profiles",
@@ -56,8 +52,6 @@ const featuresData: Record<string, any> = {
     headline: "Automate attendance and keep every school day visible.",
     description:
       "Replace manual roll calls with smart digital attendance that notifies parents instantly, generates compliance reports, and integrates with biometric hardware.",
-    heroImage: "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&q=80&w=1200",
-    heroVariant: "split-dark",
     capabilities: [
       "One-click mobile attendance",
       "Subject-wise tracking",
@@ -87,8 +81,6 @@ const featuresData: Record<string, any> = {
     headline: "Conflict-free schedules generated in minutes, not days.",
     description:
       "Our intelligent scheduling engine factors in teacher availability, room capacity, subject hours, and student groups to create optimal timetables automatically.",
-    heroImage: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1200",
-    heroVariant: "split-light",
     capabilities: [
       "AI-powered schedule generation",
       "Teacher availability management",
@@ -118,8 +110,6 @@ const featuresData: Record<string, any> = {
     headline: "Automate fee collection without losing revenue to follow-ups.",
     description:
       "From invoice generation to payment collection and defaulter tracking, KIDUART's fee module handles the entire billing lifecycle with minimal manual intervention.",
-    heroImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1200",
-    heroVariant: "split-dark",
     capabilities: [
       "Automated invoice generation",
       "Online payment gateway",
@@ -149,8 +139,6 @@ const featuresData: Record<string, any> = {
     headline: "Keep every school conversation connected and timely.",
     description:
       "Integrated messaging, announcements, and notifications keep your entire school community informed and engaged in real time.",
-    heroImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200",
-    heroVariant: "split-light",
     capabilities: [
       "School-wide announcements",
       "Direct teacher-parent messaging",
@@ -180,8 +168,6 @@ const featuresData: Record<string, any> = {
     headline: "Turn school data into decisions your team can act on.",
     description:
       "Generate comprehensive academic, financial, and operational reports with one click. Schedule automated reports or build custom dashboards for every stakeholder.",
-    heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1200",
-    heroVariant: "split-dark",
     capabilities: [
       "Student report cards",
       "Class performance analytics",
@@ -221,53 +207,40 @@ export default function FeatureDetail() {
     );
   }
 
-  const Icon = data.icon;
   const otherSlugs = Object.keys(featuresData).filter((item) => item !== slug).slice(0, 3);
-  const isDarkHero = data.heroVariant === "split-dark";
 
   return (
     <PageTransition className="pt-20 pb-0">
-      <HeroSection
-        pretitle={(
-          <nav className={`mb-6 flex flex-wrap items-center gap-2 text-sm font-medium ${isDarkHero ? "text-white/70" : "text-brand-navy/55"}`}>
-            <Link href="/" className="transition-colors hover:text-brand-teal">Home</Link>
-            <span>/</span>
-            <Link href="/features" className="transition-colors hover:text-brand-teal">Features</Link>
-            <span>/</span>
-            <span>{data.title}</span>
-          </nav>
-        )}
-        eyebrow={data.title}
-        title={data.headline}
-        subtitle={data.description}
-        image={data.heroImage}
-        layout="split"
-        variant={data.heroVariant}
-        floatingIcons={["GraduationCap", "BookOpen", "Star"]}
-      >
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <Link
-            href="/demo"
-            className={`inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-bold transition-all duration-300 ${
-              isDarkHero
-                ? "bg-white text-brand-navy hover:bg-brand-beige"
-                : "bg-brand-navy text-white hover:bg-brand-teal"
-            }`}
-          >
-            See it in action <ArrowRight className="h-5 w-5" />
-          </Link>
-          <Link
-            href="/contact"
-            className={`inline-flex items-center justify-center gap-2 rounded-full border px-8 py-4 text-base font-bold transition-all duration-300 ${
-              isDarkHero
-                ? "border-white/20 bg-white/10 text-white hover:bg-white/15"
-                : "border-brand-navy/15 bg-white text-brand-navy hover:border-brand-teal hover:text-brand-teal"
-            }`}
-          >
-            Talk to our team
-          </Link>
+      <section className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden bg-[linear-gradient(180deg,#f8f6ef_0%,#f1efff_52%,#ffffff_100%)]">
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(circle_at_center,rgba(131,103,255,0.18),transparent_70%)]" />
+        <div className="page-shell relative z-10 flex w-full flex-col items-center justify-center py-10 text-center">
+          <SectionReveal className="w-full max-w-5xl">
+            <nav className="mb-6 flex flex-wrap items-center justify-center gap-2 text-sm font-medium text-brand-navy/55">
+              <Link href="/" className="transition-colors hover:text-brand-teal">Home</Link>
+              <span>/</span>
+              <Link href="/features" className="transition-colors hover:text-brand-teal">Features</Link>
+              <span>/</span>
+              <span>{data.title}</span>
+            </nav>
+            <h1 className="mx-auto max-w-4xl text-[clamp(2.25rem,1.6rem+2vw,4.5rem)] font-bold leading-[1.05] text-brand-navy">
+              {data.headline}
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-[clamp(0.98rem,0.94rem+0.24vw,1.05rem)] leading-7 text-brand-navy/60">
+              {data.description}
+            </p>
+          </SectionReveal>
+
+          <SectionReveal delay={0.08} className="mt-8 w-full max-w-6xl px-1 sm:px-4">
+            <div className="overflow-hidden rounded-[1.8rem] border border-[#d7d9ef] bg-white p-2 shadow-[0_24px_80px_rgba(84,74,155,0.16)] sm:p-4">
+              <img
+                src="/dashboard-page.jpg"
+                alt={`${data.title} dashboard`}
+                className="h-auto w-full rounded-[1.3rem] object-cover"
+              />
+            </div>
+          </SectionReveal>
         </div>
-      </HeroSection>
+      </section>
 
       <section className="section-space bg-white">
         <div className="page-shell">

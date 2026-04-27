@@ -119,6 +119,7 @@ type ImageBackdropHeroProps = BaseProps & {
   center?: boolean;
   overlayClassName?: string;
   floatingIcons?: string[];
+  fullHeight?: boolean;
 };
 
 export function ImageBackdropHero({
@@ -131,9 +132,10 @@ export function ImageBackdropHero({
   center = true,
   overlayClassName = "bg-[linear-gradient(135deg,rgba(250,248,240,0.84),rgba(250,248,240,0.62))]",
   floatingIcons = ["LayoutDashboard", "Users", "BarChart2"],
+  fullHeight = false,
 }: ImageBackdropHeroProps) {
   return (
-    <section className={cn("relative overflow-hidden py-28", className)}>
+    <section className={cn("relative overflow-hidden py-14 md:py-18", fullHeight && "hero-viewport flex items-center", className)}>
       <div className="absolute inset-0">
         <img src={image} alt={title} className="h-full w-full object-cover" />
         <div className={cn("absolute inset-0", overlayClassName)} />
@@ -141,14 +143,14 @@ export function ImageBackdropHero({
       <div className="absolute inset-0 pointer-events-none">
         <FloatingIcons icons={floatingIcons} count={5} heroMode={true} />
       </div>
-      <div className="page-shell relative z-10">
+      <div className={cn("page-shell relative z-10 w-full", fullHeight && "hero-viewport-inner flex items-center")}>
         <SectionReveal className={center ? "mx-auto max-w-4xl text-center" : "max-w-3xl"}>
           {eyebrow && (
             <div className="inline-flex rounded-full border border-brand-navy/12 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-brand-orange">
               {eyebrow}
             </div>
           )}
-          <h1 className="mt-6 text-[clamp(2rem,1.25rem+1.8vw,3.25rem)] font-bold leading-[1.04] text-brand-navy">
+          <h1 className="mt-6 text-[clamp(2rem,1.25rem+1.8vw,2.95rem)] font-bold leading-[1.04] text-brand-navy">
             {title}
           </h1>
           <p className={cn("mt-5 text-[clamp(1rem,0.95rem+0.14vw,1.05rem)] leading-8 text-brand-navy/72", center && "mx-auto max-w-2xl")}>

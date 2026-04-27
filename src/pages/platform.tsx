@@ -129,6 +129,7 @@ export default function Platform() {
         title="One Platform. Every Role. Every Dashboard."
         subtitle="Explore the full range of KIDUART ERP dashboards built for every stakeholder in your school."
         image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+        fullHeight={true}
         overlayClassName="bg-[linear-gradient(135deg,rgba(250,248,240,0.78),rgba(250,248,240,0.54))]"
         floatingIcons={["LayoutDashboard", "Users", "BarChart2"]}
         actions={(
@@ -167,7 +168,7 @@ export default function Platform() {
           </SectionReveal>
 
           <div className="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-            {dashboards.map((dash, idx) => (
+            {/* {dashboards.map((dash, idx) => (
               <SectionReveal key={dash.title} delay={idx * 0.05}>
                 <Link href={dash.href} className="group relative block h-full">
                   <div
@@ -197,6 +198,32 @@ export default function Platform() {
                     </div>
                   </div>
                 </Link>
+              </SectionReveal>
+            ))} */}
+
+            {dashboards.map((dash, idx) => (
+              <SectionReveal key={idx} delay={idx * 0.05}>
+                <div className="bg-white rounded-2xl p-8 shadow-lg shadow-brand-navy/5 border border-brand-navy/5 flex flex-col h-full hover:shadow-xl hover:border-brand-teal/30 transition-all duration-300 group">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className={`w-14 h-14 rounded-xl ${dash.bg} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                      <dash.icon className={`w-7 h-7 ${dash.color}`} />
+                    </div>
+                    <h3 className="text-xl font-bold text-brand-navy">{dash.title}</h3>
+                  </div>
+                  
+                  <ul className="space-y-3 mb-8 flex-grow">
+                    {dash.capabilities.map((cap, i) => (
+                      <li key={i} className="flex items-start gap-3 text-brand-navy/80">
+                        <div className="w-5 h-5 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-teal text-xs mt-0.5 flex-shrink-0">✓</div>
+                        <span>{cap}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <Link href= {dash.href} className="inline-flex items-center text-brand-teal font-bold hover:text-brand-navy transition-colors group/link mt-auto">
+                    Explore {dash.title} <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
               </SectionReveal>
             ))}
           </div>

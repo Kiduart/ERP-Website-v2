@@ -1,9 +1,8 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
 import { CtaSection } from "@/components/ui/CtaSection";
-import { PricingShowcaseHero } from "@/components/ui/CustomHeroes";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
-import { Check, Info, HelpCircle } from "lucide-react";
+import { Check, HelpCircle } from "lucide-react";
 import { Link } from "wouter";
 import { pricingPlans } from "@/data/pricing";
 
@@ -14,28 +13,31 @@ export default function Pricing() {
     { q: "Can we add modules later?", a: "Yes, you can upgrade your plan or add specific premium modules like Transport Tracking or Library Management at any time." },
     { q: "Do you offer discounts for large districts?", a: "Absolutely. Our Enterprise plan offers tiered volume discounts for districts with over 5,000 students. Contact sales for a quote." },
     { q: "What happens to our data if we cancel?", a: "You own your data. If you decide to leave, you can export all your records in standard formats (CSV, Excel, PDF) at no cost." },
-    { q: "Is the parent app included?", a: "The Parent App is included in the Professional and Enterprise plans. It's available for both iOS and Android devices." }
+    { q: "Is the parent app included?", a: "The Parent App is included in the Professional and Enterprise plans. It's available for both iOS and Android devices." },
   ];
 
   return (
     <PageTransition className="pt-20 pb-0">
-      <PricingShowcaseHero
-        eyebrow="Simple school ERP pricing"
-        title="Simple Pricing for Schools"
-        subtitle="No hidden fees, no complex tiers. Pay only for the active students enrolled in your institution."
-      />
-
-      {/* Pricing Cards */}
-      <section className="py-24 bg-brand-beige/20 relative overflow-hidden">
-        <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 300, position: "center-left", opacity: 0.15 },
-          { color: "#0c716b", size: 300, position: "center-right", opacity: 0.15 }
-        ]} />
+      <section className="py-20 bg-brand-beige/20 relative overflow-hidden">
+        <BackgroundBlobs
+          blobs={[
+            { color: "#fcbf49", size: 300, position: "center-left", opacity: 0.15 },
+            { color: "#0c716b", size: 300, position: "center-right", opacity: 0.15 },
+          ]}
+        />
         <FloatingIcons icons={["Star", "Award", "Lightbulb"]} count={4} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionReveal className="mx-auto mb-14 max-w-3xl text-center">
+            <div className="section-kicker">Simple school ERP pricing</div>
+            <h1 className="mt-6 text-[clamp(2rem,1.45rem+1.8vw,3.75rem)] font-bold text-brand-navy">Simple Pricing for Schools</h1>
+            <p className="mt-4 text-lg text-brand-navy/70">
+              No hidden fees, no complex tiers. Pay only for the active students enrolled in your institution.
+            </p>
+          </SectionReveal>
+
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-20">
             {pricingPlans.map((plan, idx) => (
-              <SectionReveal key={idx} delay={idx * 0.1} className={`bg-white rounded-3xl p-8 shadow-2xl relative ${plan.isPopular ? 'border-2 border-brand-teal scale-105' : 'border border-brand-navy/10 mt-8 mb-8'}`}>
+              <SectionReveal key={idx} delay={idx * 0.1} className={`bg-white rounded-3xl p-8 shadow-2xl relative ${plan.isPopular ? "border-2 border-brand-teal scale-105" : "border border-brand-navy/10 mt-8 mb-8"}`}>
                 {plan.isPopular && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-teal text-white px-4 py-1 rounded-full text-sm font-bold tracking-wide">
                     MOST POPULAR
@@ -55,15 +57,15 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <Link 
-                  href="/demo" 
+                <Link
+                  href="/demo"
                   className={`block w-full py-4 text-center rounded-xl font-bold transition-all ${
-                    plan.isPopular 
-                      ? 'bg-brand-teal text-white hover:bg-brand-navy shadow-lg hover:shadow-brand-teal/25' 
-                      : 'bg-brand-beige text-brand-navy hover:bg-brand-navy hover:text-white'
+                    plan.isPopular
+                      ? "bg-brand-teal text-white hover:bg-brand-navy shadow-lg hover:shadow-brand-teal/25"
+                      : "bg-brand-beige text-brand-navy hover:bg-brand-navy hover:text-white"
                   }`}
                 >
-                  {plan.price === 'Custom' ? 'Contact Sales' : 'Start Free Trial'}
+                  {plan.price === "Custom" ? "Contact Sales" : "Start Free Trial"}
                 </Link>
               </SectionReveal>
             ))}
@@ -71,17 +73,14 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Add-ons */}
       <section className="py-16 bg-white border-t border-brand-navy/5 relative overflow-hidden">
-        <BackgroundBlobs blobs={[
-          { color: "#f77f00", size: 300, position: "top-right", opacity: 0.15 }
-        ]} />
+        <BackgroundBlobs blobs={[{ color: "#f77f00", size: 300, position: "top-right", opacity: 0.15 }]} />
         <FloatingIcons icons={["Lightbulb", "Brain", "Award"]} count={4} />
         <div className="max-w-5xl mx-auto px-4 text-center">
           <SectionReveal>
             <h3 className="text-2xl font-bold text-brand-navy mb-8">Optional Premium Add-Ons</h3>
             <div className="grid sm:grid-cols-3 gap-6">
-              {['AI Predictive Assistant', 'GPS Transport Tracking', 'Digital Library System'].map((addon, i) => (
+              {["AI Predictive Assistant", "GPS Transport Tracking", "Digital Library System"].map((addon, i) => (
                 <div key={i} className="p-6 border border-brand-navy/10 rounded-2xl bg-brand-beige/10">
                   <h4 className="font-bold text-brand-navy mb-2">{addon}</h4>
                   <p className="text-sm text-brand-navy/60">+ $0.50 /student/month</p>
@@ -92,11 +91,8 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="py-24 bg-brand-beige/30 border-t border-brand-navy/5 relative overflow-hidden">
-        <BackgroundBlobs blobs={[
-          { color: "#0c716b", size: 300, position: "bottom-left", opacity: 0.15 }
-        ]} />
+        <BackgroundBlobs blobs={[{ color: "#0c716b", size: 300, position: "bottom-left", opacity: 0.15 }]} />
         <FloatingIcons icons={["MessageSquare", "Users"]} count={4} />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal className="text-center mb-16">

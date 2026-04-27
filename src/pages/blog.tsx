@@ -1,5 +1,4 @@
 import { PageTransition, SectionReveal } from "@/components/ui/PageTransition";
-import { EditorialMusicHero } from "@/components/ui/CustomHeroes";
 import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { Calendar, ArrowRight } from "lucide-react";
@@ -71,47 +70,27 @@ export default function Blog() {
 
   return (
     <PageTransition className="pt-20 pb-0">
-      <EditorialMusicHero
-        eyebrow="Blog and insights"
-        title="Insights for Modern Education"
-        subtitle="Expert advice, industry trends, and best practices for running a successful educational institution."
-        image="https://plus.unsplash.com/premium_photo-1661963097356-23ddd3ef08de?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        actions={null}
-      />
-
-      <section className="section-space-tight relative overflow-hidden bg-white">
-        <BackgroundBlobs blobs={[{ color: "hsl(var(--blob-yellow))", size: 300, position: "center-left", opacity: 0.15 }]} />
-        <FloatingIcons icons={["Star", "Award"]} count={4} />
-        <div className="page-shell relative z-10">
-          <SectionReveal>
-            <div className="relative overflow-hidden rounded-[2rem] border border-brand-navy/10 bg-brand-navy text-white shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-teal/40 to-brand-orange/20 mix-blend-overlay" />
-              <div className="relative z-10 grid items-center gap-8 p-8 md:grid-cols-[1.1fr_0.9fr] md:p-14">
-                <div className="max-w-2xl">
-                  <span className="mb-6 inline-block rounded-full bg-brand-yellow px-4 py-1.5 text-sm font-bold text-brand-navy">Featured article</span>
-                  <h2 className="text-[clamp(2rem,1.25rem+2vw,3.7rem)] font-bold leading-[1.02] text-white">The Future of AI in Education: What Schools Need to Know in 2026</h2>
-                  <p className="mt-5 text-[clamp(1rem,0.95rem+0.3vw,1.125rem)] leading-8 text-white/80">
-                    Artificial intelligence is no longer a future concept for education - it's happening now, reshaping how schools operate, how teachers teach, and how students learn.
-                  </p>
-                  <Link href="/blog/ai-in-education-2026" className="mt-8 inline-flex items-center gap-2 font-bold text-brand-yellow transition-colors hover:text-white">
-                    Read Full Article <ArrowRight className="h-5 w-5" />
-                  </Link>
-                </div>
-
-                <div className="hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 md:block">
-                  <div className="rounded-[1.5rem] bg-[radial-gradient(circle_at_top,hsl(var(--blob-yellow))/0.18,transparent_55%),linear-gradient(135deg,hsl(var(--brand-teal))/0.92,hsl(var(--brand-navy)))] p-8">
-                    <div className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">2026 outlook</div>
-                    <div className="mt-8 space-y-4">
-                      {["Automation in admin workflows", "Predictive insights for student success", "Smarter parent communication"].map((item) => (
-                        <div key={item} className="rounded-2xl border border-white/10 bg-white/10 px-4 py-4 text-sm font-medium text-white/85">
-                          {item}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <section className="relative min-h-[calc(100svh-5rem)] overflow-hidden bg-[#e7ebee]">
+        <img
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600"
+          alt="Blog hero background"
+          className="absolute right-0 top-0 h-full w-full object-cover object-[72%_center]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(231,235,238,0.96)_0%,rgba(231,235,238,0.92)_38%,rgba(231,235,238,0.56)_60%,rgba(231,235,238,0.1)_100%)]" />
+        <div className="absolute right-[9%] top-[18%] hidden h-[56%] w-[36%] max-w-[24rem] rounded-[2rem] border border-white/70 bg-white/20 md:block" />
+        <div className="page-shell relative z-10 flex min-h-[calc(100svh-5rem)] items-center py-10">
+          <SectionReveal className="max-w-xl">
+            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-brand-teal">Blog and insights</div>
+            <h1 className="text-[clamp(2.3rem,1.7rem+2.5vw,5rem)] font-bold leading-[0.95] text-brand-navy">
+              Don&apos;t rely on hearsay.
+              <br />
+              Read our blogs.
+              <br />
+              Trust KIDUART.
+            </h1>
+            <p className="mt-6 max-w-md text-[clamp(1rem,0.96rem+0.22vw,1.08rem)] leading-7 text-brand-navy/65">
+              Practical education technology insights, product thinking, and school operations advice written for teams that need clarity before they make the next move.
+            </p>
           </SectionReveal>
         </div>
       </section>
