@@ -5,7 +5,7 @@ import { BackgroundBlobs } from "@/components/animations/BackgroundBlobs";
 import { FloatingIcons } from "@/components/animations/FloatingIcons";
 import { 
   GraduationCap, BookOpen, Building2, Heart, Globe,
-  CheckCircle, XCircle, ArrowLeft, ArrowRight, Quote
+  CheckCircle, XCircle, ArrowLeft, ArrowRight, Quote, Sparkles
 } from "lucide-react";
 
 const solutionsData: Record<string, any> = {
@@ -79,39 +79,130 @@ export default function SolutionDetail() {
 
   const Icon = data.icon;
   const otherSlugs = Object.keys(solutionsData).filter(s => s !== slug).slice(0, 3);
+  const heroStats = [
+    { value: data.features.length, label: "core workflows" },
+    { value: data.solutions.length, label: "practical fixes" },
+    { value: "1", label: "connected workspace" },
+  ];
 
   return (
-    <PageTransition className="pt-20 pb-0 tooo">
+    <PageTransition className="pt-20 pb-0">
       {/* HERO */}
-      <section className="bg-brand-navy relative overflow-hidden min-h-screen flex items-center py-20 lg:py-32" style={{ color: '#fcf6d3' }}>
+      <section className="hero-viewport relative overflow-hidden bg-[linear-gradient(180deg,#edf4ff_0%,#f7faff_55%,#ffffff_100%)] py-14 md:py-16">
         <BackgroundBlobs blobs={[
-          { color: "#fcbf49", size: 400, position: "top-left", opacity: 0.15 },
-          { color: "#0c716b", size: 400, position: "bottom-right", opacity: 0.15 }
+          { color: "#c6d8ff", size: 420, position: "top-left", opacity: 0.26 },
+          { color: "#d7e8ff", size: 420, position: "bottom-right", opacity: 0.22 }
         ]} />
-        <FloatingIcons icons={["Users", "BookOpen", "GraduationCap"]} count={6} heroMode={true} />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
-          {/* Breadcrumb first */}
-          <nav className="flex items-center justify-center gap-2 text-sm mb-6 opacity-70">
-            <Link href="/" className="hover:underline">Home</Link>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.92),transparent_42%),radial-gradient(circle_at_bottom,rgba(255,255,255,0.74),transparent_34%)]" />
+        <FloatingIcons icons={["Sparkles", "BookOpen", "Users"]} count={4} heroMode={true} />
+
+        <div className="page-shell hero-viewport-inner relative z-10 flex flex-col items-center justify-center">
+          <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-brand-navy/55">
+            <Link href="/" className="hover:text-brand-teal">Home</Link>
             <span>/</span>
-            <Link href="/solutions" className="hover:underline">Solutions</Link>
+            <Link href="/solutions" className="hover:text-brand-teal">Solutions</Link>
             <span>/</span>
-            <span>{data.role}</span>
+            <span className="text-brand-navy/75">{data.role}</span>
           </nav>
-          
-          <SectionReveal>
-            <div className={`w-20 h-20 mx-auto rounded-full ${data.bg} flex items-center justify-center mb-8`}>
-              <Icon className={`w-10 h-10 ${data.color}`} />
+
+          <SectionReveal className="mx-auto max-w-4xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-navy/10 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand-navy/70 shadow-sm">
+              <Sparkles className={`h-3.5 w-3.5 ${data.color}`} />
+              KIDUART for {data.role}
             </div>
-            <h2 className={`text-xl font-bold ${data.color} mb-4`}>KIDUART For {data.role}</h2>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-8 leading-tight max-w-4xl mx-auto">
+            <h1 className="mx-auto mt-6 max-w-3xl text-[clamp(2.35rem,1.6rem+2.25vw,4.7rem)] font-bold leading-[0.96] text-brand-navy">
               {data.headline}
             </h1>
-            <Link href="/demo" className={`px-8 py-4 rounded-full bg-white text-brand-navy font-bold text-lg hover:bg-brand-beige transition-colors inline-flex items-center gap-2 shadow-xl`}>
-              Get Started <ArrowRight className="w-5 h-5" />
-            </Link>
+
+            <p className="mx-auto mt-5 max-w-2xl text-[clamp(1rem,0.96rem+0.18vw,1.08rem)] leading-8 text-brand-navy/66">
+              {data.solutions[0]} and {data.solutions[1].charAt(0).toLowerCase() + data.solutions[1].slice(1)} with one clean experience tailored for {data.role.toLowerCase()}.
+            </p>
+
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link href="/demo" className="inline-flex items-center gap-2 rounded-full bg-brand-navy px-7 py-3.5 text-base font-bold text-white shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-teal">
+                Book Strategy Call <ArrowRight className="h-5 w-5" />
+              </Link>
+              <Link href="/solutions" className="inline-flex items-center gap-2 rounded-full border border-brand-navy/12 bg-white/80 px-7 py-3.5 text-base font-bold text-brand-navy transition-colors hover:border-brand-teal hover:text-brand-teal">
+                <ArrowLeft className="h-5 w-5" />
+                Back to Solutions
+              </Link>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              {heroStats.map((item) => (
+                <div key={item.label} className="rounded-full border border-brand-navy/8 bg-white/80 px-4 py-2 text-sm font-semibold text-brand-navy shadow-sm">
+                  <span className={data.color}>{item.value}</span> {item.label}
+                </div>
+              ))}
+            </div>
           </SectionReveal>
+
+          {/* <SectionReveal delay={0.08} className="relative mx-auto mt-14 w-full max-w-5xl">
+            <div className="absolute -left-2 top-8 hidden rounded-2xl border border-brand-navy/8 bg-white/90 px-4 py-3 shadow-lg md:block">
+              <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-navy/45">quick win</div>
+              <div className={`mt-1 text-lg font-bold ${data.color}`}>{data.features[0]}</div>
+            </div>
+            <div className="absolute -right-2 top-2 hidden rounded-2xl border border-brand-navy/8 bg-white/90 px-4 py-3 shadow-lg lg:block">
+              <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-navy/45">daily impact</div>
+              <div className="mt-1 text-lg font-bold text-brand-navy">Faster, clearer, connected</div>
+            </div>
+
+            <div className="rounded-[2rem] border border-brand-navy/8 bg-white/74 p-3 shadow-[0_24px_80px_rgba(34,74,150,0.12)] backdrop-blur-sm md:p-4">
+              <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
+                <div className="rounded-[1.6rem] border border-brand-navy/6 bg-[linear-gradient(180deg,#ffffff,#f6f9ff)] p-6 text-left">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="text-xs font-bold uppercase tracking-[0.24em] text-brand-navy/45">Role overview</div>
+                      <h2 className="mt-3 text-2xl font-bold text-brand-navy">{data.role} workspace</h2>
+                    </div>
+                    <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${data.bg}`}>
+                      <Icon className={`h-6 w-6 ${data.color}`} />
+                    </div>
+                  </div>
+
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {data.features.slice(0, 4).map((feature: string) => (
+                      <div key={feature} className="rounded-2xl border border-brand-navy/6 bg-white px-4 py-4 shadow-sm">
+                        <div className="text-sm font-semibold text-brand-navy">{feature}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 rounded-[1.4rem] bg-brand-navy px-5 py-5 text-white">
+                    <div className="text-xs font-bold uppercase tracking-[0.22em] text-brand-yellow">What changes first</div>
+                    <p className="mt-3 text-base leading-7 text-white/88">
+                      {data.solutions[2]}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid gap-4">
+                  <div className="rounded-[1.6rem] border border-brand-navy/6 bg-white p-6 shadow-sm text-left">
+                    <div className="text-xs font-bold uppercase tracking-[0.24em] text-brand-navy/45">A better day</div>
+                    <div className="mt-4 space-y-3">
+                      {data.dayInLife.slice(0, 3).map((step: string) => {
+                        const [time, desc] = step.split(": ");
+                        return (
+                          <div key={step} className="rounded-2xl bg-brand-beige/30 px-4 py-4">
+                            <div className={`text-xs font-bold uppercase tracking-[0.2em] ${data.color}`}>{time}</div>
+                            <div className="mt-1 text-sm leading-6 text-brand-navy/75">{desc}</div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="rounded-[1.6rem] border border-brand-navy/6 bg-[linear-gradient(135deg,#0c716b,#0b5860)] p-6 text-left text-white shadow-sm">
+                    <div className="text-xs font-bold uppercase tracking-[0.24em] text-white/60">Proof point</div>
+                    <p className="mt-3 text-lg font-semibold leading-8">
+                      "{data.testimonial.quote}"
+                    </p>
+                    <div className="mt-4 text-sm font-medium text-white/70">{data.testimonial.name}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SectionReveal> */}
         </div>
       </section>
 
