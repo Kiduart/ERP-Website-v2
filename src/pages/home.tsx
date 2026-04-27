@@ -580,82 +580,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-24 bg-white relative overflow-hidden">
-          <BackgroundBlobs blobs={[{ color: "#0c716b", size: 320, position: "center-right", opacity: 0.14 }]} />
-          <FloatingIcons icons={["CreditCard", "Users", "Award"]} count={4} />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <SectionReveal className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-brand-navy mb-4">Pricing Preview</h2>
-              <p className="text-lg text-brand-navy/70 max-w-3xl mx-auto">
-                Show visitors the buying path early, then let them explore the full pricing page when they are ready.
-              </p>
-            </SectionReveal>
-
-            <div className="grid gap-8 md:grid-cols-3">
-              {pricingPlans.map((plan, idx) => {
-                const buttonLabel = plan.price === "Custom" ? "Contact Sales" : "View Pricing";
-                return (
-                  <SectionReveal
-                    key={plan.name}
-                    delay={idx * 0.08}
-                    className={`relative rounded-[2rem] p-8 transition-all duration-300
-        ${plan.isPopular
-                        ? "bg-white border-2 border-brand-navy shadow-lg scale-[1.03]"
-                        : "bg-brand-beige/20 border border-brand-navy/10"
-                      }`}
-                  >
-                    {/* Most Popular badge */}
-                    {plan.isPopular && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-navy text-white text-xs font-semibold px-4 py-1 rounded-full">
-                        Most popular
-                      </div>
-                    )}
-
-                    {/* Plan name */}
-                    <h3 className="text-xl font-semibold text-brand-navy text-center">
-                      {plan.name}
-                    </h3>
-                    <p className="mt-2 text-center text-sm text-brand-navy/60">
-                      {plan.desc}
-                    </p>
-
-                    {/* Price */}
-                    <p className="mt-4 text-center text-2xl font-bold text-brand-navy">
-                      {plan.price}
-                      <span className="ml-1 text-sm font-medium text-brand-navy/60">{plan.unit}</span>
-                    </p>
-
-                    {/* Divider */}
-                    <div className="my-6 border-t border-brand-navy/10" />
-
-                    {/* Features */}
-                    <div className="space-y-4">
-                      {plan.features.slice(0, 4).map((feature) => (
-                        <div key={feature} className="flex items-start gap-3">
-                          <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-navy" />
-                          <span className="text-sm text-brand-navy/80">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* CTA */}
-                    <Link
-                      href="/pricing"
-                      className={`mt-8 block w-full text-center rounded-xl py-3 font-semibold transition-all
-          ${plan.isPopular
-                          ? "bg-brand-navy text-white hover:bg-brand-navy/90"
-                          : "bg-white border border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white"
-                        }`}
-                    >
-                      {buttonLabel}
-                    </Link>
-                  </SectionReveal>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
         <section className="py-16 border-t border-brand-navy/5 bg-brand-beige/30 relative overflow-hidden">
           <BackgroundBlobs blobs={[{ color: "#f77f00", size: 300, position: "center-right", opacity: 0.15 }]} />
           <FloatingIcons icons={["ShieldCheck", "Lock", "Eye"]} count={4} />
@@ -682,28 +606,6 @@ export default function Home() {
                   </SectionReveal>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-24 bg-brand-beige/10 border-t border-brand-navy/5 relative overflow-hidden">
-          <BackgroundBlobs blobs={[{ color: "#fcbf49", size: 320, position: "bottom-right", opacity: 0.14 }]} />
-          <FloatingIcons icons={["MessageSquare", "HelpCircle", "BookOpen"]} count={4} />
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <SectionReveal className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-brand-navy mb-4">Frequently Asked Questions</h2>
-              <p className="text-lg text-brand-navy/70">
-                FAQ blocks help answer buying questions early and support better SEO coverage for your home page.
-              </p>
-            </SectionReveal>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {faqs.map((faq, idx) => (
-                <SectionReveal key={faq.q} delay={idx * 0.08} className="rounded-2xl bg-white border border-brand-navy/10 p-6 shadow-sm">
-                  <h3 className="text-lg font-bold text-brand-navy">{faq.q}</h3>
-                  <p className="mt-3 text-sm leading-7 text-brand-navy/70">{faq.a}</p>
-                </SectionReveal>
-              ))}
             </div>
           </div>
         </section>
